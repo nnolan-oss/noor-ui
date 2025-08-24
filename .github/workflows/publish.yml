@@ -1,0 +1,56 @@
+name: Publish Package
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Ensure unique version
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          set -e
+          PKG_NAME=$(npm pkg get name | tr -d '"')
+          CURRENT=$(npm pkg get version | tr -d '"')
+          echo "Current package: $PKG_NAME@$CURRENT"
+          EXISTS=$(npm view "$PKG_NAME@$CURRENT" version || true)
+          # If the exact version exists, bump until we find a free one
+          if [ -n "$EXISTS" ]; then
+            echo "Version $CURRENT already exists on npm. Bumping..."
+            while true; do
+              npm version patch --no-git-tag-version
+              NEW_VER=$(npm pkg get version | tr -d '"')
+              echo "Trying $PKG_NAME@$NEW_VER"
+              if npm view "$PKG_NAME@$NEW_VER" version > /dev/null 2>&1; then
+                echo "$PKG_NAME@$NEW_VER exists. Bumping again..."
+                continue
+              else
+                echo "Using new version: $NEW_VER"
+                break
+              fi
+            done
+          else
+            echo "Version $CURRENT is available."
+          fi
+
+      # build after version is finalized
+      - name: Build package
+        run: npm run build
+
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
