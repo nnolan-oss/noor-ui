@@ -15,7 +15,9 @@ const App = () => {
       <NoorThemeProvider theme={theme}>
         <div className={"p-4"}>
           <Search size={120} className={"bg-red-500"}/>
-          <Button>Salom</Button>
+          <Button size={"lg"}>Salom</Button>
+          <Button size={"md"}>Salom</Button>
+          <Button size={"sm"}>Salom</Button>
         </div>
       </NoorThemeProvider>
   )
