@@ -1,7 +1,6 @@
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
 import type { ButtonProps } from "./button.types";
 import { tv } from "tailwind-variants";
-import clsx from "clsx";
 
 const button = tv({
   base: "font-medium rounded-full active:opacity-80",
@@ -34,11 +33,11 @@ export const Button = ({
 
   return (
       <button
-          className={clsx(
-              buttonConfig?.defaultProps?.className,
-              button({ color, size }),
-              className
-          )}
+          className={button({
+            color,
+            size,
+            class: [buttonConfig?.defaultProps?.className, className], // 👈 merged by tailwind-merge
+          })}
           {...props}
       >
         {children}

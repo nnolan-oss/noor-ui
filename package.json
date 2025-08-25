@@ -33,7 +33,6 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.12",
-    "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
     "lucide-react": "^0.541.0",
     "react": "^19.1.1",

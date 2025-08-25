@@ -6,7 +6,7 @@ const App = () => {
     components: {
       Button: {
         defaultProps: {
-          className: "bg-red-500"
+          className: "bg-red-500 rounded-lg",
         }
       }
     }
