@@ -1,23 +1,25 @@
 // ThemeContext.tsx
-import { createContext, useContext, useState, type ReactNode } from "react";
+import {createContext, useContext, useState, type ReactNode} from "react";
+import type {ThemeConfig} from "../../types/theme/theme";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
 interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
+  mode: Theme;
+  theme: ThemeConfig | null
+  toggleMode: () => void;
 }
 
 const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const NoorThemeProvider = ({ children, theme }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<Theme>("light");
+export const NoorThemeProvider = ({children, theme}: { children: ReactNode, theme: ThemeConfig }) => {
+  const [mode, setMode] = useState<Theme>("light");
 
-  const toggleTheme = () =>
-      setTheme((prev) => (prev === "light" ? "dark" : "light"));
+  const toggleMode = () =>
+      setMode((prev) => (prev === "light" ? "dark" : "light"));
 
   return (
-      <NoorThemeContext.Provider value={{ theme, toggleTheme }}>
+      <NoorThemeContext.Provider value={{mode, toggleMode, theme}}>
         {children}
       </NoorThemeContext.Provider>
   );
