@@ -1,4 +1,8 @@
 export interface PaletteConfig{
-  primary: "",
-  secondary: "",
+  primary: string,
+  secondary: string,
+  warning: string,
+  success: string,
+  info: string,
+  danger: string,
 }

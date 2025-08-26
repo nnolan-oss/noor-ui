@@ -17,7 +17,7 @@ export interface ThemeConfig {
   spacing?: SpacingConfig,
   direction?: "ltr" | "rtl",
   shape?: {
-    className: ""
+    className: string
   },
   shadows?: ShadowsConfig
 }

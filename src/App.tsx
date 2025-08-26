@@ -13,7 +13,7 @@ const App = () => {
   })
 
   return (
-      <NoorThemeProvider theme={theme}>
+      <NoorThemeProvider theme={theme} defaultMode={"dark"}>
        <HomePage/>
       </NoorThemeProvider>
   )

@@ -1,6 +1,6 @@
 // ThemeContext.tsx
-import {createContext, useContext, useState, type ReactNode, useEffect} from "react";
-import type {ThemeConfig} from "../../types/theme/theme";
+import { createContext, useContext, useState, type ReactNode, useEffect } from "react";
+import type { ThemeConfig } from "../../types/theme/theme";
 
 export type Theme = "light" | "dark";
 
@@ -12,24 +12,41 @@ interface ThemeContextType {
 
 const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const NoorThemeProvider = ({children, theme}: { children: ReactNode, theme: ThemeConfig }) => {
-  const lsTheme = localStorage.getItem("theme")! as Theme
-  const [mode, setMode] = useState<Theme>(lsTheme);
+export const NoorThemeProvider = ({
+                                    children,
+                                    theme,
+                                    defaultMode,
+                                  }: {
+  children: ReactNode;
+  theme: ThemeConfig;
+  defaultMode: Theme;
+}) => {
+  // initialize theme: use localStorage if available, else fallback to defaultMode
+  const getInitialTheme = (): Theme => {
+    const stored = localStorage.getItem("theme") as Theme | null;
+    return stored === "light" || stored === "dark" ? stored : defaultMode;
+  };
+
+  const [mode, setMode] = useState<Theme>(getInitialTheme);
 
   const toggleMode = () => {
-    setMode((prev) => (prev === "light" ? "dark" : "light"));
-    localStorage.setItem("theme", mode === "light" ? "dark" : "light");
-    document.documentElement.classList.toggle("dark");
-  }
+    setMode((prev) => {
+      const next = prev === "light" ? "dark" : "light";
+      localStorage.setItem("theme", next);
+      return next;
+    });
+  };
 
-  useEffect(()=>{
-      if(lsTheme === "dark"){
-        document.documentElement.classList.add("dark")
-      }
-  }, [lsTheme])
+  useEffect(() => {
+    if (mode === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [mode]);
 
   return (
-      <NoorThemeContext.Provider value={{mode, toggleMode, theme}}>
+      <NoorThemeContext.Provider value={{ mode, toggleMode, theme }}>
         {children}
       </NoorThemeContext.Provider>
   );
