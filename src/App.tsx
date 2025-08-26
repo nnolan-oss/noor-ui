@@ -6,7 +6,7 @@ const App = () => {
     components: {
       Button: {
         defaultProps: {
-          className: "rounded-lg",
+          className: "",
         }
       }
     }
