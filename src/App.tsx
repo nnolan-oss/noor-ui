@@ -1,24 +1,20 @@
-import {Button, NoorThemeProvider, createTheme} from "noor-ui";
-import {Search} from "lucide-react";
+import {createTheme, NoorThemeProvider} from "noor-ui";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   const theme = createTheme({
     components: {
       Button: {
         defaultProps: {
-          className: "bg-red-500 rounded-lg",
+          className: "rounded-lg",
         }
       }
     }
   })
+
   return (
       <NoorThemeProvider theme={theme}>
-        <div className={"p-4"}>
-          <Search size={120} className={"bg-red-500"}/>
-          <Button size={"lg"}>Salom</Button>
-          <Button size={"md"}>Salom</Button>
-          <Button size={"sm"}>Salom</Button>
-        </div>
+       <HomePage/>
       </NoorThemeProvider>
   )
 }

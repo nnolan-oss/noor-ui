@@ -6,7 +6,7 @@ const button = tv({
   base: "font-medium rounded-full active:opacity-80",
   variants: {
     color: {
-      primary: "bg-blue-500 text-white",
+      primary: "bg-blue-500 text-white dark:bg-pink-500",
       secondary: "bg-purple-500 text-white",
     },
     size: {

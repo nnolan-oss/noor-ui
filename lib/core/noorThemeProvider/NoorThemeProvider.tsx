@@ -6,7 +6,7 @@ export type Theme = "light" | "dark";
 
 interface ThemeContextType {
   mode: Theme;
-  theme: ThemeConfig | null
+  theme: ThemeConfig;
   toggleMode: () => void;
 }
 
@@ -15,8 +15,11 @@ const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const NoorThemeProvider = ({children, theme}: { children: ReactNode, theme: ThemeConfig }) => {
   const [mode, setMode] = useState<Theme>("light");
 
-  const toggleMode = () =>
-      setMode((prev) => (prev === "light" ? "dark" : "light"));
+  const toggleMode = () => {
+    setMode((prev) => (prev === "light" ? "dark" : "light"));
+    localStorage.setItem("theme", mode === "light" ? "dark" : "light");
+    document.documentElement.classList.toggle("dark");
+  }
 
   return (
       <NoorThemeContext.Provider value={{mode, toggleMode, theme}}>
@@ -25,11 +28,10 @@ export const NoorThemeProvider = ({children, theme}: { children: ReactNode, them
   );
 };
 
-// Custom hook (best practice)
 export const useTheme = () => {
   const context = useContext(NoorThemeContext);
   if (!context) {
-    throw new Error("useTheme must be used inside ThemeProvider");
+    throw new Error("useTheme must be used inside NoorThemeProvider");
   }
   return context;
 };
