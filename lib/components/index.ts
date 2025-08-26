@@ -1,1 +1,2 @@
-export {Button} from "../components/Button/button";
+export  {Typography} from "../components/Typography/Typography.tsx";
+export {Button} from "../components/Button/Button.tsx";

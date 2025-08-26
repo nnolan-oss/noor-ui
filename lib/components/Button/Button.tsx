@@ -1,6 +1,6 @@
-import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
-import type { ButtonProps } from "./button.types";
 import { tv } from "tailwind-variants";
+import {type ButtonProps} from "./Button.types";
+import {useTheme} from "../../core/noorThemeProvider/NoorThemeProvider";
 
 const button = tv({
   base: "font-medium rounded-full active:opacity-80",
@@ -29,6 +29,7 @@ export const Button = ({
                          ...props
                        }: ButtonProps) => {
   const { theme } = useTheme();
+
   const buttonConfig = theme?.components?.Button;
 
   return (

@@ -1,5 +1,5 @@
 import {Search} from "lucide-react";
-import {Button, useTheme} from "noor-ui";
+import {Button, Typography, useTheme} from "noor-ui";
 
 const HomePage = () => {
 
@@ -14,6 +14,7 @@ const HomePage = () => {
         <Button onClick={()=>toggleMode()} size={"lg"}>Salom</Button>
         <Button size={"md"}>Salom</Button>
         <Button size={"sm"}>Salom</Button>
+        <Typography variant={"h1"}>salom</Typography>
       </div>
   )
 }
