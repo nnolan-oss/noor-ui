@@ -11,7 +11,8 @@ export interface ThemeConfig {
   typography?: TypographyConfig,
   size?: SizeConfig,
   components?: {
-    Button?: ButtonConfig
+    Button?: ButtonConfig,
+    Badge?: ButtonConfig
   },
   zIndex?: ZIndexConfig
   spacing?: SpacingConfig,
