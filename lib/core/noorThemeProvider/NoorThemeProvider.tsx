@@ -1,6 +1,7 @@
 // ThemeContext.tsx
 import { createContext, useContext, useState, type ReactNode, useEffect } from "react";
 import type { ThemeConfig } from "../../types/theme/theme";
+import { defaultThemeConfig } from "./defaultThemeConfig"
 
 export type Theme = "light" | "dark";
 
@@ -13,10 +14,10 @@ interface ThemeContextType {
 const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const NoorThemeProvider = ({
-                                    children,
-                                    theme,
-                                    defaultMode,
-                                  }: {
+  children,
+  theme = defaultThemeConfig,
+  defaultMode,
+}: {
   children: ReactNode;
   theme: ThemeConfig;
   defaultMode: Theme;
@@ -46,9 +47,9 @@ export const NoorThemeProvider = ({
   }, [mode]);
 
   return (
-      <NoorThemeContext.Provider value={{ mode, toggleMode, theme }}>
-        {children}
-      </NoorThemeContext.Provider>
+    <NoorThemeContext.Provider value={{ mode, toggleMode, theme }}>
+      {children}
+    </NoorThemeContext.Provider>
   );
 };
 
