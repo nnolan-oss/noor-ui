@@ -4,7 +4,7 @@ import {PaletteConfig} from "../theme/palette";
 import {ZIndexConfig} from "../theme/zIndex";
 import {ShadowsConfig} from "../theme/shadows";
 import {SpacingConfig} from "../theme/spacing";
-import {ButtonConfig} from "../theme/components/button";
+import {ButtonConfig} from "../components/button";
 
 export interface ThemeConfig {
   palette?: PaletteConfig

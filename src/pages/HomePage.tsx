@@ -12,11 +12,10 @@ const HomePage = () => {
         <h2 className="font-bold text-lg mb-2">Solid</h2>
         <div className={"space-x-2"}>
           <Button
-            className="w-[500px]"
             startIcon={<ChevronLeft />}
             endIcon={<ChevronRight />}
             color="primary"
-            size="sm"
+            size="md"
             onClick={() => toggleMode("dark")}
           >
             Primary
@@ -33,7 +32,7 @@ const HomePage = () => {
       <section>
         <h2 className="font-bold text-lg mb-2">Outline</h2>
         <div>
-          <Button variant="outline">Primary</Button>
+          <Button variant="solid">Primary</Button>
           <Button variant="outline" color="secondary">
             Secondary
           </Button>
