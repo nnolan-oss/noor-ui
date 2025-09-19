@@ -1,14 +1,20 @@
 // ThemeContext.tsx
-import { createContext, useContext, useState, type ReactNode, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  type ReactNode,
+  useEffect,
+} from "react";
 import type { ThemeConfig } from "../../types/theme/theme";
-import { defaultThemeConfig } from "./defaultThemeConfig"
+import { defaultThemeConfig } from "./defaultThemeConfig";
 
-export type Theme = "light" | "dark";
+export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
-  mode: Theme;
+  mode: ThemeMode;
   theme: ThemeConfig;
-  toggleMode: () => void;
+  toggleMode: (theme?: ThemeMode) => void;
 }
 
 const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -20,21 +26,26 @@ export const NoorThemeProvider = ({
 }: {
   children: ReactNode;
   theme: ThemeConfig;
-  defaultMode: Theme;
+  defaultMode: ThemeMode;
 }) => {
   // initialize theme: use localStorage if available, else fallback to defaultMode
-  const getInitialTheme = (): Theme => {
-    const stored = localStorage.getItem("theme") as Theme | null;
+  const getInitialTheme = (): ThemeMode => {
+    const stored = localStorage.getItem("theme") as ThemeMode | null;
     return stored === "light" || stored === "dark" ? stored : defaultMode;
   };
 
-  const [mode, setMode] = useState<Theme>(getInitialTheme);
+  const [mode, setMode] = useState<ThemeMode>(getInitialTheme);
 
-  const toggleMode = () => {
+  const toggleMode = (theme?: ThemeMode) => {
     setMode((prev) => {
-      const next = prev === "light" ? "dark" : "light";
-      localStorage.setItem("theme", next);
-      return next;
+      if (theme) {
+        localStorage.setItem("theme", theme);
+        return theme;
+      } else {
+        const next = prev === "light" ? "dark" : "light";
+        localStorage.setItem("theme", next);
+        return next;
+      }
     });
   };
 

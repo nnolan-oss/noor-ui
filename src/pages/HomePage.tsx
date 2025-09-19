@@ -1,10 +1,9 @@
-import { HomeIcon, Search, VerifiedIcon } from "lucide-react";
-import { Button, Badge, useTheme } from "noor-ui";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { Button, useTheme } from "noor-ui";
 
 const HomePage = () => {
-
-  const { mode } = useTheme()
-  console.log(mode, "thememm")
+  const { mode, toggleMode } = useTheme();
+  console.log(mode, "thememm");
 
   return (
     <div className={"p-4"}>
@@ -12,7 +11,16 @@ const HomePage = () => {
       <section>
         <h2 className="font-bold text-lg mb-2">Solid</h2>
         <div className={"space-x-2"}>
-          <Button color="primary">Primary</Button>
+          <Button
+            className="w-[500px]"
+            startIcon={<ChevronLeft />}
+            endIcon={<ChevronRight />}
+            color="primary"
+            size="sm"
+            onClick={() => toggleMode("dark")}
+          >
+            Primary
+          </Button>
           <Button color="secondary">Secondary</Button>
           <Button color="success">Success</Button>
           <Button color="danger">Danger</Button>
@@ -26,11 +34,21 @@ const HomePage = () => {
         <h2 className="font-bold text-lg mb-2">Outline</h2>
         <div>
           <Button variant="outline">Primary</Button>
-          <Button variant="outline" color="secondary">Secondary</Button>
-          <Button variant="outline" color="success">Success</Button>
-          <Button variant="outline" color="danger">Danger</Button>
-          <Button variant="outline" color="warning">Warning</Button>
-          <Button variant="outline" color="neutral">Neutral</Button>
+          <Button variant="outline" color="secondary">
+            Secondary
+          </Button>
+          <Button variant="outline" color="success">
+            Success
+          </Button>
+          <Button variant="outline" color="danger">
+            Danger
+          </Button>
+          <Button variant="outline" color="warning">
+            Warning
+          </Button>
+          <Button variant="outline" color="neutral">
+            Neutral
+          </Button>
         </div>
       </section>
 
@@ -39,11 +57,21 @@ const HomePage = () => {
         <h2 className="font-bold text-lg mb-2">Ghost</h2>
         <div className="flex gap-3 flex-wrap">
           <Button variant="ghost">Primary</Button>
-          <Button variant="ghost" color="secondary">Secondary</Button>
-          <Button variant="ghost" color="success">Success</Button>
-          <Button variant="ghost" color="danger">Danger</Button>
-          <Button variant="ghost" color="warning">Warning</Button>
-          <Button variant="ghost" color="neutral">Neutral</Button>
+          <Button variant="ghost" color="secondary">
+            Secondary
+          </Button>
+          <Button variant="ghost" color="success">
+            Success
+          </Button>
+          <Button variant="ghost" color="danger">
+            Danger
+          </Button>
+          <Button variant="ghost" color="warning">
+            Warning
+          </Button>
+          <Button variant="ghost" color="neutral">
+            Neutral
+          </Button>
         </div>
       </section>
 
@@ -52,11 +80,21 @@ const HomePage = () => {
         <h2 className="font-bold text-lg mb-2">Link</h2>
         <div className="flex gap-3 flex-wrap">
           <Button variant="link">Primary</Button>
-          <Button variant="link" color="secondary">Secondary</Button>
-          <Button variant="link" color="success">Success</Button>
-          <Button variant="link" color="danger">Danger</Button>
-          <Button variant="link" color="warning">Warning</Button>
-          <Button variant="link" color="neutral">Neutral</Button>
+          <Button variant="link" color="secondary">
+            Secondary
+          </Button>
+          <Button variant="link" color="success">
+            Success
+          </Button>
+          <Button variant="link" color="danger">
+            Danger
+          </Button>
+          <Button variant="link" color="warning">
+            Warning
+          </Button>
+          <Button variant="link" color="neutral">
+            Neutral
+          </Button>
         </div>
       </section>
 
@@ -68,6 +106,6 @@ const HomePage = () => {
         </Button>
       </section>
     </div>
-  )
-}
-export default HomePage
+  );
+};
+export default HomePage;

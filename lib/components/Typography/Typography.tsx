@@ -1,5 +1,5 @@
-import {type TypographyProps} from "../Typography/Typography.types";
-import {tv} from "tailwind-variants";
+import { type TypographyProps } from "./Typography.d";
+import { tv } from "tailwind-variants";
 
 const typography = tv({
   base: "font-medium rounded-full active:opacity-80",
@@ -18,10 +18,12 @@ const typography = tv({
     size: "md",
     color: "primary",
   },
-})
+});
 
-export const Typography = ({children, ...props}: TypographyProps) => {
+export const Typography = ({ children, ...props }: TypographyProps) => {
   return (
-      <div {...props} className={typography()}>{children}</div>
-  )
-}
+    <div {...props} className={typography()}>
+      {children}
+    </div>
+  );
+};
