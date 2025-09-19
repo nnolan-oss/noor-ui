@@ -1,16 +1,19 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import {
+  TButtonChildren,
+  TButtonClassname,
+  TButtonColors,
+  TButtonFullWidth,
+  TButtonLoading,
+  TButtonSize,
+  TButtonVariant,
+} from "../../types/components/button";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  color?:
-    | "primary"
-    | "secondary"
-    | "success"
-    | "danger"
-    | "warning"
-    | "neutral";
-  size?: "sm" | "md" | "lg" | "xl";
-  variant?: "outline" | "ghost" | "solid" | "link";
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
+export interface ButtonProps extends React.ComponentProps<"button"> {
+  variant?: TButtonVariant;
+  size?: TButtonSize;
+  color?: TButtonColors;
+  fullWidth?: TButtonFullWidth;
+  className?: TButtonClassname;
+  children: TButtonChildren;
+  loading?: TButtonLoading;
 }

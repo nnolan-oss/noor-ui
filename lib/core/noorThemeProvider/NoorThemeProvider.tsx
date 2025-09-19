@@ -1,35 +1,46 @@
 // ThemeContext.tsx
-import {
+"use client";
+
+import React, {
   createContext,
   useContext,
+  useEffect,
   useState,
   type ReactNode,
-  useEffect,
 } from "react";
-import type { ThemeConfig } from "../../types/theme/theme";
-import { defaultThemeConfig } from "./defaultThemeConfig";
+import merge from "deepmerge";
+import { theme as defaultTheme } from "../../theme";
+import combineMerge from "../../utils/combineMerge";
 
 export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
+  theme: any;
   mode: ThemeMode;
-  theme: ThemeConfig;
   toggleMode: (theme?: ThemeMode) => void;
+}
+
+interface ThemeProviderProps {
+  children: ReactNode;
+  value?: any;
+  defaultMode: ThemeMode;
 }
 
 const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const NoorThemeProvider = ({
   children,
-  theme = defaultThemeConfig,
+  value = defaultTheme,
   defaultMode,
-}: {
-  children: ReactNode;
-  theme: ThemeConfig;
-  defaultMode: ThemeMode;
-}) => {
-  // initialize theme: use localStorage if available, else fallback to defaultMode
+}: ThemeProviderProps) => {
+  // merge default + user theme
+  const mergedTheme = merge(defaultTheme, value, {
+    arrayMerge: combineMerge,
+  });
+
+  // initialize theme mode from localStorage or fallback
   const getInitialTheme = (): ThemeMode => {
+    if (typeof window === "undefined") return defaultMode;
     const stored = localStorage.getItem("theme") as ThemeMode | null;
     return stored === "light" || stored === "dark" ? stored : defaultMode;
   };
@@ -38,17 +49,13 @@ export const NoorThemeProvider = ({
 
   const toggleMode = (theme?: ThemeMode) => {
     setMode((prev) => {
-      if (theme) {
-        localStorage.setItem("theme", theme);
-        return theme;
-      } else {
-        const next = prev === "light" ? "dark" : "light";
-        localStorage.setItem("theme", next);
-        return next;
-      }
+      const next = theme ?? (prev === "light" ? "dark" : "light");
+      localStorage.setItem("theme", next);
+      return next;
     });
   };
 
+  // apply html class for Tailwind dark mode
   useEffect(() => {
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
@@ -58,12 +65,19 @@ export const NoorThemeProvider = ({
   }, [mode]);
 
   return (
-    <NoorThemeContext.Provider value={{ mode, toggleMode, theme }}>
+    <NoorThemeContext.Provider
+      value={{
+        theme: mergedTheme,
+        mode,
+        toggleMode,
+      }}
+    >
       {children}
     </NoorThemeContext.Provider>
   );
 };
 
+// Hook for easy usage
 export const useTheme = () => {
   const context = useContext(NoorThemeContext);
   if (!context) {
