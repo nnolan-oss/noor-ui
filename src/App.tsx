@@ -1,21 +1,19 @@
-import {createTheme, NoorThemeProvider} from "noor-ui";
+import { NoorThemeProvider } from "noor-ui";
 import HomePage from "./pages/HomePage";
 
 const App = () => {
-  const theme = createTheme({
-    components: {
-      Button: {
-        defaultProps: {
-          className: "",
-        }
+  const theme = {
+    button: {
+      defaultProps: {
+        variant: "outlined",
       }
     }
-  })
+  }
 
   return (
-      <NoorThemeProvider theme={theme} defaultMode={"dark"}>
-       <HomePage/>
-      </NoorThemeProvider>
+    <NoorThemeProvider theme={theme} defaultMode={"dark"}>
+      <HomePage />
+    </NoorThemeProvider>
   )
 }
 export default App

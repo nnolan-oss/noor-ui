@@ -1,9 +1,9 @@
 import {
-  TButtonClassname,
-  TButtonColors,
-  TButtonFullWidth,
-  TButtonSize,
-  TButtonVariant,
+  type TButtonClassname,
+  type TButtonColors,
+  type TButtonFullWidth,
+  type TButtonSize,
+  type TButtonVariant,
 } from "../../../types/components/button";
 import { buttonFilled } from "./buttonFilled";
 import { buttonGradient } from "./buttonGradient";

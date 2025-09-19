@@ -1,5 +1,4 @@
-import {NoorThemeProvider, useTheme} from "./core/noorThemeProvider/NoorThemeProvider"
-import {createTheme} from "./utils/createTheme";
+import { NoorThemeProvider, useTheme } from "./core/noorThemeProvider/NoorThemeProvider"
 
 export * from "./components"
-export {NoorThemeProvider, useTheme, createTheme}
+export { NoorThemeProvider, useTheme }
