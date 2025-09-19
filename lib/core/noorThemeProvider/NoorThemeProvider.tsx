@@ -83,5 +83,9 @@ export const useTheme = () => {
   if (!context) {
     throw new Error("useTheme must be used inside NoorThemeProvider");
   }
-  return context;
+  return {
+    theme: context.theme,
+    mode: context.mode,
+    toggleMode: context.toggleMode,
+  };
 };

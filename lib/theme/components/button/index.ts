@@ -50,6 +50,11 @@ export const button: IButtonStyleTypes = {
     fullWidth: false,
     className: "",
   },
+  valid: {
+    variants: ["filled", "gradient", "outlined", "text"],
+    sizes: ["sm", "md", "lg"],
+    colors: ["black", "white", "gray", "red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose"],
+  },
   styles: {
     base: {
       initial: {
