@@ -20,7 +20,9 @@ const HomePage = () => {
           >
             Primary
           </Button>
-          <Button color="secondary">Secondary</Button>
+          <Button color="blue" variant="filled" size="lg">Secondary</Button>
+          <Button color="blue">Secondary</Button>
+          <Button color="blue" size="sm">Secondary</Button>
           <Button color="success">Success</Button>
           <Button color="danger">Danger</Button>
           <Button color="warning">Warning</Button>

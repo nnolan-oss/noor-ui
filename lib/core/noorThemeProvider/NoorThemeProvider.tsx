@@ -1,7 +1,7 @@
 // ThemeContext.tsx
 "use client";
 
-import React, {
+import {
   createContext,
   useContext,
   useEffect,
@@ -11,18 +11,19 @@ import React, {
 import merge from "deepmerge";
 import { theme as defaultTheme } from "../../theme";
 import combineMerge from "../../utils/combineMerge";
+import { type ThemeConfig } from "../../types/generic";
 
 export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
-  theme: any;
+  theme: ThemeConfig;
   mode: ThemeMode;
   toggleMode: (theme?: ThemeMode) => void;
 }
 
 interface ThemeProviderProps {
   children: ReactNode;
-  theme?: any;
+  theme?: ThemeConfig;
   defaultMode: ThemeMode;
 }
 
