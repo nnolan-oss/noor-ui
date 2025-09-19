@@ -22,7 +22,7 @@ interface ThemeContextType {
 
 interface ThemeProviderProps {
   children: ReactNode;
-  value?: any;
+  theme?: any;
   defaultMode: ThemeMode;
 }
 
@@ -30,11 +30,11 @@ const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const NoorThemeProvider = ({
   children,
-  value = defaultTheme,
+  theme = defaultTheme,
   defaultMode,
 }: ThemeProviderProps) => {
   // merge default + user theme
-  const mergedTheme = merge(defaultTheme, value, {
+  const mergedTheme = merge(defaultTheme, theme, {
     arrayMerge: combineMerge,
   });
 

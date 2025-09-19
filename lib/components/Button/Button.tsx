@@ -7,7 +7,7 @@ import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, size, color, fullWidth, className, children, loading, ...rest }, ref) => {
+  ({ variant, size, color, fullWidth, className, children, loading, startIcon, endIcon, ...rest }, ref) => {
     // 1. init
     const { theme } = useTheme();
     const { button } = theme;
@@ -56,7 +56,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type={rest.type || "button"}
       >
         {loading && "load"}
+        {startIcon}
         {children}
+        {endIcon}
       </button>
     );
   },

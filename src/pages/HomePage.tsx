@@ -12,9 +12,9 @@ const HomePage = () => {
         <h2 className="font-bold text-lg mb-2">Solid</h2>
         <div className={"space-x-2"}>
           <Button
-            startIcon={<ChevronLeft />}
+            startIcon={<ChevronLeft/>}
             endIcon={<ChevronRight />}
-            color="primary"
+            color="black"
             size="md"
             onClick={() => toggleMode("dark")}
           >

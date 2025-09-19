@@ -6,6 +6,8 @@ import {
   TButtonLoading,
   TButtonSize,
   TButtonVariant,
+  type TButtonEndIcon,
+  type TButtonStartIcon,
 } from "../../types/components/button";
 
 export interface ButtonProps extends React.ComponentProps<"button"> {
@@ -16,4 +18,6 @@ export interface ButtonProps extends React.ComponentProps<"button"> {
   className?: TButtonClassname;
   children: TButtonChildren;
   loading?: TButtonLoading;
+  startIcon?: TButtonStartIcon;
+  endIcon?: TButtonEndIcon
 }
