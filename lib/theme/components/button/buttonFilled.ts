@@ -120,7 +120,7 @@ export const buttonFilled: object = {
     active: "active:opacity-[0.85] active:shadow-none",
   },
   blue: {
-    background: "bg-blue-500",
+    background: "bg-[var(--color-primary)]",
     color: "text-white",
     shadow: "shadow-md shadow-blue-500/20",
     hover: "hover:shadow-lg hover:shadow-blue-500/40",

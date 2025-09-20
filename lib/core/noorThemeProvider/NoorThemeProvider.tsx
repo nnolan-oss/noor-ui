@@ -11,7 +11,7 @@ import {
 import merge from "deepmerge";
 import { theme as defaultTheme } from "../../theme";
 import combineMerge from "../../utils/combineMerge";
-
+import "../../theme/base/colors.css"
 export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {

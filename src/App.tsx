@@ -1,8 +1,8 @@
-import { NoorThemeProvider, type ThemeConfig } from "noor-ui";
+import { NoorThemeProvider } from "noor-ui";
 import HomePage from "./pages/HomePage";
 
 const App = () => {
-  const theme: ThemeConfig = {
+  const theme = {
     button: {
       defaultProps: {
         variant: "outlined",
