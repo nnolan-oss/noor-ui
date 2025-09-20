@@ -1,4 +1,4 @@
-export const breakpoints = {
+export const themeBreakpoints = {
   sm: "540px",
   md: "720px",
   lg: "960px",

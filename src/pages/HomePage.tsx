@@ -12,17 +12,21 @@ const HomePage = () => {
         <h2 className="font-bold text-lg mb-2">Solid</h2>
         <div className={"space-x-2"}>
           <Button
-            startIcon={<ChevronLeft/>}
+            startIcon={<ChevronLeft />}
             endIcon={<ChevronRight />}
             color="black"
             size="md"
-            onClick={() => toggleMode("dark")}
+            onClick={() => toggleMode()}
           >
             Primary
           </Button>
-          <Button color="blue" variant="filled" size="lg">Secondary</Button>
+          <Button color="blue" variant="filled" size="lg">
+            Secondary
+          </Button>
           <Button color="blue">Secondary</Button>
-          <Button color="blue" size="sm">Secondary</Button>
+          <Button color="blue" size="sm">
+            Secondary
+          </Button>
           <Button color="success">Success</Button>
           <Button color="danger">Danger</Button>
           <Button color="warning">Warning</Button>

@@ -27,24 +27,29 @@ const App = () => {
           },
         },
         sizes: {
-          sm: { padding: "px-10 py-1.5", fontSize: "text-sm" },
-          md: { padding: "px-4 py-24", fontSize: "text-base" },
+          sm: { padding: "px-2 py-1.5", fontSize: "text-sm" },
+          md: { padding: "px-4 py-2", fontSize: "text-base" },
           lg: { padding: "px-6 py-3", fontSize: "text-lg" },
         },
         variants: {
           filled: { backgroundColor: "bg-blue-500", color: "text-white" },
-          outlined: { border: "border border-blue-500", color: "text-blue-500" },
+          outlined: {
+            border: "border border-blue-500",
+            color: "text-blue-500",
+          },
           text: { color: "text-blue-500" },
-          gradient: { background: "bg-gradient-to-r from-blue-500 to-purple-500" },
+          gradient: {
+            background: "bg-gradient-to-r from-blue-500 to-purple-500",
+          },
         },
       },
     },
-  }
+  };
 
   return (
     <NoorThemeProvider theme={theme} defaultMode={"dark"}>
       <HomePage />
     </NoorThemeProvider>
-  )
-}
-export default App
+  );
+};
+export default App;

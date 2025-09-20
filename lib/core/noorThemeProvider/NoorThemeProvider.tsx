@@ -11,19 +11,18 @@ import {
 import merge from "deepmerge";
 import { theme as defaultTheme } from "../../theme";
 import combineMerge from "../../utils/combineMerge";
-import { type ThemeConfig } from "../../types/generic";
 
 export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
-  theme: ThemeConfig;
+  theme: any;
   mode: ThemeMode;
   toggleMode: (theme?: ThemeMode) => void;
 }
 
 interface ThemeProviderProps {
   children: ReactNode;
-  theme?: ThemeConfig;
+  theme?: any;
   defaultMode: ThemeMode;
 }
 

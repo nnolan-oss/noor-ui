@@ -1,4 +1,4 @@
-export const colors = {
+export const themeColors = {
   inherit: "inherit",
   current: "currentColor",
   transparent: "transparent",
