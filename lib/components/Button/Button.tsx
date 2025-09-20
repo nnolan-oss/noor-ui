@@ -10,7 +10,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant, size, color, fullWidth, className, children, loading, startIcon, endIcon, ...rest }, ref) => {
     // 1. init
     const { theme } = useTheme();
-    const { button } = theme;
+    const { button } = theme.components;
     const { valid, defaultProps, styles } = button;
     const { base, variants, sizes } = styles;
 

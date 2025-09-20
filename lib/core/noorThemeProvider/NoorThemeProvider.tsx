@@ -15,14 +15,18 @@ import "../../theme/base/colors.css"
 export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
-  theme: any;
+  theme: {
+    components: any
+  };
   mode: ThemeMode;
   toggleMode: (theme?: ThemeMode) => void;
 }
 
 interface ThemeProviderProps {
   children: ReactNode;
-  theme?: any;
+  theme?: {
+    components: any
+  };
   defaultMode: ThemeMode;
 }
 
@@ -30,7 +34,9 @@ const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const NoorThemeProvider = ({
   children,
-  theme = defaultTheme,
+  theme = {
+    components: defaultTheme
+  },
   defaultMode,
 }: ThemeProviderProps) => {
   // merge default + user theme
@@ -84,7 +90,9 @@ export const useTheme = () => {
     throw new Error("useTheme must be used inside NoorThemeProvider");
   }
   return {
-    theme: context.theme,
+    theme: {
+      components: context.theme
+    },
     mode: context.mode,
     toggleMode: context.toggleMode,
   };
