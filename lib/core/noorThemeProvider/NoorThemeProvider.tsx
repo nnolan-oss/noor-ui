@@ -16,7 +16,13 @@ export type ThemeMode = "light" | "dark";
 
 interface ThemeContextType {
   theme: {
-    components: any
+    components: any;
+    typography: any;
+    spacing: any;
+    breakpoints: any;
+    zIndex: any;
+    colors: any;
+    shadows: any;
   };
   mode: ThemeMode;
   toggleMode: (theme?: ThemeMode) => void;
@@ -25,7 +31,13 @@ interface ThemeContextType {
 interface ThemeProviderProps {
   children: ReactNode;
   theme?: {
-    components: any
+    components?: any;
+    typography?: any;
+    spacing?: any;
+    breakpoints?: any;
+    zIndex?: any;
+    colors?: any;
+    shadows?: any;
   };
   defaultMode: ThemeMode;
 }
@@ -34,19 +46,28 @@ const NoorThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const NoorThemeProvider = ({
   children,
-  theme = {
-    components: defaultTheme
-  },
+  theme = {},
   defaultMode,
 }: ThemeProviderProps) => {
   // merge default + user theme
   const mergedTheme = merge(
-    { components: defaultTheme },
+    defaultTheme,
     theme,
     {
       arrayMerge: combineMerge,
     }
   );
+
+  // Ensure components structure is properly set
+  const themeWithComponents = {
+    components: mergedTheme.components || {},
+    typography: mergedTheme.typography || {},
+    spacing: mergedTheme.spacing || {},
+    breakpoints: mergedTheme.breakpoints || {},
+    zIndex: mergedTheme.zIndex || {},
+    colors: mergedTheme.colors || {},
+    shadows: mergedTheme.shadows || {},
+  };
 
   // initialize theme mode from localStorage or fallback
   const getInitialTheme = (): ThemeMode => {
@@ -77,7 +98,7 @@ export const NoorThemeProvider = ({
   return (
     <NoorThemeContext.Provider
       value={{
-        theme: mergedTheme,
+        theme: themeWithComponents,
         mode,
         toggleMode,
       }}
