@@ -73,7 +73,9 @@ export const NoorThemeProvider = ({
   return (
     <NoorThemeContext.Provider
       value={{
-        theme: mergedTheme,
+        theme: {
+          components: mergedTheme
+        },
         mode,
         toggleMode,
       }}
@@ -90,9 +92,7 @@ export const useTheme = () => {
     throw new Error("useTheme must be used inside NoorThemeProvider");
   }
   return {
-    theme: {
-      components: context.theme
-    },
+    theme:context.theme,
     mode: context.mode,
     toggleMode: context.toggleMode,
   };
