@@ -2,14 +2,14 @@ import { NoorThemeProvider } from "noor-ui";
 import HomePage from "./pages/HomePage";
 
 const App = () => {
-  const theme = {
+  const themeConfig = {
     components: {
       button: {
         defaultProps: {
           variant: "outlined",
-          size: "md",
-          color: "blue",
-          fullWidth: false,
+          size: "lg",
+          color: "black",
+          fullWidth: true,
           className: "",
         },
         valid: {
@@ -49,7 +49,7 @@ const App = () => {
   };
 
   return (
-    <NoorThemeProvider theme={theme} defaultMode={"dark"}>
+    <NoorThemeProvider theme={themeConfig} defaultMode={"dark"}>
       <HomePage />
     </NoorThemeProvider>
   );

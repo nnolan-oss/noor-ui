@@ -40,9 +40,13 @@ export const NoorThemeProvider = ({
   defaultMode,
 }: ThemeProviderProps) => {
   // merge default + user theme
-  const mergedTheme = merge(defaultTheme, theme, {
-    arrayMerge: combineMerge,
-  });
+  const mergedTheme = merge(
+    { components: defaultTheme },
+    theme,
+    {
+      arrayMerge: combineMerge,
+    }
+  );
 
   // initialize theme mode from localStorage or fallback
   const getInitialTheme = (): ThemeMode => {
@@ -73,9 +77,7 @@ export const NoorThemeProvider = ({
   return (
     <NoorThemeContext.Provider
       value={{
-        theme: {
-          components: mergedTheme
-        },
+        theme: mergedTheme,
         mode,
         toggleMode,
       }}
@@ -92,7 +94,7 @@ export const useTheme = () => {
     throw new Error("useTheme must be used inside NoorThemeProvider");
   }
   return {
-    theme:context.theme,
+    theme: context.theme,
     mode: context.mode,
     toggleMode: context.toggleMode,
   };
