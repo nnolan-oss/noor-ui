@@ -5,7 +5,8 @@ export const buttonFilled: object = {
     shadow: "shadow-md shadow-[var(--noor-color-primary)]/10",
     hover: "hover:bg-[var(--noor-color-primary)]/80",
     focus: "focus:opacity-[0.85] focus:shadow-none",
-    active: "active:opacity-[0.85] active:shadow-none",
+    active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
+    transition: "transition duration-150 ease-in-out",
   },
   secondary: {
     background: "bg-[var(--noor-color-secondary)]",
@@ -13,7 +14,8 @@ export const buttonFilled: object = {
     shadow: "shadow-md shadow-[var(--noor-color-secondary)]/10",
     hover: "hover:bg-[var(--noor-color-secondary)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
-    active: "active:opacity-[0.85] active:shadow-none",
+    active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
+    transition: "transition duration-150 ease-in-out",
   },
   success: {
     background: "bg-[var(--noor-color-success)]",
@@ -21,7 +23,8 @@ export const buttonFilled: object = {
     shadow: "shadow-md shadow-[var(--noor-color-success)]/20",
     hover: "hover:bg-[var(--noor-color-success)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
-    active: "active:opacity-[0.85] active:shadow-none",
+    active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
+    transition: "transition duration-150 ease-in-out",
   },
   error: {
     background: "bg-[var(--noor-color-danger)]",
@@ -29,7 +32,8 @@ export const buttonFilled: object = {
     shadow: "shadow-md shadow-[var(--noor-color-danger)]/20",
     hover: "hover:bg-[var(--noor-color-danger)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
-    active: "active:opacity-[0.85] active:shadow-none",
+    active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
+    transition: "transition duration-150 ease-in-out",
   },
   info: {
     background: "bg-[var(--noor-color-info)]",
@@ -37,7 +41,8 @@ export const buttonFilled: object = {
     shadow: "shadow-md shadow-[var(--noor-color-info)]/20",
     hover: "hover:bg-[var(--noor-color-info)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
-    active: "active:opacity-[0.85] active:shadow-none",
+    active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
+    transition: "transition duration-150 ease-in-out",
   },
   warning: {
     background: "bg-[var(--noor-color-warning)]",
@@ -45,6 +50,7 @@ export const buttonFilled: object = {
     shadow: "shadow-md shadow-[var(--noor-color-warning)]/20",
     hover: "hover:bg-[var(--noor-color-warning)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
-    active: "active:opacity-[0.85] active:shadow-none",
+    active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
+    transition: "transition duration-150 ease-in-out",
   },
 };
