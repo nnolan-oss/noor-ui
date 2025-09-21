@@ -98,7 +98,7 @@ export const input: IInputStyleTypes = {
     sizes: {
       sm: {
         fontSize: "text-xs",
-        padding: "px-4 py-2",
+        padding: "px-3 py-2",
         height: "h-[var(--noor-form-h-sm)]",
         borderRadius: "rounded-[var(--noor-radius)]",
       },
@@ -110,7 +110,7 @@ export const input: IInputStyleTypes = {
       },
       lg: {
         fontSize: "text-md",
-        padding: "px-7 py-3.5",
+        padding: "px-4 py-3.5",
         height: "h-[var(--noor-form-h-lg)]",
         borderRadius: "rounded-[var(--noor-radius)]",
       },

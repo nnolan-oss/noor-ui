@@ -18,7 +18,7 @@ export const inputOutlined: object = {
   success: {
     background: "bg-transparent",
     color: "text-gray-900",
-    border: "border border-[var(--noor-color-success)]",
+    border: "border border-gray-300",
     placeholder: "placeholder-gray-500",
     focus: "focus:border-[var(--noor-color-success)] focus:ring-2 focus:ring-[var(--noor-color-success)]/20",
     hover: "hover:border-[var(--noor-color-success)]/80",
@@ -26,7 +26,7 @@ export const inputOutlined: object = {
   error: {
     background: "bg-transparent",
     color: "text-gray-900",
-    border: "border border-[var(--noor-color-danger)]",
+    border: "border border-gray-300",
     placeholder: "placeholder-gray-500",
     focus: "focus:border-[var(--noor-color-danger)] focus:ring-2 focus:ring-[var(--noor-color-danger)]/20",
     hover: "hover:border-[var(--noor-color-danger)]/80",

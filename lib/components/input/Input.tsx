@@ -7,23 +7,23 @@ import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ 
-    variant, 
-    size, 
-    color, 
-    fullWidth, 
-    disabled, 
-    error, 
-    success, 
-    label, 
-    helperText, 
-    errorText, 
-    successText, 
-    startIcon, 
-    endIcon, 
-    className, 
+  ({
+    variant,
+    size,
+    color,
+    fullWidth,
+    disabled,
+    error,
+    success,
+    label,
+    helperText,
+    errorText,
+    successText,
+    startIcon,
+    endIcon,
+    className,
     type = "text",
-    ...rest 
+    ...rest
   }, ref) => {
     const { theme } = useTheme();
     const { input } = theme.components;
@@ -42,11 +42,11 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const inputBase = objectsToString(base.initial);
     const inputVariant = objectsToString(
       (variants as any)[findMatch(valid.variants, variant, "outlined")][
-        findMatch(valid.colors, color, "gray")
+      findMatch(valid.colors, color, "gray")
       ],
     );
     const inputSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
-    
+
     const inputClasses = twMerge(
       classnames(
         inputBase,
