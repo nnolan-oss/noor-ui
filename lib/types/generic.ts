@@ -10,6 +10,7 @@ export const themeColors = [
   "error",
   "info",
   "warning",
+  "white",
 ] as const;
 
 // Type is inferred as union of those values

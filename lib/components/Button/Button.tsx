@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { objectsToString } from "../../utils/objectsToString";
 import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
+import { Loader } from "../loader/Loader";
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant, size, color, fullWidth, className, children, loading, startIcon, endIcon, ...rest }, ref) => {
@@ -51,10 +52,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={classes}
         type={rest.type || "button"}
       >
-        {loading && "load"}
-        {startIcon}
+        {loading && <Loader size={size === "sm" ? "sm" : size === "lg" ? "md" : "sm"} color={variant === "filled" ? "white" : color} />}
+        {!loading && startIcon}
         {children}
-        {endIcon}
+        {!loading && endIcon}
       </button>
     );
   },

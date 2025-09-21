@@ -5,6 +5,7 @@ import { twMerge } from "tailwind-merge";
 import { objectsToString } from "../../utils/objectsToString";
 import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
+import { Loader } from "../loader/Loader";
 
 export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
   ({ variant, size, color, className, icon, loading, ...rest }, ref) => {
@@ -46,7 +47,7 @@ export const IconButton = React.forwardRef<HTMLButtonElement, IconButtonProps>(
         type={rest.type || "button"}
         aria-label={rest["aria-label"] || "Icon button"}
       >
-        {loading ? "load" : icon}
+        {loading ? <Loader size={size === "sm" ? "sm" : size === "lg" ? "md" : "sm"} color={variant === "filled" ? "white" : color} /> : icon}
       </button>
     );
   },

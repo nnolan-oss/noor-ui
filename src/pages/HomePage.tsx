@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download } from "lucide-react";
-import { Button, Badge, IconButton, useTheme } from "noor-ui";
+import { Button, Badge, IconButton, Loader, useTheme } from "noor-ui";
 
 const HomePage = () => {
   const { mode, toggleMode } = useTheme();
@@ -13,7 +13,7 @@ const HomePage = () => {
       <div className="space-y-4">
         <div className="flex items-center gap-2">
           <Button startIcon={<ChevronLeft />} endIcon={<ChevronRight />} size="sm">Salom</Button>
-          <Button size="sm">Salom</Button>
+          <Button size="sm" loading color="info">Salom</Button>
           <Button size="md">Salom</Button>
           <Button size="lg">Salom</Button>
         </div>
@@ -195,6 +195,119 @@ const HomePage = () => {
             <IconButton color="primary" icon={<Settings size={16} />} loading />
             <IconButton variant="outlined" color="success" icon={<Save size={16} />} loading />
             <IconButton variant="text" color="warning" icon={<Edit size={16} />} loading />
+          </div>
+        </div>
+      </div>
+
+      {/* Loader Examples */}
+      <div className="space-y-4 mt-8">
+        <h2 className="text-xl font-bold text-white">Loader Examples</h2>
+        
+        {/* Loader Variants */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Variants</h3>
+          <div className="flex items-center gap-4 flex-wrap">
+            <div className="flex flex-col items-center gap-2">
+              <Loader variant="spinner" color="primary" />
+              <span className="text-sm text-white">Spinner</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader variant="dots" color="primary" />
+              <span className="text-sm text-white">Dots</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader variant="pulse" color="primary" />
+              <span className="text-sm text-white">Pulse</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader variant="bars" color="primary" />
+              <span className="text-sm text-white">Bars</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Loader Sizes */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Sizes</h3>
+          <div className="flex items-center gap-6 flex-wrap">
+            <div className="flex flex-col items-center gap-2">
+              <Loader size="xs" color="success" />
+              <span className="text-sm text-white">XS (16px)</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader size="sm" color="success" />
+              <span className="text-sm text-white">SM (20px)</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader size="md" color="success" />
+              <span className="text-sm text-white">MD (24px)</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader size="lg" color="success" />
+              <span className="text-sm text-white">LG (32px)</span>
+            </div>
+            <div className="flex flex-col items-center gap-2">
+              <Loader size="xl" color="success" />
+              <span className="text-sm text-white">XL (48px)</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Loader Colors */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Colors</h3>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Loader color="primary" />
+            <Loader color="secondary" />
+            <Loader color="success" />
+            <Loader color="error" />
+            <Loader color="warning" />
+            <Loader color="info" />
+          </div>
+        </div>
+
+        {/* Loader with Text */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">With Text</h3>
+          <div className="flex items-center gap-4 flex-wrap">
+            <Loader color="primary" text="Loading..." />
+            <Loader color="success" text="Saving..." />
+            <Loader color="warning" text="Processing..." />
+            <Loader color="error" text="Error..." />
+          </div>
+        </div>
+
+        {/* Loader in Buttons (Updated Examples) */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">In Buttons</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <Button loading>Loading Filled</Button>
+            <Button variant="outlined" loading>Loading Outlined</Button>
+            <Button variant="gradient" loading>Loading Gradient</Button>
+            <Button variant="text" loading>Loading Text</Button>
+          </div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <Button color="success" loading>Success Loading</Button>
+            <Button color="error" loading>Error Loading</Button>
+            <Button color="warning" loading>Warning Loading</Button>
+            <Button color="info" loading>Info Loading</Button>
+          </div>
+        </div>
+
+        {/* Loader in IconButtons (Updated Examples) */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">In Icon Buttons</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton color="primary" icon={<Settings size={16} />} loading />
+            <IconButton variant="outlined" color="success" icon={<Save size={16} />} loading />
+            <IconButton variant="gradient" color="warning" icon={<Edit size={16} />} loading />
+            <IconButton variant="text" color="error" icon={<Trash2 size={16} />} loading />
+          </div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton color="success" icon={<Plus size={16} />} loading />
+            <IconButton color="error" icon={<Trash2 size={16} />} loading />
+            <IconButton color="warning" icon={<Edit size={16} />} loading />
+            <IconButton color="info" icon={<Download size={16} />} loading />
           </div>
         </div>
       </div>
