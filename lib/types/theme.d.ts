@@ -1,4 +1,4 @@
-import { theme } from "../theme";
+import { type theme } from "../theme";
 
 // For optional theme types
 type DeepPartial<T> = {

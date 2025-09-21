@@ -13,9 +13,9 @@ const HomePage = () => {
       <Button onClick={() => toggleMode()}>Change theme</Button>
 
       <Switch color="warning" size="sm" onChange={() => setIsLoad(!isLoad)} />
-        {
-          JSON.stringify(isLoad)
-        }
+      {
+        JSON.stringify(isLoad)
+      }
 
       <hr />
       <Switch color="primary" />
