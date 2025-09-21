@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
 /* -------------------------------
@@ -38,11 +39,16 @@
     --noor-letter-spacing-body2: 0.01071em;
 
     /* Breakpoints */
-    --noor-breakpoint-sm: 37.5rem; /* 600px */
-    --noor-breakpoint-md: 56.25rem; /* 900px */
-    --noor-breakpoint-lg: 75rem; /* 1200px */
-    --noor-breakpoint-xl: 96rem; /* 1536px */
-    --noor-breakpoint-2xl: 120rem; /* 1920px */
+    --noor-breakpoint-sm: 37.5rem;
+    /* 600px */
+    --noor-breakpoint-md: 56.25rem;
+    /* 900px */
+    --noor-breakpoint-lg: 75rem;
+    /* 1200px */
+    --noor-breakpoint-xl: 96rem;
+    /* 1536px */
+    --noor-breakpoint-2xl: 120rem;
+    /* 1920px */
 
     /* Primary Palette */
     --noor-color-primary: oklch(62.3% 0.214 259.815);
@@ -118,50 +124,58 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--noor-font-family-bse);
+    font-family: var(--noor-font-family-base);
     transition: background 0.4s;
   }
+
   h1 {
     font-size: var(--noor-font-h1);
     letter-spacing: var(--noor-letter-spacing-h1);
   }
+
   h2 {
     font-size: var(--noor-font-h2);
     letter-spacing: var(--noor-letter-spacing-h2);
   }
+
   h3 {
     font-size: var(--noor-font-h3);
   }
+
   h4 {
     font-size: var(--noor-font-h4);
     letter-spacing: var(--noor-letter-spacing-h4);
   }
+
   h5 {
     font-size: var(--noor-font-h5);
   }
+
   h6 {
     font-size: var(--noor-font-h6);
     letter-spacing: var(--noor-letter-spacing-h6);
   }
+
   p {
     font-size: var(--noor-font-body1);
     letter-spacing: var(--noor-letter-spacing-body1);
   }
+
   span {
     font-size: var(--noor-font-body2);
     letter-spacing: var(--noor-letter-spacing-body2);
   }
-  
+
   /* Input focus styles */
   input {
     outline: none !important;
   }
-  
+
   input:focus {
     outline: none !important;
     box-shadow: none !important;
   }
-  
+
   input:focus-visible {
     outline: none !important;
   }

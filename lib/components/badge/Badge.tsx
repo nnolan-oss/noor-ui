@@ -11,10 +11,9 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     const { theme } = useTheme();
     const { badge } = theme.components;
     const { valid, defaultProps, styles } = badge;
-    const { base, variants, sizes } = styles;
+    const { base, variants } = styles;
 
     variant = variant ?? defaultProps.variant;
-    size = size ?? defaultProps.size;
     color = color ?? defaultProps.color;
     className = twMerge(defaultProps.className || "", className);
 
@@ -24,11 +23,9 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         findMatch(valid.colors, color, "primary")
       ],
     );
-    const badgeSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
     const classes = twMerge(
       classnames(
         badgeBase,
-        badgeSize,
         badgeVariant,
         {
           "flex items-center gap-1": startIcon || endIcon,
