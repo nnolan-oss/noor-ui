@@ -1,8 +1,8 @@
-import { NoorThemeProvider } from "noor-ui";
+import { NoorThemeProvider, type ThemeConfig } from "noor-ui";
 import HomePage from "./pages/HomePage";
 
 const App = () => {
-  const themeConfig = {
+  const themeConfig: ThemeConfig = {
     components: {
       button: {
         defaultProps: {
@@ -45,7 +45,7 @@ const App = () => {
           },
         },
       },
-    }
+    },
   };
 
   return (

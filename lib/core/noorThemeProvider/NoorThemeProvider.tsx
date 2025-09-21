@@ -1,6 +1,3 @@
-// ThemeContext.tsx
-"use client";
-
 import {
   createContext,
   useContext,
@@ -11,34 +8,19 @@ import {
 import merge from "deepmerge";
 import { theme as defaultTheme } from "../../theme";
 import combineMerge from "../../utils/combineMerge";
-import "../../theme/base/themeVariables.css"
+import "../../theme/base/themeVariables.css";
 export type ThemeMode = "light" | "dark";
+import { type ThemeConfig } from "../../types/theme";
 
 interface ThemeContextType {
-  theme: {
-    components: any;
-    typography: any;
-    spacing: any;
-    breakpoints: any;
-    zIndex: any;
-    colors: any;
-    shadows: any;
-  };
+  theme: ThemeConfig;
   mode: ThemeMode;
   toggleMode: (theme?: ThemeMode) => void;
 }
 
 interface ThemeProviderProps {
   children: ReactNode;
-  theme?: {
-    components?: any;
-    typography?: any;
-    spacing?: any;
-    breakpoints?: any;
-    zIndex?: any;
-    colors?: any;
-    shadows?: any;
-  };
+  theme?: ThemeConfig;
   defaultMode: ThemeMode;
 }
 
@@ -50,13 +32,9 @@ export const NoorThemeProvider = ({
   defaultMode,
 }: ThemeProviderProps) => {
   // merge default + user theme
-  const mergedTheme = merge(
-    defaultTheme,
-    theme,
-    {
-      arrayMerge: combineMerge,
-    }
-  );
+  const mergedTheme = merge(defaultTheme, theme, {
+    arrayMerge: combineMerge,
+  });
 
   // Ensure components structure is properly set
   const themeWithComponents = {
