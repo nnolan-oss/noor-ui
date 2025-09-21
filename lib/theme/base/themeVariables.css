@@ -5,100 +5,104 @@
 -------------------------------- */
 @layer noor {
   :root {
+    /* Global */
+    --noor-radius: 4px;
+    --noor-font-family-base: "Roboto", "Helvetica", "Arial", sans-serif;
+    --noor-font-family-mono: "Fira Code", "Menlo", monospace;
+
     /* Typography */
-    --font-h1: 96px;
-    --font-h2: 60px;
-    --font-h3: 48px;
-    --font-h4: 34px;
-    --font-h5: 24px;
-    --font-h6: 20px;
-    --font-subtitle1: 16px;
-    --font-subtitle2: 14px;
-    --font-body1: 16px;
-    --font-body2: 14px;
-    --font-button: 14px;
-    --font-caption: 12px;
-    --font-overline: 10px;
+    --noor-font-h1: 96px;
+    --noor-font-h2: 60px;
+    --noor-font-h3: 48px;
+    --noor-font-h4: 34px;
+    --noor-font-h5: 24px;
+    --noor-font-h6: 20px;
+    --noor-font-subtitle1: 16px;
+    --noor-font-subtitle2: 14px;
+    --noor-font-body1: 16px;
+    --noor-font-body2: 14px;
+    --noor-font-button: 14px;
+    --noor-font-caption: 12px;
+    --noor-font-overline: 10px;
 
     /* Letter spacing */
-    --letter-spacing-h1: -0.01562em;
-    --letter-spacing-h2: -0.00833em;
-    --letter-spacing-h4: 0.00735em;
-    --letter-spacing-h6: 0.0075em;
-    --letter-spacing-body1: 0.00938em;
-    --letter-spacing-body2: 0.01071em;
+    --noor-letter-spacing-h1: -0.01562em;
+    --noor-letter-spacing-h2: -0.00833em;
+    --noor-letter-spacing-h4: 0.00735em;
+    --noor-letter-spacing-h6: 0.0075em;
+    --noor-letter-spacing-body1: 0.00938em;
+    --noor-letter-spacing-body2: 0.01071em;
 
     /* Breakpoints */
-    --breakpoint-sm: 37.5rem;   /* 600px */
-    --breakpoint-md: 56.25rem;  /* 900px */
-    --breakpoint-lg: 75rem;     /* 1200px */
-    --breakpoint-xl: 96rem;     /* 1536px */
-    --breakpoint-2xl: 120rem;   /* 1920px */
+    --noor-breakpoint-sm: 37.5rem; /* 600px */
+    --noor-breakpoint-md: 56.25rem; /* 900px */
+    --noor-breakpoint-lg: 75rem; /* 1200px */
+    --noor-breakpoint-xl: 96rem; /* 1536px */
+    --noor-breakpoint-2xl: 120rem; /* 1920px */
 
     /* Primary Palette */
-    --color-primary: #d97706;
-    --color-primary-light: #fbbf24;
-    --color-primary-dark: #b45309;
-    --color-primary-contrast: #ffffff;
+    --noor-color-primary: oklch(62.3% 0.214 259.815);
+    --noor-color-primary-light: oklch(70.7% 0.165 254.624);
+    --noor-color-primary-dark: oklch(28.2% 0.091 267.935);
+    --noor-color-primary-contrast: oklch(100% 0 0);
 
     /* Secondary Palette */
-    --color-secondary: #2563eb;
-    --color-secondary-light: #3b82f6;
-    --color-secondary-dark: #1e40af;
-    --color-secondary-contrast: #ffffff;
+    --noor-color-secondary: oklch(55.4% 0.046 257.417);
+    --noor-color-secondary-light: oklch(70.4% 0.04 256.788);
+    --noor-color-secondary-dark: oklch(12.9% 0.042 264.695);
+    --noor-color-secondary-contrast: oklch(100% 0 0);
 
     /* Status Colors */
-    --color-info: #0284c7;
-    --color-success: #16a34a;
-    --color-warning: #f59e0b;
-    --color-error: #dc2626;
+    --noor-color-info: oklch(60.6% 0.25 292.717);
+    --noor-color-success: oklch(72.3% 0.219 149.579);
+    --noor-color-warning: oklch(70.5% 0.213 47.604);
+    --noor-color-danger: oklch(63.7% 0.237 25.331);
 
     /* Grayscale */
-    --color-gray-50:  #fafafa;
-    --color-gray-100: #f4f4f5;
-    --color-gray-200: #e4e4e7;
-    --color-gray-300: #d4d4d8;
-    --color-gray-400: #a1a1aa;
-    --color-gray-500: #71717a;
-    --color-gray-600: #52525b;
-    --color-gray-700: #3f3f46;
-    --color-gray-800: #27272a;
-    --color-gray-900: #18181b;
+    --noor-color-gray-50: oklch(0.9851 0 0);
+    --noor-color-gray-100: oklch(0.9674 0.0013 286.37);
+    --noor-color-gray-200: oklch(0.9197 0.004 286.32);
+    --noor-color-gray-300: oklch(0.8711 0.0055 286.29);
+    --noor-color-gray-400: oklch(0.7118 0.0129 286.07);
+    --noor-color-gray-500: oklch(0.5517 0.0138 285.94);
+    --noor-color-gray-600: oklch(0.4419 0.0146 285.79);
+    --noor-color-gray-700: oklch(0.3703 0.0119 285.81);
+    --noor-color-gray-800: oklch(0.2739 0.0055 286.03);
+    --noor-color-gray-900: oklch(0.2103 0.0059 285.89);
 
     /* Backgrounds */
-    --color-background-default: #ffffff;
-    --color-background-paper: #f9fafb;
+    --noor-color-background-default: oklch(1 0 0);
+    --noor-color-background-paper: oklch(0.9846 0.0017 247.84);
 
     /* Text */
-    --color-text-primary: #111827;
-    --color-text-secondary: #4b5563;
-    --color-text-disabled: #9ca3af;
+    --noor-color-text-primary: oklch(0.2101 0.0318 264.66);
+    --noor-color-text-secondary: oklch(0.4461 0.0263 256.8);
+    --noor-color-text-disabled: oklch(0.7137 0.0192 261.32);
 
     /* Divider */
-    --color-divider: #e5e7eb;
+    --noor-color-divider: oklch(0.9276 0.0058 264.53);
 
     /* Action states */
-    --color-action-active: rgba(0,0,0,0.54);
-    --color-action-hover: rgba(0,0,0,0.08);
-    --color-action-selected: rgba(0,0,0,0.14);
-    --color-action-disabled: rgba(0,0,0,0.26);
-    --color-action-focus: rgba(0,0,0,0.12);
+    --noor-color-action-active: rgba(0, 0, 0, 0.54);
+    --noor-color-action-hover: rgba(0, 0, 0, 0.08);
+    --noor-color-action-selected: rgba(0, 0, 0, 0.14);
+    --noor-color-action-disabled: rgba(0, 0, 0, 0.26);
+    --noor-color-action-focus: rgba(0, 0, 0, 0.12);
 
     /* Shadows */
-    --shadow-1: 0 1px 3px rgba(0,0,0,0.12);
-    --shadow-2: 0 2px 6px rgba(0,0,0,0.12);
-    --shadow-3: 0 3px 12px rgba(0,0,0,0.14);
-    --shadow-4: 0 4px 16px rgba(0,0,0,0.16);
-    /* ...continue up to shadow-24 */
+    --noor-shadow-1: 0 1px 3px rgba(0, 0, 0, 0.12);
+    --noor-shadow-2: 0 2px 6px rgba(0, 0, 0, 0.12);
+    --noor-shadow-3: 0 3px 12px rgba(0, 0, 0, 0.14);
+    --noor-shadow-4: 0 4px 16px rgba(0, 0, 0, 0.16);
   }
 
   .dark {
-    --color-background-default: #18181b;
-    --color-background-paper: #27272a;
-    --color-text-primary: #f9fafb;
-    --color-text-secondary: #d4d4d8;
-    --color-text-disabled: #71717a;
-    --color-divider: #3f3f46;
+    --noor-color-background-default: oklch(0.2103 0.0059 285.89);
+    --noor-color-background-paper: oklch(0.2739 0.0055 286.03);
+    --noor-color-text-primary: oklch(0.9846 0.0017 247.84);
+    --noor-color-text-secondary: oklch(0.8711 0.0055 286.29);
+    --noor-color-text-disabled: oklch(0.5517 0.0138 285.94);
+    --noor-color-divider: oklch(0.3703 0.0119 285.81);
   }
 }
 
@@ -106,12 +110,37 @@
    Base Typography
 -------------------------------- */
 @layer base {
-  h1 { font: var(--font-h1); letter-spacing: var(--letter-spacing-h1); }
-  h2 { font: var(--font-h2); letter-spacing: var(--letter-spacing-h2); }
-  h3 { font: var(--font-h3); }
-  h4 { font: var(--font-h4); letter-spacing: var(--letter-spacing-h4); }
-  h5 { font: var(--font-h5); }
-  h6 { font: var(--font-h6); letter-spacing: var(--letter-spacing-h6); }
-  p  { font: var(--font-body1); letter-spacing: var(--letter-spacing-body1); }
-  span { font: var(--font-body2); letter-spacing: var(--letter-spacing-body2); }
+  * {
+    font-family: var(--noor-font-family-base);
+  }
+  h1 {
+    font-size: var(--noor-font-h1);
+    letter-spacing: var(--noor-letter-spacing-h1);
+  }
+  h2 {
+    font-size: var(--noor-font-h2);
+    letter-spacing: var(--noor-letter-spacing-h2);
+  }
+  h3 {
+    font-size: var(--noor-font-h3);
+  }
+  h4 {
+    font-size: var(--noor-font-h4);
+    letter-spacing: var(--noor-letter-spacing-h4);
+  }
+  h5 {
+    font-size: var(--noor-font-h5);
+  }
+  h6 {
+    font-size: var(--noor-font-h6);
+    letter-spacing: var(--noor-letter-spacing-h6);
+  }
+  p {
+    font-size: var(--noor-font-body1);
+    letter-spacing: var(--noor-letter-spacing-body1);
+  }
+  span {
+    font-size: var(--noor-font-body2);
+    letter-spacing: var(--noor-letter-spacing-body2);
+  }
 }

@@ -9,7 +9,10 @@ const HomePage = () => {
     <div className={"p-4 bg-gray-900 text-white"}>
       <Search size={120} className={"bg-red-500"} />
 
-      <h1 className="text-[size:var(--font-h1)]">salom</h1>
+      <h1>salom</h1>
+      <h2>salom</h2>
+      <h3>salom</h3>
+      <h4>salom</h4>
       <h2 className="text-[size:var(--font-h2)]">salom</h2>
       <h2 className="text-[size:var(--font-h3)]">salom</h2>
       <h2 className="text-[size:var(--font-h4)]">salom</h2>
