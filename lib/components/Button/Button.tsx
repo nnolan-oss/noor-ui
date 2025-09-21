@@ -38,7 +38,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {
           "flex items-center gap-2": loading,
           "gap-3": size === "lg",
-          "flex justify-between items-center px-2 gap-2": startIcon || endIcon,
+          "flex justify-between items-center px-3 gap-2": startIcon || endIcon || loading,
         },
       ),
       className,

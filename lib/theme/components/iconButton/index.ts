@@ -66,26 +66,24 @@ export const iconButton: IIconButtonStyleTypes = {
         textTransform: "uppercase",
         transition: "transition-all",
         borderRadius: "rounded-xl",
+        aspectRatio: "aspect-square",
         disabled:
           "disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none",
       },
     },
     sizes: {
       sm: {
-        width: "w-8",
-        height: "h-8",
+        height: "h-[var(--noor-form-h-sm)]",
         fontSize: "text-xs",
         borderRadius: "rounded-xl",
       },
       md: {
-        width: "w-10",
-        height: "h-10",
+        height: "h-[var(--noor-form-h-md)]",
         fontSize: "text-sm",
         borderRadius: "rounded-xl",
       },
       lg: {
-        width: "w-12",
-        height: "h-12",
+        height: "h-[var(--noor-form-h-lg)]",
         fontSize: "text-md",
         borderRadius: "rounded-xl",
       },

@@ -99,17 +99,20 @@ export const input: IInputStyleTypes = {
       sm: {
         fontSize: "text-xs",
         padding: "px-4 py-2",
-        borderRadius: "rounded-xl",
+        height: "h-[var(--noor-form-h-sm)]",
+        borderRadius: "rounded-[var(--noor-radius)]",
       },
       md: {
         fontSize: "text-sm",
-        padding: "px-6 py-3",
-        borderRadius: "rounded-xl",
+        padding: "px-3 py-3",
+        height: "h-[var(--noor-form-h-md)]",
+        borderRadius: "rounded-[var(--noor-radius)]",
       },
       lg: {
         fontSize: "text-md",
         padding: "px-7 py-3.5",
-        borderRadius: "rounded-xl",
+        height: "h-[var(--noor-form-h-lg)]",
+        borderRadius: "rounded-[var(--noor-radius)]",
       },
     },
     variants: {

@@ -6,9 +6,13 @@
 @layer noor {
   :root {
     /* Global */
-    --noor-radius: 4px;
+    --noor-radius: 10px;
     --noor-font-family-base: "Roboto", "Helvetica", "Arial", sans-serif;
     --noor-font-family-mono: "Fira Code", "Menlo", monospace;
+
+    --noor-form-h-sm: 36px;
+    --noor-form-h-md: 42px;
+    --noor-form-h-lg: 48px;
 
     /* Typography */
     --noor-font-h1: 96px;

@@ -548,6 +548,11 @@ const HomePage = () => {
         </div>
       </div>
 
+      <div className="flex items-center gap-2">
+        <Input placeholder="Phone name"/>
+        <Button>Send</Button>
+      </div>
+
     </div>
   );
 };
