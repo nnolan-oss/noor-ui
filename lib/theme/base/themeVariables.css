@@ -118,7 +118,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--noor-font-family-base);
+    font-family: var(--noor-font-family-bse);
+    transition: background 0.4s;
   }
   h1 {
     font-size: var(--noor-font-h1);

@@ -59,6 +59,9 @@ export const button: IButtonStyleTypes = {
   styles: {
     base: {
       initial: {
+        display: "flex",
+        alignItems: "items-center",
+        justifyContent: "justify-center",
         verticalAlign: "align-middle",
         userSelect: "select-none",
         fontFamily: "font-sans",
