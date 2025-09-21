@@ -1,14 +1,16 @@
-import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download } from "lucide-react";
+import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff } from "lucide-react";
 import { Button, Badge, IconButton, Loader, Input, useTheme } from "noor-ui";
+import { useState } from "react";
 
 const HomePage = () => {
   const { mode, toggleMode } = useTheme();
   console.log(mode, "thememm");
+  const [isLoad, setIsLoad] = useState(false)
 
   return (
     <div className={"p-4 bg-[var(--noor-color-background-default)] text-white"}>
       <Search size={120} className={"bg-red-500"} />
-      <Button onClick={()=>toggleMode()}>Change theme</Button>
+      <Button onClick={() => toggleMode()}>Change theme</Button>
 
       <div className="space-y-4">
         <div className="flex items-center gap-2">
@@ -20,7 +22,7 @@ const HomePage = () => {
 
         <div className="flex items-center gap-2">
           <Button size="sm" variant="gradient">Salom</Button>
-          <Button size="md" variant="gradient">Salom</Button>
+          <Button onClick={() => setIsLoad(!isLoad)} loading={isLoad} size="md" variant="gradient">Salom isLoad</Button>
           <Button size="lg" variant="gradient">Salom</Button>
         </div>
 
@@ -37,6 +39,14 @@ const HomePage = () => {
         </div>
       </div>
 
+
+sdsds
+      <div className="flex gap-2">
+        <Input size="lg" />
+        <Button color="error" size="lg">Salom</Button>
+        <IconButton color="error" size="lg" onClick={() => setIsLoad(!isLoad)} icon={isLoad ? <Heart size={16}/> : <HeartOff size={16}/>}/>
+      </div>
+      sdsd
 
       <div className="space-y-4">
         <div className="flex items-center gap-2">
@@ -67,7 +77,7 @@ const HomePage = () => {
       {/* Badge Examples */}
       <div className="space-y-4 mt-8">
         <h2 className="text-xl font-bold text-white">Badge Examples</h2>
-        
+
         {/* Badge Variants */}
         <div className="space-y-2">
           <h3 className="text-lg font-semibold text-white">Variants</h3>
@@ -127,7 +137,7 @@ const HomePage = () => {
       {/* IconButton Examples */}
       <div className="space-y-4 mt-8">
         <h2 className="text-xl font-bold text-white">IconButton Examples</h2>
-        
+
         {/* IconButton Variants */}
         <div className="space-y-2">
           <h3 className="text-lg font-semibold text-white">Variants</h3>
@@ -202,7 +212,7 @@ const HomePage = () => {
       {/* Loader Examples */}
       <div className="space-y-4 mt-8">
         <h2 className="text-xl font-bold text-white">Loader Examples</h2>
-        
+
         {/* Loader Variants */}
         <div className="space-y-2">
           <h3 className="text-lg font-semibold text-white">Variants</h3>
@@ -315,26 +325,26 @@ const HomePage = () => {
       {/* Input Components */}
       <div className="space-y-6 mt-8">
         <h2 className="text-2xl font-bold text-white">Input Components</h2>
-        
+
         {/* Basic Input Variants */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Basic Variants</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input 
-              label="Filled Input" 
-              placeholder="Enter text..." 
-              variant="filled" 
+            <Input
+              label="Filled Input"
+              placeholder="Enter text..."
+              variant="filled"
               color="primary"
             />
             <div className="flex items-center">
-            <Input 
-              // label="Outlined Input" 
-              placeholder="Enter text..." 
-              variant="outlined" 
-              color="primary"
-              size="md"
-            />
-            <IconButton size="md">Send</IconButton>
+              <Input
+                // label="Outlined Input" 
+                placeholder="Enter text..."
+                variant="outlined"
+                color="primary"
+                size="md"
+              />
+              <IconButton size="md">Send</IconButton>
             </div>
           </div>
         </div>
@@ -343,22 +353,22 @@ const HomePage = () => {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Input Sizes</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Input 
-              label="Small Input" 
-              placeholder="Small size" 
-              size="sm" 
+            <Input
+              label="Small Input"
+              placeholder="Small size"
+              size="sm"
               variant="outlined"
             />
-            <Input 
-              label="Medium Input" 
-              placeholder="Medium size" 
-              size="md" 
+            <Input
+              label="Medium Input"
+              placeholder="Medium size"
+              size="md"
               variant="outlined"
             />
-            <Input 
-              label="Large Input" 
-              placeholder="Large size" 
-              size="lg" 
+            <Input
+              label="Large Input"
+              placeholder="Large size"
+              size="lg"
               variant="outlined"
             />
           </div>
@@ -379,27 +389,27 @@ const HomePage = () => {
           <h3 className="text-lg font-semibold text-white">Size Consistency (Button + Input + IconButton)</h3>
           <div className="space-y-4">
             <div className="flex items-end gap-2">
-              <Input 
-                placeholder="Small input" 
-                size="sm" 
+              <Input
+                placeholder="Small input"
+                size="sm"
                 variant="outlined"
               />
               <Button size="sm">Small Button</Button>
               <IconButton size="sm" icon={<Settings size={16} />} />
             </div>
             <div className="flex items-end gap-2">
-              <Input 
-                placeholder="Medium input" 
-                size="md" 
+              <Input
+                placeholder="Medium input"
+                size="md"
                 variant="outlined"
               />
               <Button size="md">Medium Button</Button>
               <IconButton size="md" icon={<Settings size={20} />} />
             </div>
             <div className="flex items-end gap-2">
-              <Input 
-                placeholder="Large input" 
-                size="lg" 
+              <Input
+                placeholder="Large input"
+                size="lg"
                 variant="outlined"
               />
               <Button size="lg">Large Button</Button>
@@ -412,40 +422,40 @@ const HomePage = () => {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Input Colors</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Input 
-              label="Primary" 
-              placeholder="Primary color" 
-              color="primary" 
+            <Input
+              label="Primary"
+              placeholder="Primary color"
+              color="primary"
               variant="outlined"
             />
-            <Input 
-              label="Success" 
-              placeholder="Success color" 
-              color="success" 
+            <Input
+              label="Success"
+              placeholder="Success color"
+              color="success"
               variant="outlined"
             />
-            <Input 
-              label="Error" 
-              placeholder="Error color" 
-              color="error" 
+            <Input
+              label="Error"
+              placeholder="Error color"
+              color="error"
               variant="outlined"
             />
-            <Input 
-              label="Warning" 
-              placeholder="Warning color" 
-              color="warning" 
+            <Input
+              label="Warning"
+              placeholder="Warning color"
+              color="warning"
               variant="outlined"
             />
-            <Input 
-              label="Info" 
-              placeholder="Info color" 
-              color="info" 
+            <Input
+              label="Info"
+              placeholder="Info color"
+              color="info"
               variant="outlined"
             />
-            <Input 
-              label="Secondary" 
-              placeholder="Secondary color" 
-              color="secondary" 
+            <Input
+              label="Secondary"
+              placeholder="Secondary color"
+              color="secondary"
               variant="outlined"
             />
           </div>
@@ -455,32 +465,32 @@ const HomePage = () => {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Input States</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input 
-              label="Disabled Input" 
-              placeholder="This is disabled" 
-              disabled 
+            <Input
+              label="Disabled Input"
+              placeholder="This is disabled"
+              disabled
               variant="outlined"
             />
-            <Input 
-              label="Error Input" 
-              placeholder="This has an error" 
-              error 
-              errorText="This field is required" 
+            <Input
+              label="Error Input"
+              placeholder="This has an error"
+              error
+              errorText="This field is required"
               startIcon={<Settings size={20} />}
               variant="outlined"
             />
-            <Input 
-              label="Success Input" 
-              placeholder="This is successful" 
-              success 
-              successText="Great! This looks good" 
+            <Input
+              label="Success Input"
+              placeholder="This is successful"
+              success
+              successText="Great! This looks good"
               endIcon={<Star size={20} />}
               variant="outlined"
             />
-            <Input 
-              label="With Helper Text" 
-              placeholder="Enter your email" 
-              helperText="We'll never share your email" 
+            <Input
+              label="With Helper Text"
+              placeholder="Enter your email"
+              helperText="We'll never share your email"
               variant="outlined"
             />
           </div>
@@ -490,45 +500,45 @@ const HomePage = () => {
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Input with Icons</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <Input 
-              label="Search Input" 
-              placeholder="Search..." 
-              startIcon={<Search size={20} />} 
+            <Input
+              label="Search Input"
+              placeholder="Search..."
+              startIcon={<Search size={20} />}
               variant="outlined"
             />
-            <Input 
-              label="Email Input" 
-              placeholder="Enter email" 
-              type="email" 
-              startIcon={<Settings size={20} />} 
+            <Input
+              label="Email Input"
+              placeholder="Enter email"
+              type="email"
+              startIcon={<Settings size={20} />}
               variant="outlined"
             />
-            <Input 
-              label="Password Input" 
-              placeholder="Enter password" 
-              type="password" 
-              endIcon={<Settings size={20} />} 
+            <Input
+              label="Password Input"
+              placeholder="Enter password"
+              type="password"
+              endIcon={<Settings size={20} />}
               variant="outlined"
             />
-            <Input 
-              label="With Start Icon" 
-              placeholder="Start icon only" 
-              startIcon={<Star size={20} />} 
+            <Input
+              label="With Start Icon"
+              placeholder="Start icon only"
+              startIcon={<Star size={20} />}
               variant="filled"
               color="primary"
             />
-            <Input 
-              label="With End Icon" 
-              placeholder="End icon only" 
-              endIcon={<Heart size={20} />} 
+            <Input
+              label="With End Icon"
+              placeholder="End icon only"
+              endIcon={<Heart size={20} />}
               variant="filled"
               color="success"
             />
-            <Input 
-              label="Both Icons" 
-              placeholder="Both icons" 
-              startIcon={<Plus size={20} />} 
-              endIcon={<Edit size={20} />} 
+            <Input
+              label="Both Icons"
+              placeholder="Both icons"
+              startIcon={<Plus size={20} />}
+              endIcon={<Edit size={20} />}
               variant="outlined"
               color="info"
             />
@@ -538,10 +548,10 @@ const HomePage = () => {
         {/* Full Width Input */}
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-white">Full Width Input</h3>
-          <Input 
-            label="Full Width Input" 
-            placeholder="This input takes full width" 
-            fullWidth 
+          <Input
+            label="Full Width Input"
+            placeholder="This input takes full width"
+            fullWidth
             variant="outlined"
             helperText="This input spans the full width of its container"
           />
@@ -549,7 +559,7 @@ const HomePage = () => {
       </div>
 
       <div className="flex items-center gap-2">
-        <Input placeholder="Phone name"/>
+        <Input placeholder="Phone name" />
         <Button>Send</Button>
       </div>
 

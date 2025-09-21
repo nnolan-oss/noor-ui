@@ -2,7 +2,6 @@ export const buttonFilled: object = {
   primary: {
     background: "bg-[var(--noor-color-primary)]",
     color: "text-[var(--noor-color-primary-contrast)]",
-    shadow: "shadow-md shadow-[var(--noor-color-primary)]/10",
     hover: "hover:bg-[var(--noor-color-primary)]/80",
     focus: "focus:opacity-[0.85] focus:shadow-none",
     active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
@@ -11,7 +10,6 @@ export const buttonFilled: object = {
   secondary: {
     background: "bg-[var(--noor-color-secondary)]",
     color: "text-[var(--noor-color-secondary-contrast)]",
-    shadow: "shadow-md shadow-[var(--noor-color-secondary)]/10",
     hover: "hover:bg-[var(--noor-color-secondary)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
     active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
@@ -20,7 +18,6 @@ export const buttonFilled: object = {
   success: {
     background: "bg-[var(--noor-color-success)]",
     color: "text-white",
-    shadow: "shadow-md shadow-[var(--noor-color-success)]/20",
     hover: "hover:bg-[var(--noor-color-success)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
     active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
@@ -29,7 +26,6 @@ export const buttonFilled: object = {
   error: {
     background: "bg-[var(--noor-color-danger)]",
     color: "text-white",
-    shadow: "shadow-md shadow-[var(--noor-color-danger)]/20",
     hover: "hover:bg-[var(--noor-color-danger)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
     active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
@@ -38,7 +34,6 @@ export const buttonFilled: object = {
   info: {
     background: "bg-[var(--noor-color-info)]",
     color: "text-white",
-    shadow: "shadow-md shadow-[var(--noor-color-info)]/20",
     hover: "hover:bg-[var(--noor-color-info)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
     active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
@@ -47,7 +42,6 @@ export const buttonFilled: object = {
   warning: {
     background: "bg-[var(--noor-color-warning)]",
     color: "text-white",
-    shadow: "shadow-md shadow-[var(--noor-color-warning)]/20",
     hover: "hover:bg-[var(--noor-color-warning)]/90",
     focus: "focus:opacity-[0.85] focus:shadow-none",
     active: "active:opacity-[0.9] active:scale-95 active:shadow-none",
