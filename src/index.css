@@ -8,12 +8,14 @@
     --color-success: #22c55e;
     --color-danger: #ef4444;
     --color-warning: #f59e0b;
-  }
+    /* --font-h1: 200px; */
+}
 
-  .dark {
+.dark {
     /* --color-primary: #16a34a; */
     --color-secondary: #475569;
     --color-success: #16a34a;
     --color-danger: #dc2626;
     --color-warning: #d97706;
-  }
+    /* --font-h1: 200px; */
+}

@@ -6,114 +6,15 @@ const HomePage = () => {
   console.log(mode, "thememm");
 
   return (
-    <div className={"p-4 bg-gray-900"}>
+    <div className={"p-4 bg-gray-900 text-white"}>
       <Search size={120} className={"bg-red-500"} />
 
-      <div className="bg-primary text-contrast p-4 rounded">
-        Noor UI Primary Box
-      </div>
-
-      <h1 className="text-primary font-h6">
-        Noor UI Heading
-      </h1>
-
-      <h1 className="text-primary font-subtitle1">
-        Noor UI Heading
-      </h1>
-
-      {/* Theme Variables Examples - Using Classes */}
-      <section className="mt-8 space-y-4">
-        <h2 className="text-primary font-h5">
-          Theme Variables Examples (Using Classes)
-        </h2>
-        
-        {/* Color Examples */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 rounded bg-primary text-contrast">
-            Primary Color
-          </div>
-          <div className="p-4 rounded bg-secondary text-white">
-            Secondary Color
-          </div>
-          <div className="p-4 rounded bg-success text-white">
-            Success Color
-          </div>
-          <div className="p-4 rounded bg-error text-white">
-            Error Color
-          </div>
-        </div>
-
-        {/* Typography Examples */}
-        <div className="space-y-2">
-          <h1>H1 Heading</h1>
-          <h2>H1 Heading</h2>
-          <h3>H1 Heading</h3>
-          <h2 className="font-h2 text-primary">H2 Heading</h2>
-          <h3 className="font-h3 text-primary">H3 Heading</h3>
-          <h3 className="font-h4 text-primary">H3 Heading</h3>
-          <h3 className="font-h5 text-primary">H3 Heading</h3>
-          <p className="font-body1 text-secondary">Body text example</p>
-          <span className="font-caption text-disabled">Caption text</span>
-        </div>
-
-        {/* Shadow Examples */}
-        <div className="grid grid-cols-2 gap-4">
-          <div className="p-4 rounded bg-white shadow-1">
-            Shadow 1
-          </div>
-          <div className="p-4 rounded bg-white shadow-2">
-            Shadow 2
-          </div>
-          <div className="p-4 rounded bg-white shadow-3">
-            Shadow 3
-          </div>
-          <div className="p-4 rounded bg-white shadow-4">
-            Shadow 4
-          </div>
-        </div>
-
-        {/* Background Examples */}
-        <div className="p-4 rounded bg-paper text-primary">
-          Paper Background
-        </div>
-
-        {/* Interactive Examples */}
-        <div className="space-y-2">
-          <button className="px-4 py-2 rounded hover-primary transition-colors">
-            Hover Primary
-          </button>
-          <button className="px-4 py-2 rounded hover-secondary transition-colors">
-            Hover Secondary
-          </button>
-          <button className="px-4 py-2 rounded hover-success transition-colors">
-            Hover Success
-          </button>
-        </div>
-
-        {/* Border Examples */}
-        <div className="space-y-2">
-          <div className="p-4 border-2 border-primary rounded">
-            Primary Border
-          </div>
-          <div className="p-4 border-2 border-success rounded">
-            Success Border
-          </div>
-          <div className="p-4 border-2 border-error rounded">
-            Error Border
-          </div>
-        </div>
-
-        {/* Tailwind Arbitrary Values Examples */}
-        <div className="space-y-2">
-          <h3 className="text-primary font-h6">Tailwind Arbitrary Values:</h3>
-          <div className="p-4 rounded bg-[var(--color-primary-light)] text-[var(--color-text-primary)]">
-            Primary Light (Arbitrary)
-          </div>
-          <div className="p-4 rounded shadow-[var(--shadow-2)] bg-[var(--color-background-paper)]">
-            Custom Shadow (Arbitrary)
-          </div>
-        </div>
-      </section>
+      <h1 className="text-[size:var(--font-h1)]">salom</h1>
+      <h2 className="text-[size:var(--font-h2)]">salom</h2>
+      <h2 className="text-[size:var(--font-h3)]">salom</h2>
+      <h2 className="text-[size:var(--font-h4)]">salom</h2>
+      <h2 className="text-[size:var(--font-h5)]">salom</h2>
+      <h2 className="text-[size:var(--font-h6)]">salom</h2>
 
       <section>
         <h2 className="font-bold text-lg mb-2">Solid</h2>

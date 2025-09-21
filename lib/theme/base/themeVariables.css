@@ -6,19 +6,19 @@
 @layer noor {
   :root {
     /* Typography */
-    --font-h1: 96px/112px var(--font-sans);
-    --font-h2: 60px/72px var(--font-sans);
-    --font-h3: 48px/56px var(--font-sans);
-    --font-h4: 34px/40px var(--font-sans);
-    --font-h5: 24px/32px var(--font-sans);
-    --font-h6: 20px/28px var(--font-sans);
-    --font-subtitle1: 16px/24px var(--font-sans);
-    --font-subtitle2: 14px/20px var(--font-sans);
-    --font-body1: 16px/24px var(--font-sans);
-    --font-body2: 14px/20px var(--font-sans);
-    --font-button: 14px/20px var(--font-sans);
-    --font-caption: 12px/16px var(--font-sans);
-    --font-overline: 10px/16px var(--font-sans);
+    --font-h1: 96px;
+    --font-h2: 60px;
+    --font-h3: 48px;
+    --font-h4: 34px;
+    --font-h5: 24px;
+    --font-h6: 20px;
+    --font-subtitle1: 16px;
+    --font-subtitle2: 14px;
+    --font-body1: 16px;
+    --font-body2: 14px;
+    --font-button: 14px;
+    --font-caption: 12px;
+    --font-overline: 10px;
 
     /* Letter spacing */
     --letter-spacing-h1: -0.01562em;
@@ -114,80 +114,4 @@
   h6 { font: var(--font-h6); letter-spacing: var(--letter-spacing-h6); }
   p  { font: var(--font-body1); letter-spacing: var(--letter-spacing-body1); }
   span { font: var(--font-body2); letter-spacing: var(--letter-spacing-body2); }
-}
-
-/* -------------------------------
-   Custom Utilities
--------------------------------- */
-@utility typography-* {
-  font: --value(--font-*);
-}
-
-@utility elevation-* {
-  box-shadow: --value(--shadow-*);
-}
-
-@utility overlay-* {
-  background-image: --value(--overlay-*);
-}
-
-/* -------------------------------
-   Theme Utility Classes
--------------------------------- */
-@layer utilities {
-  /* Color Backgrounds */
-  .bg-primary { background-color: var(--color-primary); }
-  .bg-primary-light { background-color: var(--color-primary-light); }
-  .bg-primary-dark { background-color: var(--color-primary-dark); }
-  .bg-secondary { background-color: var(--color-secondary); }
-  .bg-secondary-light { background-color: var(--color-secondary-light); }
-  .bg-secondary-dark { background-color: var(--color-secondary-dark); }
-  .bg-success { background-color: var(--color-success); }
-  .bg-warning { background-color: var(--color-warning); }
-  .bg-error { background-color: var(--color-error); }
-  .bg-info { background-color: var(--color-info); }
-  .bg-paper { background-color: var(--color-background-paper); }
-  .bg-default { background-color: var(--color-background-default); }
-
-  /* Text Colors */
-  .text-primary { color: var(--color-text-primary); }
-  .text-secondary { color: var(--color-text-secondary); }
-  .text-disabled { color: var(--color-text-disabled); }
-  .text-contrast { color: var(--color-primary-contrast); }
-
-  /* Typography Classes */
-  .font-h1 { font: var(--font-h1); letter-spacing: var(--letter-spacing-h1); }
-  .font-h2 { font: var(--font-h2); letter-spacing: var(--letter-spacing-h2); }
-  .font-h3 { font: var(--font-h3); }
-  .font-h4 { font: var(--font-h4); letter-spacing: var(--letter-spacing-h4); }
-  .font-h5 { font: var(--font-h5); }
-  .font-h6 { font: var(--font-h6); letter-spacing: var(--letter-spacing-h6); }
-  .font-subtitle1 { font: var(--font-subtitle1); }
-  .font-subtitle2 { font: var(--font-subtitle2); }
-  .font-body1 { font: var(--font-body1); letter-spacing: var(--letter-spacing-body1); }
-  .font-body2 { font: var(--font-body2); letter-spacing: var(--letter-spacing-body2); }
-  .font-button { font: var(--font-button); }
-  .font-caption { font: var(--font-caption); }
-  .font-overline { font: var(--font-overline); }
-
-  /* Shadow Classes */
-  .shadow-1 { box-shadow: var(--shadow-1); }
-  .shadow-2 { box-shadow: var(--shadow-2); }
-  .shadow-3 { box-shadow: var(--shadow-3); }
-  .shadow-4 { box-shadow: var(--shadow-4); }
-
-  /* Border Colors */
-  .border-primary { border-color: var(--color-primary); }
-  .border-secondary { border-color: var(--color-secondary); }
-  .border-success { border-color: var(--color-success); }
-  .border-warning { border-color: var(--color-warning); }
-  .border-error { border-color: var(--color-error); }
-  .border-divider { border-color: var(--color-divider); }
-
-  /* Action States */
-  .hover-primary:hover { background-color: var(--color-primary); color: var(--color-primary-contrast); }
-  .hover-secondary:hover { background-color: var(--color-secondary); color: var(--color-secondary-contrast); }
-  .hover-success:hover { background-color: var(--color-success); color: white; }
-  .hover-warning:hover { background-color: var(--color-warning); color: white; }
-  .hover-error:hover { background-color: var(--color-error); color: white; }
 }
