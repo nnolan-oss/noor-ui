@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import { type TColors } from "../generic";
 
-export type TButtonVariant = "filled" | "outlined" | "text" | "gradient" | "solid" | "outline" | "ghost" | "link";
+export type TButtonVariant = "filled" | "outlined" | "text" | "gradient";
 export type TButtonSize = "sm" | "md" | "lg";
 export type TButtonColors = TColors;
 export type TButtonFullWidth = boolean;
