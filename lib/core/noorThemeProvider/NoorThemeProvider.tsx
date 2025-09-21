@@ -10,10 +10,10 @@ import { theme as defaultTheme } from "../../theme";
 import combineMerge from "../../utils/combineMerge";
 import "../../theme/base/themeVariables.css";
 export type ThemeMode = "light" | "dark";
-import { type ThemeConfig } from "../../types/theme";
+import { type ThemeConfig, type Theme } from "../../types/theme";
 
 interface ThemeContextType {
-  theme: ThemeConfig;
+  theme: Theme;
   mode: ThemeMode;
   toggleMode: (theme?: ThemeMode) => void;
 }
@@ -34,17 +34,17 @@ export const NoorThemeProvider = ({
   // merge default + user theme
   const mergedTheme = merge(defaultTheme, theme, {
     arrayMerge: combineMerge,
-  });
+  }) as Theme;
 
   // Ensure components structure is properly set
-  const themeWithComponents = {
-    components: mergedTheme.components || {},
-    typography: mergedTheme.typography || {},
-    spacing: mergedTheme.spacing || {},
-    breakpoints: mergedTheme.breakpoints || {},
-    zIndex: mergedTheme.zIndex || {},
-    colors: mergedTheme.colors || {},
-    shadows: mergedTheme.shadows || {},
+  const themeWithComponents: Theme = {
+    components: mergedTheme.components || defaultTheme.components,
+    typography: mergedTheme.typography || defaultTheme.typography,
+    spacing: mergedTheme.spacing || defaultTheme.spacing,
+    breakpoints: mergedTheme.breakpoints || defaultTheme.breakpoints,
+    zIndex: mergedTheme.zIndex || defaultTheme.zIndex,
+    colors: mergedTheme.colors || defaultTheme.colors,
+    shadows: mergedTheme.shadows || defaultTheme.shadows,
   };
 
   // initialize theme mode from localStorage or fallback

@@ -6,7 +6,7 @@ const HomePage = () => {
   console.log(mode, "thememm");
 
   return (
-    <div className={"p-4 bg-gray-900 text-white"}>
+    <div className={"p-4 bg-[var(--noor-color-background-default)] text-white"}>
       <Search size={120} className={"bg-red-500"} />
 
       <h1>salom</h1>
@@ -25,7 +25,7 @@ const HomePage = () => {
           <Button
             startIcon={<ChevronLeft />}
             endIcon={<ChevronRight />}
-            color="black"
+            color="primary"
             size="md"
             onClick={() => toggleMode()}
           >
@@ -56,13 +56,13 @@ const HomePage = () => {
           <Button variant="outline" color="success">
             Success
           </Button>
-          <Button variant="outline" color="danger">
+          <Button variant="outline" color="error">
             Danger
           </Button>
           <Button variant="outline" color="warning">
             Warning
           </Button>
-          <Button variant="outline" color="neutral">
+          <Button variant="outline" color="info">
             Neutral
           </Button>
         </div>
@@ -79,13 +79,13 @@ const HomePage = () => {
           <Button variant="ghost" color="success">
             Success
           </Button>
-          <Button variant="ghost" color="danger">
+          <Button variant="ghost" color="error">
             Danger
           </Button>
           <Button variant="ghost" color="warning">
             Warning
           </Button>
-          <Button variant="ghost" color="neutral">
+          <Button variant="ghost" color="warning">
             Neutral
           </Button>
         </div>

@@ -5,39 +5,40 @@ import {
   type TButtonSize,
   type TButtonVariant,
 } from "../../../types/components/button";
+import { themeColors, type TColors } from "../../../types/generic";
 import { buttonFilled } from "./buttonFilled";
 import { buttonGradient } from "./buttonGradient";
 import { buttonOutlined } from "./buttonOutlined";
 import { buttonText } from "./buttonText";
 
 export interface IButtonStyleTypes {
-  defaultProps?: {
-    variant?: TButtonVariant;
-    size?: TButtonSize;
-    color?: TButtonColors;
-    fullWidth?: TButtonFullWidth;
-    className?: TButtonClassname;
+  defaultProps: {
+    variant: TButtonVariant;
+    size: TButtonSize;
+    color: TButtonColors;
+    fullWidth: TButtonFullWidth;
+    className: TButtonClassname;
   };
-  valid?: {
-    variants?: string[];
-    sizes?: string[];
-    colors?: string[];
+  valid: {
+    variants: string[];
+    sizes: string[];
+    colors: TColors[];
   };
-  styles?: {
-    base?: {
-      initial?: object;
-      fullWidth?: object;
+  styles: {
+    base: {
+      initial: object;
+      fullWidth: object;
     };
-    sizes?: {
-      sm?: object;
-      md?: object;
-      lg?: object;
+    sizes: {
+      sm: object;
+      md: object;
+      lg: object;
     };
-    variants?: {
-      filled?: typeof buttonFilled;
-      gradient?: typeof buttonGradient;
-      outlined?: typeof buttonOutlined;
-      text?: typeof buttonText;
+    variants: {
+      filled: typeof buttonFilled;
+      gradient: typeof buttonGradient;
+      outlined: typeof buttonOutlined;
+      text: typeof buttonText;
     };
   };
 }
@@ -46,14 +47,14 @@ export const button: IButtonStyleTypes = {
   defaultProps: {
     variant: "filled",
     size: "md",
-    color: "black",
+    color: "primary",
     fullWidth: false,
     className: "",
   },
   valid: {
     variants: ["filled", "gradient", "outlined", "text"],
     sizes: ["sm", "md", "lg"],
-    colors: ["black", "white", "gray", "red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose"],
+    colors: [...themeColors],
   },
   styles: {
     base: {
@@ -61,7 +62,7 @@ export const button: IButtonStyleTypes = {
         verticalAlign: "align-middle",
         userSelect: "select-none",
         fontFamily: "font-sans",
-        fontWeight: "font-bold",
+        fontWeight: "font-medium",
         textAlign: "text-center",
         textTransform: "uppercase",
         transition: "transition-all",

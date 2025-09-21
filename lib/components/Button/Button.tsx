@@ -8,28 +8,24 @@ import classnames from "classnames";
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant, size, color, fullWidth, className, children, loading, startIcon, endIcon, ...rest }, ref) => {
-    // 1. init
     const { theme } = useTheme();
     const { button } = theme.components;
     const { valid, defaultProps, styles } = button;
     const { base, variants, sizes } = styles;
 
-    // 2. set default props
     variant = variant ?? defaultProps.variant;
     size = size ?? defaultProps.size;
     color = color ?? defaultProps.color;
     fullWidth = fullWidth ?? defaultProps.fullWidth;
     className = twMerge(defaultProps.className || "", className);
 
-
-    // 4. set styles
     const buttonBase = objectsToString(base.initial);
     const buttonVariant = objectsToString(
-      variants[findMatch(valid.variants, variant, "filled")][
+      (variants as any)[findMatch(valid.variants, variant, "filled")][
       findMatch(valid.colors, color, "gray")
       ],
     );
-    const buttonSize = objectsToString(sizes[findMatch(valid.sizes, size, "md")]);
+    const buttonSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
     const classes = twMerge(
       classnames(
         buttonBase,
@@ -46,7 +42,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
     );
 
-    // 5. return
     return (
       <button
         {...rest}
