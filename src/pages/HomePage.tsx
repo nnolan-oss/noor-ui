@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight, Search, Star, Heart } from "lucide-react";
-import { Button, Badge, useTheme } from "noor-ui";
+import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download } from "lucide-react";
+import { Button, Badge, IconButton, useTheme } from "noor-ui";
 
 const HomePage = () => {
   const { mode, toggleMode } = useTheme();
@@ -120,6 +120,81 @@ const HomePage = () => {
             <Badge variant="gradient" size="lg" color="primary">Premium</Badge>
             <Badge variant="text" size="md" color="warning">Beta</Badge>
             <Badge variant="filled" size="sm" color="error" startIcon={<Heart size={10} />}>Hot</Badge>
+          </div>
+        </div>
+      </div>
+
+      {/* IconButton Examples */}
+      <div className="space-y-4 mt-8">
+        <h2 className="text-xl font-bold text-white">IconButton Examples</h2>
+        
+        {/* IconButton Variants */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Variants</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton variant="filled" color="primary" icon={<Settings size={16} />} />
+            <IconButton variant="outlined" color="primary" icon={<Settings size={16} />} />
+            <IconButton variant="text" color="primary" icon={<Settings size={16} />} />
+            <IconButton variant="gradient" color="primary" icon={<Settings size={16} />} />
+          </div>
+        </div>
+
+        {/* IconButton Sizes */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Sizes</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton size="sm" color="success" icon={<Plus size={12} />} />
+            <IconButton size="md" color="success" icon={<Plus size={16} />} />
+            <IconButton size="lg" color="success" icon={<Plus size={20} />} />
+          </div>
+        </div>
+
+        {/* IconButton Colors */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Colors</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton color="primary" icon={<Settings size={16} />} />
+            <IconButton color="secondary" icon={<Settings size={16} />} />
+            <IconButton color="success" icon={<Settings size={16} />} />
+            <IconButton color="error" icon={<Settings size={16} />} />
+            <IconButton color="warning" icon={<Settings size={16} />} />
+            <IconButton color="info" icon={<Settings size={16} />} />
+          </div>
+        </div>
+
+        {/* IconButton with Different Icons */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Different Icons</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton color="primary" icon={<Plus size={16} />} />
+            <IconButton color="success" icon={<Save size={16} />} />
+            <IconButton color="warning" icon={<Edit size={16} />} />
+            <IconButton color="error" icon={<Trash2 size={16} />} />
+            <IconButton color="info" icon={<Download size={16} />} />
+            <IconButton color="secondary" icon={<Settings size={16} />} />
+          </div>
+        </div>
+
+        {/* IconButton Mixed Examples */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Mixed Examples</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton variant="outlined" size="sm" color="success" icon={<Plus size={12} />} />
+            <IconButton variant="gradient" size="lg" color="primary" icon={<Star size={20} />} />
+            <IconButton variant="text" size="md" color="warning" icon={<Edit size={16} />} />
+            <IconButton variant="filled" size="sm" color="error" icon={<Trash2 size={12} />} />
+            <IconButton variant="outlined" size="lg" color="info" icon={<Download size={20} />} />
+            <IconButton variant="gradient" size="md" color="secondary" icon={<Heart size={16} />} />
+          </div>
+        </div>
+
+        {/* IconButton with Loading State */}
+        <div className="space-y-2">
+          <h3 className="text-lg font-semibold text-white">Loading State</h3>
+          <div className="flex items-center gap-2 flex-wrap">
+            <IconButton color="primary" icon={<Settings size={16} />} loading />
+            <IconButton variant="outlined" color="success" icon={<Save size={16} />} loading />
+            <IconButton variant="text" color="warning" icon={<Edit size={16} />} loading />
           </div>
         </div>
       </div>
