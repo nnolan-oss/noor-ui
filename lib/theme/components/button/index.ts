@@ -88,14 +88,14 @@ export const button: IButtonStyleTypes = {
       md: {
         fontSize: "text-sm",
         py: "py-3",
-        px: "px-6",
+        px: "px-4",
         borderRadius: "rounded-xl",
         height: "h-[var(--noor-form-h-md)]",
       },
       lg: {
         fontSize: "text-md",
         py: "py-3.5",
-        px: "px-7",
+        px: "px-5",
         borderRadius: "rounded-xl",
         height: "h-[var(--noor-form-h-lg)]",
       },

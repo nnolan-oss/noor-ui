@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff } from "lucide-react";
-import { Button, Badge, IconButton, Loader, Input, useTheme } from "noor-ui";
+import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff, Home } from "lucide-react";
+import { Button, Badge, IconButton, Loader, Input, useTheme, Switch } from "noor-ui";
 import { useState } from "react";
 
 const HomePage = () => {
@@ -11,6 +11,22 @@ const HomePage = () => {
     <div className={"p-4 bg-[var(--noor-color-background-default)] text-white"}>
       <Search size={120} className={"bg-red-500"} />
       <Button onClick={() => toggleMode()}>Change theme</Button>
+
+      <Switch color="warning" size="sm" onChange={() => setIsLoad(!isLoad)} />
+        {
+          JSON.stringify(isLoad)
+        }
+
+      <hr />
+      <Switch color="primary" />
+      <Switch color="secondary" />
+      <Switch color="success" />
+      <Switch color="error" />
+      <Switch color="info" />
+      <Switch color="warning" size="md" />
+      <Switch color="warning" size="lg" />
+      <hr />
+
 
       <div className="space-y-4">
         <div className="flex items-center gap-2">
@@ -39,12 +55,11 @@ const HomePage = () => {
         </div>
       </div>
 
-
-sdsds
+      sdsds
       <div className="flex gap-2">
         <Input size="lg" />
         <Button color="error" size="lg">Salom</Button>
-        <IconButton color="error" size="lg" onClick={() => setIsLoad(!isLoad)} icon={isLoad ? <Heart size={16}/> : <HeartOff size={16}/>}/>
+        <IconButton color="error" size="lg" onClick={() => setIsLoad(!isLoad)} icon={isLoad ? <Heart size={16} /> : <HeartOff size={16} />} />
       </div>
       sdsd
 
