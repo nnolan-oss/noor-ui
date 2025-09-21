@@ -1,8 +1,10 @@
 import { button } from "./components/button";
+import { badge } from "./components/badge";
 
 export const theme = {
   components: {
     button,
+    badge,
   },
   typography: {},
   spacing: {},
@@ -15,3 +17,4 @@ export const theme = {
 };
 
 export * from "./components/button";
+export * from "./components/badge";
