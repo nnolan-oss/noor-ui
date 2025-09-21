@@ -9,7 +9,9 @@ export const theme = {
   breakpoints: {},
   zIndex: {},
   colors: {},
-  shadows: {},
+  shadows: {
+    default: "none"
+  },
 };
 
 export * from "./components/button";

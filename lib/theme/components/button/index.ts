@@ -79,19 +79,19 @@ export const button: IButtonStyleTypes = {
         fontSize: "text-xs",
         py: "py-2",
         px: "px-4",
-        borderRadius: "rounded-lg",
+        borderRadius: "rounded-xl",
       },
       md: {
         fontSize: "text-sm",
         py: "py-3",
         px: "px-6",
-        borderRadius: "rounded-lg",
+        borderRadius: "rounded-xl",
       },
       lg: {
         fontSize: "text-md",
         py: "py-3.5",
         px: "px-7",
-        borderRadius: "rounded-lg",
+        borderRadius: "rounded-xl",
       },
     },
     variants: {

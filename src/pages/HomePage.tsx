@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { ChevronLeft, ChevronRight, Home, Search } from "lucide-react";
 import { Button, useTheme } from "noor-ui";
 
 const HomePage = () => {
@@ -8,10 +8,11 @@ const HomePage = () => {
   return (
     <div className={"p-4 bg-[var(--noor-color-background-default)] text-white"}>
       <Search size={120} className={"bg-red-500"} />
+      <Button onClick={()=>toggleMode()}>Change theme</Button>
 
       <div className="space-y-4">
         <div className="flex items-center gap-2">
-          <Button size="sm">Salom</Button>
+          <Button startIcon={<ChevronLeft />} endIcon={<ChevronRight />} size="sm">Salom</Button>
           <Button size="md">Salom</Button>
           <Button size="lg">Salom</Button>
         </div>
