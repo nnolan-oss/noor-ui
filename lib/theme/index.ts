@@ -2,6 +2,7 @@ import { button } from "./components/button";
 import { badge } from "./components/badge";
 import { iconButton } from "./components/iconButton";
 import { loader } from "./components/loader";
+import { input } from "./components/input";
 
 export const theme = {
   components: {
@@ -9,6 +10,7 @@ export const theme = {
     badge,
     iconButton,
     loader,
+    input,
   },
   typography: {},
   spacing: {},
@@ -24,3 +26,4 @@ export * from "./components/button";
 export * from "./components/badge";
 export * from "./components/iconButton";
 export * from "./components/loader";
+export * from "./components/input";

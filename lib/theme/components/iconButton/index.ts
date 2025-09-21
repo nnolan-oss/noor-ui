@@ -75,7 +75,7 @@ export const iconButton: IIconButtonStyleTypes = {
         width: "w-8",
         height: "h-8",
         fontSize: "text-xs",
-        borderRadius: "rounded-lg",
+        borderRadius: "rounded-xl",
       },
       md: {
         width: "w-10",
