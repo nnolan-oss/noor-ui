@@ -18,9 +18,9 @@ const HomePage = () => {
         JSON.stringify(isLoad)
       }
 
-      <Checkbox label="salom" size="lg" />
-      <Checkbox label="salom" size="md" />
-      <Checkbox label="salom" size="sm" />
+      <Checkbox label="salom" size="lg" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>} />
+      <Checkbox label="salom" size="md" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>} />
+      <Checkbox label="salom" size="sm" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>} />
       <Radio label="salom" size="lg" />
       <Radio label="salom" size="md" />
       <Radio label="salom" size="sm" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>}/>
