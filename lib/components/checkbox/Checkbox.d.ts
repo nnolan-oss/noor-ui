@@ -14,5 +14,6 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   defaultChecked?: boolean;
   checkedIcon?: React.ReactNode;
   uncheckedIcon?: React.ReactNode;
+  iconClasses?: string;
 }
 

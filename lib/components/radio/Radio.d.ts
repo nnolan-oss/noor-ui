@@ -14,5 +14,6 @@ export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> 
   defaultChecked?: boolean;
   checkedIcon?: React.ReactNode;
   uncheckedIcon?: React.ReactNode;
+  iconClasses?: string;
 }
 

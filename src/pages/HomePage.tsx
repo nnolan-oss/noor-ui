@@ -1,6 +1,7 @@
 import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff, Home } from "lucide-react";
 import { Button, Badge, IconButton, Loader, Input, useTheme, Switch, Checkbox, Radio } from "noor-ui";
 import { useState } from "react";
+import { TbHeart, TbHome } from "react-icons/tb";
 
 const HomePage = () => {
   const { mode, toggleMode } = useTheme();
@@ -22,7 +23,7 @@ const HomePage = () => {
       <Checkbox label="salom" size="sm" />
       <Radio label="salom" size="lg" />
       <Radio label="salom" size="md" />
-      <Radio label="salom" size="sm" />
+      <Radio label="salom" size="sm" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>}/>
 
       <hr />
       <Switch color="primary" />

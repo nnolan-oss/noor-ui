@@ -20,7 +20,6 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     className = twMerge(defaultProps.className || "", className);
 
     const baseClasses = objectsToString(base.initial);
-    const sizeOuter = (sizes as any)[findMatch(valid.sizes, size, "md")].outer;
     const colorSet = (colors as any)[findMatch(valid.colors, color, "primary")];
     const sizeIcon = (sizes as any)[findMatch(valid.sizes, size, "md")].icon;
 
@@ -35,9 +34,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const labelClasses = twMerge(classnames(objectsToString(base.label), baseClasses), className);
     const inputClasses = twMerge(
-      classnames(colorSet.base, sizeOuter)
+      classnames(colorSet.base)
     );
-    const iconClasses = twMerge(classnames(colorSet.icon, sizeIcon));
+    const iconClasses = twMerge(classnames(colorSet.icon, sizeIcon), (rest as any).iconClasses);
 
     return (
       <label className={labelClasses}>
@@ -58,9 +57,23 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             {loading ? (
               <Loader size="sm" />
             ) : isChecked ? (
-              (rest as any).checkedIcon ?? <CircleDot className={iconClasses} />
+              (() => {
+                const custom = (rest as any).checkedIcon;
+                if (React.isValidElement(custom)) {
+                  const merged = twMerge((custom.props as any)?.className || "", iconClasses);
+                  return React.cloneElement(custom as React.ReactElement<any>, { className: merged } as any);
+                }
+                return custom ?? <CircleDot className={iconClasses} />;
+              })()
             ) : (
-              (rest as any).uncheckedIcon ?? <Circle className={iconClasses} />
+              (() => {
+                const custom = (rest as any).uncheckedIcon;
+                if (React.isValidElement(custom)) {
+                  const merged = twMerge((custom.props as any)?.className || "", iconClasses);
+                  return React.cloneElement(custom as React.ReactElement<any>, { className: merged } as any);
+                }
+                return custom ?? <Circle className={iconClasses} />;
+              })()
             )}
           </span>
         </span>
