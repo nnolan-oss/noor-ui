@@ -11,7 +11,7 @@ import { CircleDot, Circle } from "lucide-react";
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({ size, color, className, loading, label, defaultChecked, onChange, name, ...rest }, ref) => {
     const { theme } = useTheme();
-    const { radio } = theme.components as any;
+    const { radio } = theme.components;
     const { valid, defaultProps, styles } = radio;
     const { base, sizes, colors } = styles;
 
@@ -20,11 +20,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     className = twMerge(defaultProps.className || "", className);
 
     const baseClasses = objectsToString(base.initial);
-    const inputBase = objectsToString(base.input.base);
-    const inputFocus = objectsToString(base.input.focus);
     const sizeOuter = (sizes as any)[findMatch(valid.sizes, size, "md")].outer;
-    const sizeDot = (sizes as any)[findMatch(valid.sizes, size, "md")].dot;
     const colorSet = (colors as any)[findMatch(valid.colors, color, "primary")];
+    const sizeIcon = (sizes as any)[findMatch(valid.sizes, size, "md")].icon;
 
     const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
     const isControlled = defaultChecked !== undefined;
@@ -37,13 +35,13 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const labelClasses = twMerge(classnames(objectsToString(base.label), baseClasses), className);
     const inputClasses = twMerge(
-      classnames(inputBase, inputFocus, colorSet.base, sizeOuter)
+      classnames(colorSet.base, sizeOuter)
     );
-    const dotClasses = twMerge(classnames("rounded-full", colorSet.dot, sizeDot));
+    const iconClasses = twMerge(classnames(colorSet.icon, sizeIcon));
 
     return (
       <label className={labelClasses}>
-        <span className="relative inline-flex items-center">
+        <span>
           <input
             {...rest}
             ref={ref}
@@ -53,18 +51,20 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             onChange={handleChange}
             disabled={rest.disabled ?? loading}
             className={inputClasses}
+            hidden
+            aria-hidden="true"
           />
-          <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <span className="pointer-events-none flex items-center justify-center">
             {loading ? (
               <Loader size="sm" />
             ) : isChecked ? (
-              (rest as any).checkedIcon ?? <CircleDot className={twMerge(dotClasses, "opacity-100")} />
+              (rest as any).checkedIcon ?? <CircleDot className={iconClasses} />
             ) : (
-              (rest as any).uncheckedIcon ?? <Circle className={twMerge(dotClasses, "opacity-100")} />
+              (rest as any).uncheckedIcon ?? <Circle className={iconClasses} />
             )}
           </span>
         </span>
-        {label && <span className="ml-2">{label}</span>}
+        {label && <span>{label}</span>}
       </label>
     );
   }

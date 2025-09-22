@@ -17,10 +17,12 @@ const HomePage = () => {
         JSON.stringify(isLoad)
       }
 
-      <Checkbox label="salom" size="lg"/>
-      <Checkbox label="salom" size="md"/>
-      <Checkbox label="salom" size="sm"/>
-      <Radio label="salom"/>
+      <Checkbox label="salom" size="lg" />
+      <Checkbox label="salom" size="md" />
+      <Checkbox label="salom" size="sm" />
+      <Radio label="salom" size="lg" />
+      <Radio label="salom" size="md" />
+      <Radio label="salom" size="sm" />
 
       <hr />
       <Switch color="primary" />

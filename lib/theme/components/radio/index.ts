@@ -20,12 +20,11 @@ export interface IRadioStyleTypes {
     base: {
       initial: object;
       label: object;
-      input: object;
     };
     sizes: {
-      sm: { outer: string; dot: string };
-      md: { outer: string; dot: string };
-      lg: { outer: string; dot: string };
+      sm: { outer: string; icon: string };
+      md: { outer: string; icon: string };
+      lg: { outer: string; icon: string };
     };
     colors: typeof radioFilled;
   };
@@ -47,22 +46,18 @@ export const radio: IRadioStyleTypes = {
         display: "inline-flex",
         alignItems: "items-center",
         cursor: "cursor-pointer",
-        gap: "gap-2",
+        gap: "gap-1",
         disabled:
           "disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none",
       },
       label: {
         select: "select-none",
       },
-      input: {
-        base: "peer appearance-none accent-transparent rounded-full border transition-colors duration-200",
-        focus: "focus:outline-none focus:ring-2 focus:ring-offset-1 rounded-full",
-      },
     },
     sizes: {
-      sm: { outer: "w-4 h-4", dot: "w-2 h-2" },
-      md: { outer: "w-5 h-5", dot: "w-2.5 h-2.5" },
-      lg: { outer: "w-6 h-6", dot: "w-3 h-3" },
+      sm: { outer: "w-4 h-4", icon: "w-4 h-4" },
+      md: { outer: "w-5 h-5", icon: "w-5 h-5" },
+      lg: { outer: "w-6 h-6", icon: "w-6 h-6" },
     },
     colors: radioFilled,
   },
