@@ -13,7 +13,6 @@ export interface ICheckboxStyleTypes {
     className: TCheckboxClassname;
   };
   valid: {
-    variants: string[];
     sizes: string[];
     colors: TColors[];
   };
@@ -21,16 +20,13 @@ export interface ICheckboxStyleTypes {
     base: {
       initial: object;
       label: object;
-      input: object;
     };
     sizes: {
       sm: { box: string; icon: string };
       md: { box: string; icon: string };
       lg: { box: string; icon: string };
     };
-    variants: {
-      filled: typeof checkboxFilled;
-    };
+    colors: typeof checkboxFilled;
   };
 }
 
@@ -41,36 +37,29 @@ export const checkbox: ICheckboxStyleTypes = {
     className: "",
   },
   valid: {
-    variants: ["filled"],
     sizes: ["sm", "md", "lg"],
     colors: [...themeColors],
   },
   styles: {
     base: {
       initial: {
-        display: "inline-flex",
+        display: "flex",
         alignItems: "items-center",
         cursor: "cursor-pointer",
-        gap: "gap-2",
+        gap: "gap-1",
         disabled:
           "disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none",
       },
       label: {
         select: "select-none",
       },
-      input: {
-        base: "peer appearance-none w-5 h-5 rounded border transition-colors duration-200",
-        focus: "focus:outline-none focus:ring-2 focus:ring-offset-1",
-      },
     },
     sizes: {
-      sm: { box: "w-4 h-4", icon: "w-3 h-3" },
-      md: { box: "w-5 h-5", icon: "w-3.5 h-3.5" },
-      lg: { box: "w-6 h-6", icon: "w-4 h-4" },
+      sm: { box: "w-4 h-4", icon: "w-4 h-4" },
+      md: { box: "w-5 h-5", icon: "w-5 h-5" },
+      lg: { box: "w-6 h-6", icon: "w-6 h-6" },
     },
-    variants: {
-      filled: checkboxFilled,
-    },
+    colors: checkboxFilled,
   },
 };
 

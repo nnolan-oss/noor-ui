@@ -1,7 +1,7 @@
 export const checkboxFilled = {
   primary: {
     base: "border-gray-300 bg-white peer-checked:bg-[var(--noor-color-primary)] peer-checked:border-[var(--noor-color-primary)]",
-    icon: "text-white",
+    icon: "text-[var(--noor-color-primary)]",
   },
   secondary: {
     base: "border-gray-300 bg-white peer-checked:bg-[var(--noor-color-secondary)] peer-checked:border-[var(--noor-color-secondary)]",

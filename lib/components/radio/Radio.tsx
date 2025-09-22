@@ -6,13 +6,14 @@ import { objectsToString } from "../../utils/objectsToString";
 import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
 import { Loader } from "../loader/Loader";
+import { CircleDot, Circle } from "lucide-react";
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   ({ size, color, className, loading, label, defaultChecked, onChange, name, ...rest }, ref) => {
     const { theme } = useTheme();
     const { radio } = theme.components as any;
     const { valid, defaultProps, styles } = radio;
-    const { base, sizes, variants } = styles;
+    const { base, sizes, colors } = styles;
 
     size = size ?? defaultProps.size;
     color = color ?? defaultProps.color;
@@ -23,9 +24,7 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     const inputFocus = objectsToString(base.input.focus);
     const sizeOuter = (sizes as any)[findMatch(valid.sizes, size, "md")].outer;
     const sizeDot = (sizes as any)[findMatch(valid.sizes, size, "md")].dot;
-    const variant = (variants as any)[findMatch(valid.variants, "filled", "filled")][
-      findMatch(valid.colors, color, "primary")
-    ];
+    const colorSet = (colors as any)[findMatch(valid.colors, color, "primary")];
 
     const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
     const isControlled = defaultChecked !== undefined;
@@ -38,9 +37,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 
     const labelClasses = twMerge(classnames(objectsToString(base.label), baseClasses), className);
     const inputClasses = twMerge(
-      classnames(inputBase, inputFocus, variant.base, sizeOuter)
+      classnames(inputBase, inputFocus, colorSet.base, sizeOuter)
     );
-    const dotClasses = twMerge(classnames("rounded-full", variant.dot, sizeDot));
+    const dotClasses = twMerge(classnames("rounded-full", colorSet.dot, sizeDot));
 
     return (
       <label className={labelClasses}>
@@ -58,8 +57,10 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
             {loading ? (
               <Loader size="sm" />
+            ) : isChecked ? (
+              (rest as any).checkedIcon ?? <CircleDot className={twMerge(dotClasses, "opacity-100")} />
             ) : (
-              <span className={twMerge(dotClasses, isChecked ? "opacity-100" : "opacity-0")} />
+              (rest as any).uncheckedIcon ?? <Circle className={twMerge(dotClasses, "opacity-100")} />
             )}
           </span>
         </span>

@@ -17,7 +17,9 @@ const HomePage = () => {
         JSON.stringify(isLoad)
       }
 
-      <Checkbox/>
+      <Checkbox label="salom" size="lg"/>
+      <Checkbox label="salom" size="md"/>
+      <Checkbox label="salom" size="sm"/>
       <Radio label="salom"/>
 
       <hr />
