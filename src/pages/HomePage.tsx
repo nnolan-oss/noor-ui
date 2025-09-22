@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff, Home } from "lucide-react";
-import { Button, Badge, IconButton, Loader, Input, useTheme, Switch, Checkbox, Radio } from "noor-ui";
+import { Button, Badge, IconButton, Loader, Input, useTheme, Switch, Checkbox, Radio, Textarea } from "noor-ui";
 import { useState } from "react";
 import { TbHeart, TbHome } from "react-icons/tb";
 
@@ -18,12 +18,21 @@ const HomePage = () => {
         JSON.stringify(isLoad)
       }
 
-      <Checkbox label="salom" size="lg" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>} />
-      <Checkbox label="salom" size="md" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>} />
-      <Checkbox label="salom" size="sm" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>} />
+      <Textarea
+        label="Description"
+        placeholder="Write something..."
+        variant="outlined"
+        size="md"
+        color="primary"
+        fullWidth
+      />
+
+      <Checkbox label="salom" size="lg" checkedIcon={<TbHome />} uncheckedIcon={<TbHeart />} />
+      <Checkbox label="salom" size="md" checkedIcon={<TbHome />} uncheckedIcon={<TbHeart />} />
+      <Checkbox label="salom" size="sm" checkedIcon={<TbHome />} uncheckedIcon={<TbHeart />} />
       <Radio label="salom" size="lg" />
       <Radio label="salom" size="md" />
-      <Radio label="salom" size="sm" checkedIcon={<TbHome/>} uncheckedIcon={<TbHeart/>}/>
+      <Radio label="salom" size="sm" checkedIcon={<TbHome />} uncheckedIcon={<TbHeart />} />
 
       <hr />
       <Switch color="primary" />

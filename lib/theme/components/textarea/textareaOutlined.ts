@@ -1,0 +1,60 @@
+export const textareaOutlined: object = {
+  primary: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-gray-300",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-[var(--noor-color-primary)] focus:ring-2 focus:ring-[var(--noor-color-primary)]/20",
+    hover: "hover:border-[var(--noor-color-primary)]/50",
+  },
+  secondary: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-gray-300",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-[var(--noor-color-secondary)] focus:ring-2 focus:ring-[var(--noor-color-secondary)]/20",
+    hover: "hover:border-[var(--noor-color-secondary)]/50",
+  },
+  success: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-gray-300",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-[var(--noor-color-success)] focus:ring-2 focus:ring-[var(--noor-color-success)]/20",
+    hover: "hover:border-[var(--noor-color-success)]/80",
+  },
+  error: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-gray-300",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-[var(--noor-color-danger)] focus:ring-2 focus:ring-[var(--noor-color-danger)]/20",
+    hover: "hover:border-[var(--noor-color-danger)]/80",
+  },
+  info: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-gray-300",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-[var(--noor-color-info)] focus:ring-2 focus:ring-[var(--noor-color-info)]/20",
+    hover: "hover:border-[var(--noor-color-info)]/50",
+  },
+  warning: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-gray-300",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-[var(--noor-color-warning)] focus:ring-2 focus:ring-[var(--noor-color-warning)]/20",
+    hover: "hover:border-[var(--noor-color-warning)]/50",
+  },
+  white: {
+    background: "bg-transparent",
+    color: "text-gray-900",
+    border: "border border-white/30",
+    placeholder: "placeholder-gray-500",
+    focus: "focus:border-white focus:ring-2 focus:ring-white/20",
+    hover: "hover:border-white/60",
+  },
+};
+
+
