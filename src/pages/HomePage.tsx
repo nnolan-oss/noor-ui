@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff, Home } from "lucide-react";
-import { Button, Badge, IconButton, Loader, Input, useTheme, Switch } from "noor-ui";
+import { Button, Badge, IconButton, Loader, Input, useTheme, Switch, Checkbox, Radio } from "noor-ui";
 import { useState } from "react";
 
 const HomePage = () => {
@@ -16,6 +16,9 @@ const HomePage = () => {
       {
         JSON.stringify(isLoad)
       }
+
+      <Checkbox/>
+      <Radio label="salom"/>
 
       <hr />
       <Switch color="primary" />
