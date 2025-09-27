@@ -12,3 +12,4 @@ export { Flexbox } from "./flexbox/Flexbox";
 export { Grid } from "./grid/Grid";
 export { GridItem } from "./gridItem/GridItem";
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion/Accordion";
+export { Popover, PopoverTrigger, PopoverContent } from "./popover/Popover";

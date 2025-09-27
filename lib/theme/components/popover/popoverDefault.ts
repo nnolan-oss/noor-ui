@@ -1,0 +1,51 @@
+export const popoverDefault: object = {
+  primary: {
+    background: "bg-white",
+    border: "border border-gray-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-gray-200",
+  },
+  secondary: {
+    background: "bg-white",
+    border: "border border-gray-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-gray-200",
+  },
+  success: {
+    background: "bg-white",
+    border: "border border-green-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-green-200",
+  },
+  error: {
+    background: "bg-white",
+    border: "border border-red-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-red-200",
+  },
+  info: {
+    background: "bg-white",
+    border: "border border-blue-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-blue-200",
+  },
+  warning: {
+    background: "bg-white",
+    border: "border border-yellow-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-yellow-200",
+  },
+  gray: {
+    background: "bg-white",
+    border: "border border-gray-200",
+    shadow: "shadow-md",
+    color: "text-gray-900",
+    arrow: "bg-white border-gray-200",
+  },
+};

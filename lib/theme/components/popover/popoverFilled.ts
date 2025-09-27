@@ -1,0 +1,51 @@
+export const popoverFilled: object = {
+  primary: {
+    background: "bg-[var(--noor-color-primary)]",
+    border: "border border-[var(--noor-color-primary)]",
+    shadow: "shadow-lg",
+    color: "text-[var(--noor-color-primary-contrast)]",
+    arrow: "bg-[var(--noor-color-primary)] border-[var(--noor-color-primary)]",
+  },
+  secondary: {
+    background: "bg-[var(--noor-color-secondary)]",
+    border: "border border-[var(--noor-color-secondary)]",
+    shadow: "shadow-lg",
+    color: "text-[var(--noor-color-secondary-contrast)]",
+    arrow: "bg-[var(--noor-color-secondary)] border-[var(--noor-color-secondary)]",
+  },
+  success: {
+    background: "bg-[var(--noor-color-success)]",
+    border: "border border-[var(--noor-color-success)]",
+    shadow: "shadow-lg",
+    color: "text-white",
+    arrow: "bg-[var(--noor-color-success)] border-[var(--noor-color-success)]",
+  },
+  error: {
+    background: "bg-[var(--noor-color-danger)]",
+    border: "border border-[var(--noor-color-danger)]",
+    shadow: "shadow-lg",
+    color: "text-white",
+    arrow: "bg-[var(--noor-color-danger)] border-[var(--noor-color-danger)]",
+  },
+  info: {
+    background: "bg-[var(--noor-color-info)]",
+    border: "border border-[var(--noor-color-info)]",
+    shadow: "shadow-lg",
+    color: "text-white",
+    arrow: "bg-[var(--noor-color-info)] border-[var(--noor-color-info)]",
+  },
+  warning: {
+    background: "bg-[var(--noor-color-warning)]",
+    border: "border border-[var(--noor-color-warning)]",
+    shadow: "shadow-lg",
+    color: "text-white",
+    arrow: "bg-[var(--noor-color-warning)] border-[var(--noor-color-warning)]",
+  },
+  gray: {
+    background: "bg-gray-800",
+    border: "border border-gray-800",
+    shadow: "shadow-lg",
+    color: "text-white",
+    arrow: "bg-gray-800 border-gray-800",
+  },
+};

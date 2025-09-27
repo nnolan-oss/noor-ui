@@ -12,6 +12,7 @@ import { flexbox } from "./components/flexbox";
 import { grid } from "./components/grid";
 import { gridItem } from "./components/gridItem";
 import { accordion } from "./components/accordion";
+import { popover } from "./components/popover";
 
 export const theme = {
   components: {
@@ -28,7 +29,8 @@ export const theme = {
     flexbox,
     grid,
     gridItem,
-    accordion
+    accordion,
+    popover
   },
   typography: {},
   spacing: {},
@@ -54,3 +56,4 @@ export * from "./components/flexbox";
 export * from "./components/grid";
 export * from "./components/gridItem";
 export * from "./components/accordion";
+export * from "./components/popover";

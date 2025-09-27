@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Download, Edit, Heart, HeartOff, Plus, Save, Search, Settings, Star, Trash2 } from "lucide-react";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Badge, Button, Checkbox, Grid, GridItem, IconButton, Input, Loader, Radio, Switch, Textarea, useTheme } from "noor-ui";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Badge, Button, Checkbox, Grid, GridItem, IconButton, Input, Loader, Radio, Switch, Textarea, useTheme, Popover, PopoverTrigger, PopoverContent } from "noor-ui";
 import { useState } from "react";
 import { TbHeart, TbHome } from "react-icons/tb";
 
@@ -56,6 +56,82 @@ const HomePage = () => {
           <footer>Full width footer</footer>
         </GridItem>
       </Grid>
+
+      {/* Popover Examples */}
+      <div className="flex gap-4 flex-wrap">
+        <Popover
+          variant="elevated"
+          size="lg"
+          color="primary"
+          trigger="hover"
+          placement="top"
+          arrow={true}
+        >
+          <PopoverTrigger asChild>
+            <Button>Hover me (Top)</Button>
+          </PopoverTrigger>
+          <PopoverContent side="top" align="center">
+            <div className="p-4">
+              <h3 className="font-semibold">Popover Title</h3>
+              <p>This is a more complex popover with custom content.</p>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Popover
+          variant="bordered"
+          size="md"
+          color="success"
+          trigger="click"
+          placement="bottom"
+          arrow={true}
+        >
+          <PopoverTrigger asChild>
+            <Button variant="outlined">Click me (Bottom)</Button>
+          </PopoverTrigger>
+          <PopoverContent side="bottom" align="start">
+            <div className="p-3">
+              <p>Bottom positioned popover with start alignment</p>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Popover
+          variant="filled"
+          size="sm"
+          color="error"
+          trigger="click"
+          placement="right"
+          arrow={true}
+        >
+          <PopoverTrigger asChild>
+            <Button variant="text">Click me (Right)</Button>
+          </PopoverTrigger>
+          <PopoverContent side="right" align="center">
+            <div className="p-2">
+              <p>Right positioned popover</p>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        <Popover
+          variant="default"
+          size="md"
+          color="info"
+          trigger="focus"
+          placement="left"
+          arrow={false}
+        >
+          <PopoverTrigger asChild>
+            <Button variant="gradient">Focus me (Left)</Button>
+          </PopoverTrigger>
+          <PopoverContent side="left" align="end">
+            <div className="p-3">
+              <p>Left positioned popover without arrow</p>
+            </div>
+          </PopoverContent>
+        </Popover>
+      </div>
 
 // GridItem with custom alignment
       <Grid cols={12} gap="md">
@@ -638,7 +714,7 @@ const HomePage = () => {
       {/* Accordion Examples */}
       <div className="space-y-6 mt-8">
         <h3 className="text-lg font-semibold text-white">Accordion Components</h3>
-        
+
         {/* Single Accordion */}
         <div className="space-y-4">
           <h4 className="text-md font-medium text-white">Single Accordion</h4>
@@ -646,7 +722,7 @@ const HomePage = () => {
             <AccordionItem value="item-1">
               <AccordionTrigger>What is Noor UI?</AccordionTrigger>
               <AccordionContent>
-                Noor UI is a modern React component library built with TypeScript and Tailwind CSS. 
+                Noor UI is a modern React component library built with TypeScript and Tailwind CSS.
                 It provides beautiful, accessible, and customizable components for your React applications.
               </AccordionContent>
             </AccordionItem>
@@ -696,7 +772,7 @@ const HomePage = () => {
             <AccordionItem value="item-3">
               <AccordionTrigger>Customization</AccordionTrigger>
               <AccordionContent>
-                All components are highly customizable with variants, sizes, and colors. 
+                All components are highly customizable with variants, sizes, and colors.
                 You can easily override styles using className props or by customizing the theme.
               </AccordionContent>
             </AccordionItem>
@@ -715,7 +791,7 @@ const HomePage = () => {
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-            
+
             <Accordion variant="filled" color="info" size="sm">
               <AccordionItem value="item-1">
                 <AccordionTrigger>Filled Style</AccordionTrigger>

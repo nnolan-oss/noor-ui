@@ -1,0 +1,51 @@
+export const popoverBordered: object = {
+  primary: {
+    background: "bg-white",
+    border: "border-2 border-[var(--noor-color-primary)]",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-[var(--noor-color-primary)]",
+  },
+  secondary: {
+    background: "bg-white",
+    border: "border-2 border-[var(--noor-color-secondary)]",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-[var(--noor-color-secondary)]",
+  },
+  success: {
+    background: "bg-white",
+    border: "border-2 border-[var(--noor-color-success)]",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-[var(--noor-color-success)]",
+  },
+  error: {
+    background: "bg-white",
+    border: "border-2 border-[var(--noor-color-danger)]",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-[var(--noor-color-danger)]",
+  },
+  info: {
+    background: "bg-white",
+    border: "border-2 border-[var(--noor-color-info)]",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-[var(--noor-color-info)]",
+  },
+  warning: {
+    background: "bg-white",
+    border: "border-2 border-[var(--noor-color-warning)]",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-[var(--noor-color-warning)]",
+  },
+  gray: {
+    background: "bg-white",
+    border: "border-2 border-gray-300",
+    shadow: "shadow-lg",
+    color: "text-gray-900",
+    arrow: "bg-white border-gray-300",
+  },
+};
