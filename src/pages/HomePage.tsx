@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Download, Edit, Heart, HeartOff, Plus, Save, Search, Settings, Star, Trash2 } from "lucide-react";
-import { Badge, Button, Checkbox, Grid, GridItem, IconButton, Input, Loader, Radio, Switch, Textarea, useTheme } from "noor-ui";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent, Badge, Button, Checkbox, Grid, GridItem, IconButton, Input, Loader, Radio, Switch, Textarea, useTheme } from "noor-ui";
 import { useState } from "react";
 import { TbHeart, TbHome } from "react-icons/tb";
 
@@ -633,6 +633,99 @@ const HomePage = () => {
       <div className="flex items-center gap-2">
         <Input placeholder="Phone name" />
         <Button>Send</Button>
+      </div>
+
+      {/* Accordion Examples */}
+      <div className="space-y-6 mt-8">
+        <h3 className="text-lg font-semibold text-white">Accordion Components</h3>
+        
+        {/* Single Accordion */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-white">Single Accordion</h4>
+          <Accordion variant="default" color="primary" size="md">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>What is Noor UI?</AccordionTrigger>
+              <AccordionContent>
+                Noor UI is a modern React component library built with TypeScript and Tailwind CSS. 
+                It provides beautiful, accessible, and customizable components for your React applications.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>How do I install it?</AccordionTrigger>
+              <AccordionContent>
+                You can install Noor UI using npm or yarn: <br />
+                <code className="bg-gray-100 text-gray-800 px-2 py-1 rounded">npm install noor-ui</code>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is it free to use?</AccordionTrigger>
+              <AccordionContent>
+                Yes! Noor UI is completely free and open source. You can use it in both personal and commercial projects.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        {/* Multiple Accordion */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-white">Multiple Accordion</h4>
+          <Accordion variant="bordered" color="success" type="multiple" size="lg">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Features</AccordionTrigger>
+              <AccordionContent>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>TypeScript support</li>
+                  <li>Tailwind CSS integration</li>
+                  <li>Framer Motion animations</li>
+                  <li>Accessible components</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Components</AccordionTrigger>
+              <AccordionContent>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Button</li>
+                  <li>Input</li>
+                  <li>Accordion</li>
+                  <li>Grid</li>
+                  <li>And many more...</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Customization</AccordionTrigger>
+              <AccordionContent>
+                All components are highly customizable with variants, sizes, and colors. 
+                You can easily override styles using className props or by customizing the theme.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+
+        {/* Different Variants */}
+        <div className="space-y-4">
+          <h4 className="text-md font-medium text-white">Different Variants</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Accordion variant="elevated" color="warning" size="sm">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Elevated Style</AccordionTrigger>
+                <AccordionContent>
+                  This accordion uses the elevated variant with a larger shadow.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+            
+            <Accordion variant="filled" color="info" size="sm">
+              <AccordionItem value="item-1">
+                <AccordionTrigger>Filled Style</AccordionTrigger>
+                <AccordionContent>
+                  This accordion uses the filled variant with a colored background.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </div>
       </div>
 
     </div>
