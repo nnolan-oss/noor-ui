@@ -1,5 +1,5 @@
-import { ChevronLeft, ChevronRight, Search, Star, Heart, Settings, Plus, Trash2, Edit, Save, Download, HeartOff, Home } from "lucide-react";
-import { Button, Badge, IconButton, Loader, Input, useTheme, Switch, Checkbox, Radio, Textarea } from "noor-ui";
+import { ChevronLeft, ChevronRight, Download, Edit, Heart, HeartOff, Plus, Save, Search, Settings, Star, Trash2 } from "lucide-react";
+import { Badge, Button, Checkbox, Grid, GridItem, IconButton, Input, Loader, Radio, Switch, Textarea, useTheme } from "noor-ui";
 import { useState } from "react";
 import { TbHeart, TbHome } from "react-icons/tb";
 
@@ -26,6 +26,46 @@ const HomePage = () => {
         color="primary"
         fullWidth
       />
+
+
+// Basic Grid with GridItems
+      <Grid cols={3} gap="md">
+        <GridItem colSpan={2} rowSpan={1}>
+          <div>Spans 2 columns</div>
+        </GridItem>
+        <GridItem colSpan={1} rowSpan={2}>
+          <div>Spans 1 column, 2 rows</div>
+        </GridItem>
+        <GridItem colSpan={1}>
+          <div>Regular item</div>
+        </GridItem>
+      </Grid>
+
+// Advanced Grid Layout
+      <Grid cols={4} gap="lg">
+        <GridItem colSpan={4} colStart={1} rowStart={1}>
+          <header>Full width header</header>
+        </GridItem>
+        <GridItem colSpan={1} colStart={1} rowStart={2}>
+          <aside>Sidebar</aside>
+        </GridItem>
+        <GridItem colSpan={3} colStart={2} rowStart={2}>
+          <main>Main content</main>
+        </GridItem>
+        <GridItem colSpan={4} colStart={1} rowStart={3}>
+          <footer>Full width footer</footer>
+        </GridItem>
+      </Grid>
+
+// GridItem with custom alignment
+      <Grid cols={12} gap="md">
+        <GridItem colSpan={1} justify="center" align="center">
+          <div>Centered content</div>
+        </GridItem>
+        <GridItem colSpan={2} justify="end" align="start">
+          <div>Right-aligned content</div>
+        </GridItem>
+      </Grid>
 
       <Checkbox label="salom" size="lg" checkedIcon={<TbHome />} uncheckedIcon={<TbHeart />} />
       <Checkbox label="salom" size="md" checkedIcon={<TbHome />} uncheckedIcon={<TbHeart />} />

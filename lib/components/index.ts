@@ -7,3 +7,7 @@ export { Textarea } from "./textarea/Textarea";
 export { Switch } from "./switch/Switch"
 export { Checkbox } from "./checkbox/Checkbox"
 export { Radio } from "./radio/Radio"
+export { Container } from "./container/Container";
+export { Flexbox } from "./flexbox/Flexbox";
+export { Grid } from "./grid/Grid";
+export { GridItem } from "./gridItem/GridItem";
