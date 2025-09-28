@@ -10,6 +10,7 @@ import { radio } from "./components/radio";
 import { accordion } from "./components/accordion";
 import { popover } from "./components/popover";
 import { typography } from "./components/typography";
+import { alert } from "./components/alert";
 
 export const theme = {
   components: {
@@ -24,7 +25,8 @@ export const theme = {
     radio,
     accordion,
     popover,
-    typography
+    typography,
+    alert
   },
   typography: {},
   spacing: {},
@@ -48,3 +50,4 @@ export * from "./components/radio";
 export * from "./components/accordion";
 export * from "./components/popover";
 export * from "./components/typography";
+export * from "./components/alert";
