@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Typography } from "noor-ui"
 import { useState } from "react"
 import { TbHome, TbTrash, TbX } from "react-icons/tb"
 
@@ -208,6 +208,81 @@ const HomePage = () => {
               // src="https://picsum.photos/300" 
               alt=""
             />
+          </div>
+        </div>
+      </div>
+
+      {/* Progress Examples */}
+      <div className="space-y-6">
+        <Typography variant="h6">Progress Components</Typography>
+        
+        <div className="space-y-4">
+          <div>
+            <Typography variant="small" className="mb-2">Filled Progress (Default)</Typography>
+            <Progress 
+              variant="filled" 
+              color="primary" 
+              size="md" 
+              label="Loading..." 
+              bar={75} 
+              value={75}
+            />
+          </div>
+
+          <div>
+            <Typography variant="small" className="mb-2">Outlined Progress</Typography>
+            <Progress 
+              variant="outlined" 
+              color="success" 
+              size="md" 
+              label="Upload Progress" 
+              bar={60} 
+              value={60}
+            />
+          </div>
+
+          <div>
+            <Typography variant="small" className="mb-2">Text Progress</Typography>
+            <Progress 
+              variant="text" 
+              color="warning" 
+              size="md" 
+              label="Processing..." 
+              bar={40} 
+              value={40}
+            />
+          </div>
+
+          <div>
+            <Typography variant="small" className="mb-2">Different Sizes</Typography>
+            <div className="space-y-3">
+              <Progress 
+                variant="filled" 
+                color="info" 
+                size="sm" 
+                label="Small Progress" 
+                bar={30} 
+                value={30}
+              />
+              <Progress 
+                variant="filled" 
+                color="error" 
+                size="lg" 
+                label="Large Progress" 
+                bar={90} 
+                value={90}
+              />
+            </div>
+          </div>
+
+          <div>
+            <Typography variant="small" className="mb-2">Different Colors</Typography>
+            <div className="space-y-3">
+              <Progress variant="filled" color="primary" bar={25} />
+              <Progress variant="filled" color="secondary" bar={50} />
+              <Progress variant="filled" color="success" bar={75} />
+              <Progress variant="filled" color="warning" bar={100} />
+            </div>
           </div>
         </div>
       </div>

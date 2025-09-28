@@ -14,3 +14,4 @@ export { Alert } from "./alert/Alert";
 export { Avatar } from "./avatar/Avatar";
 export { Breadcrumbs } from "./breadcrumbs/Breadcrumbs";
 export { List, ListItem, ListItemPrefix, ListItemSuffix } from "./list/List";
+export { Progress } from "./progress/Progress";
