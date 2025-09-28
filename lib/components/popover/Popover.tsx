@@ -1,6 +1,18 @@
-import React, { createContext, useContext, useState, useCallback, useRef, useEffect } from "react";
+"use client";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useRef,
+  useEffect,
+} from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { type PopoverProps, type PopoverTriggerProps, type PopoverContentProps } from "./Popover.d";
+import {
+  type PopoverProps,
+  type PopoverTriggerProps,
+  type PopoverContentProps,
+} from "./Popover.d";
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
 import { twMerge } from "tailwind-merge";
 import { objectsToString } from "../../utils/objectsToString";
@@ -38,25 +50,28 @@ const usePopoverContext = () => {
 
 // Main Popover Component
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
-  ({ 
-    children, 
-    variant = "default", 
-    size = "md", 
-    color = "primary", 
-    className,
-    open,
-    defaultOpen = false,
-    onOpenChange,
-    trigger = "click",
-    placement = "bottom",
-    offset = 8,
-    arrow = true,
-    closeOnEscape = true,
-    closeOnOutsideClick = true,
-    portal = true,
-    disabled = false,
-    ...rest 
-  }, ref) => {
+  (
+    {
+      children,
+      variant = "default",
+      size = "md",
+      color = "primary",
+      className,
+      open,
+      defaultOpen = false,
+      onOpenChange,
+      trigger = "click",
+      placement = "bottom",
+      offset = 8,
+      arrow = true,
+      closeOnEscape = true,
+      closeOnOutsideClick = true,
+      portal = true,
+      disabled = false,
+      ...rest
+    },
+    ref
+  ) => {
     const { theme } = useTheme();
     const { popover } = theme.components;
     const { valid, defaultProps, styles } = popover;
@@ -73,15 +88,18 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
 
     const currentOpen = open !== undefined ? open : internalOpen;
 
-    const handleOpenChange = useCallback((newOpen: boolean) => {
-      if (disabled) return;
-      
-      if (onOpenChange) {
-        onOpenChange(newOpen);
-      } else {
-        setInternalOpen(newOpen);
-      }
-    }, [disabled, onOpenChange]);
+    const handleOpenChange = useCallback(
+      (newOpen: boolean) => {
+        if (disabled) return;
+
+        if (onOpenChange) {
+          onOpenChange(newOpen);
+        } else {
+          setInternalOpen(newOpen);
+        }
+      },
+      [disabled, onOpenChange]
+    );
 
     // Handle outside click
     useEffect(() => {
@@ -100,7 +118,8 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
       };
 
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }, [currentOpen, closeOnOutsideClick, trigger, handleOpenChange]);
 
     // Handle escape key
@@ -123,17 +142,14 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
         findMatch(valid.colors, color, "primary")
       ]
     );
-    const popoverSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
+    const popoverSize = objectsToString(
+      (sizes as any)[findMatch(valid.sizes, size, "md")]
+    );
 
     const classes = twMerge(
-      classnames(
-        popoverBase,
-        popoverSize,
-        popoverVariant,
-        {
-          "opacity-50 pointer-events-none": disabled,
-        }
-      ),
+      classnames(popoverBase, popoverSize, popoverVariant, {
+        "opacity-50 pointer-events-none": disabled,
+      }),
       className
     );
 
@@ -166,94 +182,95 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
 );
 
 // PopoverTrigger Component
-export const PopoverTrigger = React.forwardRef<HTMLElement, PopoverTriggerProps>(
-  ({ children, asChild = false, className, ...rest }, ref) => {
-    const { open, onOpenChange, trigger, disabled } = usePopoverContext();
-    
-    const handleClick = () => {
-      if (disabled || trigger !== "click") return;
-      onOpenChange(!open);
-    };
+export const PopoverTrigger = React.forwardRef<
+  HTMLElement,
+  PopoverTriggerProps
+>(({ children, asChild = false, className, ...rest }, ref) => {
+  const { open, onOpenChange, trigger, disabled } = usePopoverContext();
 
-    const handleMouseEnter = () => {
-      if (disabled || trigger !== "hover") return;
-      onOpenChange(true);
-    };
+  const handleClick = () => {
+    if (disabled || trigger !== "click") return;
+    onOpenChange(!open);
+  };
 
-    const handleMouseLeave = () => {
-      if (disabled || trigger !== "hover") return;
-      onOpenChange(false);
-    };
+  const handleMouseEnter = () => {
+    if (disabled || trigger !== "hover") return;
+    onOpenChange(true);
+  };
 
-    const handleFocus = () => {
-      if (disabled || trigger !== "focus") return;
-      onOpenChange(true);
-    };
+  const handleMouseLeave = () => {
+    if (disabled || trigger !== "hover") return;
+    onOpenChange(false);
+  };
 
-    const handleBlur = () => {
-      if (disabled || trigger !== "focus") return;
-      onOpenChange(false);
-    };
+  const handleFocus = () => {
+    if (disabled || trigger !== "focus") return;
+    onOpenChange(true);
+  };
 
-    const triggerProps = {
-      ref: ref as any,
-      className: twMerge(
-        "focus:outline-none",
-        className
-      ),
-      onClick: handleClick,
-      onMouseEnter: handleMouseEnter,
-      onMouseLeave: handleMouseLeave,
-      onFocus: handleFocus,
-      onBlur: handleBlur,
-      ...rest,
-    };
+  const handleBlur = () => {
+    if (disabled || trigger !== "focus") return;
+    onOpenChange(false);
+  };
 
-      if (asChild && React.isValidElement(children)) {
-        return React.cloneElement(children, {
-          ...triggerProps,
-          ...(children.props || {}),
-        } as any);
-      }
+  const triggerProps = {
+    ref: ref as any,
+    className: twMerge("focus:outline-none", className),
+    onClick: handleClick,
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
+    onFocus: handleFocus,
+    onBlur: handleBlur,
+    ...rest,
+  };
 
-    return (
-      <button
-        type="button"
-        {...triggerProps}
-      >
-        {children}
-      </button>
-    );
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, {
+      ...triggerProps,
+      ...(children.props || {}),
+    } as any);
   }
-);
+
+  return (
+    <button type="button" {...triggerProps}>
+      {children}
+    </button>
+  );
+});
 
 // PopoverContent Component
-export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentProps>(
-  ({ 
-    children, 
-    className,
-    side = "bottom",
-    align = "center",
-    sideOffset = 8,
-    alignOffset = 0,
-    collisionPadding = 0,
-    arrowPadding = 8,
-    sticky = "partial",
-    hideWhenDetached = false,
-    ...rest 
-  }, _ref) => {
-    const { 
-      open, 
+export const PopoverContent = React.forwardRef<
+  HTMLDivElement,
+  PopoverContentProps
+>(
+  (
+    {
+      children,
+      className,
+      side = "bottom",
+      align = "center",
+      sideOffset = 8,
+      alignOffset = 0,
+      collisionPadding = 0,
+      arrowPadding = 8,
+      sticky = "partial",
+      hideWhenDetached = false,
+      ...rest
+    },
+    _ref
+  ) => {
+    const {
+      open,
       placement,
-      arrow, 
-      portal, 
-      variant, 
-      size, 
+      arrow,
+      portal,
+      variant,
+      size,
       color,
       triggerRef,
-      contentRef 
+      contentRef,
     } = usePopoverContext();
-    
+
     const { theme } = useTheme();
     const { popover } = theme.components;
     const { valid, styles } = popover;
@@ -264,7 +281,9 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
         findMatch(valid.colors, color, "primary")
       ]
     );
-    const contentSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
+    const contentSize = objectsToString(
+      (sizes as any)[findMatch(valid.sizes, size, "md")]
+    );
 
     const contentClasses = twMerge(
       classnames(
@@ -282,44 +301,45 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
     // Calculate position based on trigger element
     const calculatePosition = () => {
       if (!triggerRef.current) return { top: 0, left: 0 };
-      
+
       const triggerRect = triggerRef.current.getBoundingClientRect();
       const scrollX = window.scrollX;
       const scrollY = window.scrollY;
-      
-      const actualSide = side || placement?.split('-')[0] || 'bottom';
-      const actualAlign = align || placement?.split('-')[1] || 'center';
-      
+
+      const actualSide = side || placement?.split("-")[0] || "bottom";
+      const actualAlign = align || placement?.split("-")[1] || "center";
+
       let top = 0;
       let left = 0;
-      
+
       // Calculate vertical position
-      if (actualSide === 'top') {
+      if (actualSide === "top") {
         top = triggerRect.top + scrollY - sideOffset;
-      } else if (actualSide === 'bottom') {
+      } else if (actualSide === "bottom") {
         top = triggerRect.bottom + scrollY + sideOffset;
       } else {
         // For left/right positioning, center vertically
-        top = triggerRect.top + scrollY + (triggerRect.height / 2);
+        top = triggerRect.top + scrollY + triggerRect.height / 2;
       }
-      
+
       // Calculate horizontal position
-      if (actualSide === 'left') {
+      if (actualSide === "left") {
         left = triggerRect.left + scrollX - sideOffset;
-      } else if (actualSide === 'right') {
+      } else if (actualSide === "right") {
         left = triggerRect.right + scrollX + sideOffset;
       } else {
         // For top/bottom positioning, align horizontally
-        if (actualAlign === 'start') {
+        if (actualAlign === "start") {
           left = triggerRect.left + scrollX + alignOffset;
-        } else if (actualAlign === 'end') {
+        } else if (actualAlign === "end") {
           left = triggerRect.right + scrollX - alignOffset;
         } else {
           // center
-          left = triggerRect.left + scrollX + (triggerRect.width / 2) + alignOffset;
+          left =
+            triggerRect.left + scrollX + triggerRect.width / 2 + alignOffset;
         }
       }
-      
+
       return { top, left };
     };
 
@@ -340,12 +360,12 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
         setPosition(newPosition);
       };
 
-      window.addEventListener('scroll', updatePosition, true);
-      window.addEventListener('resize', updatePosition);
+      window.addEventListener("scroll", updatePosition, true);
+      window.addEventListener("resize", updatePosition);
 
       return () => {
-        window.removeEventListener('scroll', updatePosition, true);
-        window.removeEventListener('resize', updatePosition);
+        window.removeEventListener("scroll", updatePosition, true);
+        window.removeEventListener("resize", updatePosition);
       };
     }, [open, side, align, sideOffset, alignOffset, placement]);
 
@@ -358,22 +378,23 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
         initial={{ opacity: 0, scale: 0.95, y: 10 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 10 }}
-        transition={{ 
-          duration: 0.2, 
+        transition={{
+          duration: 0.2,
           ease: "easeOut",
           type: "spring",
           stiffness: 300,
-          damping: 30
+          damping: 30,
         }}
         className={contentClasses}
         data-side={side}
         data-align={align}
         style={{
-          position: portal ? 'absolute' : 'relative',
+          position: portal ? "absolute" : "relative",
           ...(portal && position),
-          ...(align === 'center' && !['left', 'right'].includes(side) && {
-            transform: 'translateX(-50%)'
-          })
+          ...(align === "center" &&
+            !["left", "right"].includes(side) && {
+              transform: "translateX(-50%)",
+            }),
         }}
         {...motionProps}
       >
@@ -386,8 +407,12 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
             className="absolute h-2 w-2 rotate-45 bg-white border border-gray-200"
             style={{
               [side]: "-4px",
-              [align === "start" ? "left" : align === "end" ? "right" : "left"]: 
-                align === "center" ? "50%" : align === "start" ? "12px" : "calc(100% - 12px)",
+              [align === "start" ? "left" : align === "end" ? "right" : "left"]:
+                align === "center"
+                  ? "50%"
+                  : align === "start"
+                    ? "12px"
+                    : "calc(100% - 12px)",
               transform: align === "center" ? "translateX(-50%)" : "none",
             }}
           />
@@ -409,11 +434,7 @@ export const PopoverContent = React.forwardRef<HTMLDivElement, PopoverContentPro
       );
     }
 
-    return (
-      <AnimatePresence>
-        {open && content}
-      </AnimatePresence>
-    );
+    return <AnimatePresence>{open && content}</AnimatePresence>;
   }
 );
 

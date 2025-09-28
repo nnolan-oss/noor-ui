@@ -1,5 +1,6 @@
-import { createContext, useContext } from 'react';
-import { Animate, Dismiss, Offset, Placement } from './types';
+"use client";
+import { createContext, useContext } from "react";
+import { Animate, Dismiss, Offset, Placement } from "./types";
 
 interface MenuContextType {
   isOpen: boolean;
@@ -13,12 +14,14 @@ interface MenuContextType {
   allowHover: boolean;
 }
 
-export const MenuContext = createContext<MenuContextType | undefined>(undefined);
+export const MenuContext = createContext<MenuContextType | undefined>(
+  undefined
+);
 
 export const useMenuContext = () => {
   const context = useContext(MenuContext);
   if (!context) {
-    throw new Error('useMenuContext must be used within a Menu component');
+    throw new Error("useMenuContext must be used within a Menu component");
   }
   return context;
 };

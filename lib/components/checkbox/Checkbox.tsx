@@ -1,3 +1,4 @@
+"use client";
 import classnames from "classnames";
 import React, { useState } from "react";
 import { TbSquare, TbSquareCheckFilled } from "react-icons/tb";
@@ -9,7 +10,19 @@ import { Loader } from "../loader/Loader";
 import { type CheckboxProps } from "./Checkbox.d";
 
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({ size, color, className, loading, label, defaultChecked, onChange, ...rest }, ref) => {
+  (
+    {
+      size,
+      color,
+      className,
+      loading,
+      label,
+      defaultChecked,
+      onChange,
+      ...rest
+    },
+    ref
+  ) => {
     const { theme } = useTheme();
     const { checkbox } = theme.components as any;
     const { valid, defaultProps, styles } = checkbox;
@@ -24,7 +37,9 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const sizeIcon = (sizes as any)[findMatch(valid.sizes, size, "md")].icon;
     const colorSet = (colors as any)[findMatch(valid.colors, color, "primary")];
 
-    const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
+    const [internalChecked, setInternalChecked] = useState(
+      defaultChecked ?? false
+    );
     const isControlled = defaultChecked !== undefined;
     const isChecked = isControlled ? defaultChecked : internalChecked;
 
@@ -33,11 +48,15 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       onChange?.(e);
     };
 
-    const labelClasses = twMerge(classnames(objectsToString(base.label), baseClasses), className);
-    const inputClasses = twMerge(
-      classnames(colorSet.base, sizeBox)
+    const labelClasses = twMerge(
+      classnames(objectsToString(base.label), baseClasses),
+      className
     );
-    const iconClasses = twMerge(classnames(colorSet.icon, sizeIcon), (rest as any).iconClasses);
+    const inputClasses = twMerge(classnames(colorSet.base, sizeBox));
+    const iconClasses = twMerge(
+      classnames(colorSet.icon, sizeIcon),
+      (rest as any).iconClasses
+    );
 
     return (
       <label className={labelClasses}>
@@ -59,17 +78,31 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
               (() => {
                 const custom = (rest as any).checkedIcon;
                 if (React.isValidElement(custom)) {
-                  const merged = twMerge((custom.props as any)?.className || "", iconClasses);
-                  return React.cloneElement(custom as React.ReactElement<any>, { className: merged } as any);
+                  const merged = twMerge(
+                    (custom.props as any)?.className || "",
+                    iconClasses
+                  );
+                  return React.cloneElement(
+                    custom as React.ReactElement<any>,
+                    { className: merged } as any
+                  );
                 }
-                return custom ?? <TbSquareCheckFilled className={iconClasses} />;
+                return (
+                  custom ?? <TbSquareCheckFilled className={iconClasses} />
+                );
               })()
             ) : (
               (() => {
                 const custom = (rest as any).uncheckedIcon;
                 if (React.isValidElement(custom)) {
-                  const merged = twMerge((custom.props as any)?.className || "", iconClasses);
-                  return React.cloneElement(custom as React.ReactElement<any>, { className: merged } as any);
+                  const merged = twMerge(
+                    (custom.props as any)?.className || "",
+                    iconClasses
+                  );
+                  return React.cloneElement(
+                    custom as React.ReactElement<any>,
+                    { className: merged } as any
+                  );
                 }
                 return custom ?? <TbSquare className={iconClasses} />;
               })()
@@ -81,4 +114,3 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     );
   }
 );
-

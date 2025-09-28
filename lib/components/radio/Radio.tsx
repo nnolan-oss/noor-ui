@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { type RadioProps } from "./Radio.d";
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
@@ -9,7 +10,20 @@ import { Loader } from "../loader/Loader";
 import { CircleDot, Circle } from "lucide-react";
 
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
-  ({ size, color, className, loading, label, defaultChecked, onChange, name, ...rest }, ref) => {
+  (
+    {
+      size,
+      color,
+      className,
+      loading,
+      label,
+      defaultChecked,
+      onChange,
+      name,
+      ...rest
+    },
+    ref
+  ) => {
     const { theme } = useTheme();
     const { radio } = theme.components;
     const { valid, defaultProps, styles } = radio;
@@ -23,7 +37,9 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     const colorSet = (colors as any)[findMatch(valid.colors, color, "primary")];
     const sizeIcon = (sizes as any)[findMatch(valid.sizes, size, "md")].icon;
 
-    const [internalChecked, setInternalChecked] = useState(defaultChecked ?? false);
+    const [internalChecked, setInternalChecked] = useState(
+      defaultChecked ?? false
+    );
     const isControlled = defaultChecked !== undefined;
     const isChecked = isControlled ? defaultChecked : internalChecked;
 
@@ -32,11 +48,15 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       onChange?.(e);
     };
 
-    const labelClasses = twMerge(classnames(objectsToString(base.label), baseClasses), className);
-    const inputClasses = twMerge(
-      classnames(colorSet.base)
+    const labelClasses = twMerge(
+      classnames(objectsToString(base.label), baseClasses),
+      className
     );
-    const iconClasses = twMerge(classnames(colorSet.icon, sizeIcon), (rest as any).iconClasses);
+    const inputClasses = twMerge(classnames(colorSet.base));
+    const iconClasses = twMerge(
+      classnames(colorSet.icon, sizeIcon),
+      (rest as any).iconClasses
+    );
 
     return (
       <label className={labelClasses}>
@@ -60,8 +80,14 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               (() => {
                 const custom = (rest as any).checkedIcon;
                 if (React.isValidElement(custom)) {
-                  const merged = twMerge((custom.props as any)?.className || "", iconClasses);
-                  return React.cloneElement(custom as React.ReactElement<any>, { className: merged } as any);
+                  const merged = twMerge(
+                    (custom.props as any)?.className || "",
+                    iconClasses
+                  );
+                  return React.cloneElement(
+                    custom as React.ReactElement<any>,
+                    { className: merged } as any
+                  );
                 }
                 return custom ?? <CircleDot className={iconClasses} />;
               })()
@@ -69,8 +95,14 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               (() => {
                 const custom = (rest as any).uncheckedIcon;
                 if (React.isValidElement(custom)) {
-                  const merged = twMerge((custom.props as any)?.className || "", iconClasses);
-                  return React.cloneElement(custom as React.ReactElement<any>, { className: merged } as any);
+                  const merged = twMerge(
+                    (custom.props as any)?.className || "",
+                    iconClasses
+                  );
+                  return React.cloneElement(
+                    custom as React.ReactElement<any>,
+                    { className: merged } as any
+                  );
                 }
                 return custom ?? <Circle className={iconClasses} />;
               })()
@@ -82,4 +114,3 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     );
   }
 );
-

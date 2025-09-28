@@ -1,5 +1,6 @@
-import { useMenuContext } from './MenuContext';
-import { cloneElement, useRef, useEffect } from 'react';
+"use client";
+import { useMenuContext } from "./MenuContext";
+import { cloneElement, useRef, useEffect } from "react";
 
 interface MenuTriggerProps {
   children: React.ReactElement;
@@ -36,7 +37,7 @@ export const MenuTrigger: React.FC<MenuTriggerProps> = ({ children }) => {
     onClick: handleClick,
     onMouseEnter: allowHover ? handleMouseEnter : undefined,
     onMouseLeave: allowHover ? handleMouseLeave : undefined,
-    'aria-expanded': isOpen,
-    'aria-haspopup': true,
+    "aria-expanded": isOpen,
+    "aria-haspopup": true,
   });
 };

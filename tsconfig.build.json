@@ -17,14 +17,6 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
-  "include": [
-    "lib/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "src",
-    "**/*.test.*",
-    "**/*.spec.*"
-  ]
+  "include": ["lib/**/*"],
+  "exclude": ["node_modules", "dist", "src", "**/*.test.*", "**/*.spec.*"]
 }

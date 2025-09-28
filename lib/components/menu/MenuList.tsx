@@ -1,6 +1,7 @@
-import { useMenuContext } from './MenuContext';
-import { useFloating } from '@floating-ui/react';
-import { useRef } from 'react';
+"use client";
+import { useMenuContext } from "./MenuContext";
+import { useFloating } from "@floating-ui/react";
+import { useRef } from "react";
 
 interface MenuListProps {
   children: React.ReactNode;
@@ -23,8 +24,8 @@ export const MenuList: React.FC<MenuListProps> = ({ children }) => {
         py-2
         min-w-[200px]
         z-50
-        ${animate?.enter || 'animate-in fade-in zoom-in-95'}
-        ${animate?.exit || 'animate-out fade-out zoom-out-95'}
+        ${animate?.enter || "animate-in fade-in zoom-in-95"}
+        ${animate?.exit || "animate-out fade-out zoom-out-95"}
       `}
     >
       <ul role="menu">{children}</ul>

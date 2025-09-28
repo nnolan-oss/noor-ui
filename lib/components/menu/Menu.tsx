@@ -1,12 +1,17 @@
-import { useState, useRef, useEffect } from 'react';
-import { useFloating, autoUpdate, offset as floatingOffset } from '@floating-ui/react';
-import { MenuContext } from './MenuContext';
-import { type MenuProps } from './types';
+"use client";
+import { useState, useRef, useEffect } from "react";
+import {
+  useFloating,
+  autoUpdate,
+  offset as floatingOffset,
+} from "@floating-ui/react";
+import { MenuContext } from "./MenuContext";
+import { type MenuProps } from "./types";
 
 export const Menu: React.FC<MenuProps> = ({
   open: controlledOpen,
   handler,
-  placement = 'bottom',
+  placement = "bottom",
   offset = 5,
   dismiss = { outsidePress: true, escapeKey: true },
   animate,
@@ -29,9 +34,9 @@ export const Menu: React.FC<MenuProps> = ({
   // Handle lock scroll
   useEffect(() => {
     if (lockScroll && effectiveOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
       return () => {
-        document.body.style.overflow = '';
+        document.body.style.overflow = "";
       };
     }
   }, [lockScroll, effectiveOpen]);
@@ -41,13 +46,13 @@ export const Menu: React.FC<MenuProps> = ({
     if (!dismiss.escapeKey || !effectiveOpen) return;
 
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
+      if (e.key === "Escape") {
         setEffectiveOpen(false);
       }
     };
 
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
   }, [dismiss.escapeKey, effectiveOpen, setEffectiveOpen]);
 
   // Handle outside press
@@ -64,8 +69,8 @@ export const Menu: React.FC<MenuProps> = ({
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dismiss.outsidePress, effectiveOpen, setEffectiveOpen, refs.floating]);
 
   return (
