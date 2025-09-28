@@ -102,11 +102,11 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
             {...barProps}
           />
         </div>
-        {value !== undefined && (
+        {/* {value !== undefined && (
           <div className={valueClasses}>
             {value}%
           </div>
-        )}
+        )} */}
       </div>
     );
   },

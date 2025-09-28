@@ -10,4 +10,5 @@ export interface ProgressProps {
   bar?: TProgressBar;
   barProps?: TProgressBarProps;
   className?: TProgressClassname;
+  onClick?: (e: MouseEvent<HTMLDivElement>) => void;
 }
