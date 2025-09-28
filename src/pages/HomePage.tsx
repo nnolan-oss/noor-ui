@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, BgPattern, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Step, Stepper, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Video } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, BgPattern, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Menu, MenuItem, MenuList, MenuTrigger, Progress, Step, Stepper, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Video } from "noor-ui"
 import { useState } from "react"
 import { TbArrowAutofitContent, TbBrandOffice, TbHome, TbTrash, TbX } from "react-icons/tb"
 
@@ -8,23 +8,18 @@ const HomePage = () => {
   return (
     <div className="p-4 space-y-4">
 
-      <BgPattern
-        type="gradient"
-      />
-
-      <Video src='https://www.w3schools.com/html/mov_bbb.mp4' />
-
-      <Tabs value={"tab-1"} orientation="horizontal" className="w-full">
-        <TabsHeader>
-          <Tab value="tab-1">Tab 1</Tab>
-          <Tab value="tab-2">Tab 2</Tab>
-          <Tab value="tab-3">Disabled</Tab>
-        </TabsHeader>
-        <TabsBody animate>
-          <TabPanel value="tab-1">Content 1</TabPanel>
-          <TabPanel value="tab-2">Content 2</TabPanel>
-        </TabsBody>
-      </Tabs>
+      <Menu placement="bottom-start" offset={8} dismiss={{ outsidePress: true, escapeKey: true }}>
+        <MenuTrigger>
+          <button className="px-4 py-2 bg-blue-500 text-white rounded">
+            Open Menu
+          </button>
+        </MenuTrigger>
+        <MenuList>
+          <MenuItem onClick={() => console.log('Item 1')}>Item 1</MenuItem>
+          <MenuItem onClick={() => console.log('Item 2')}>Item 2</MenuItem>
+          <MenuItem disabled>Disabled Item</MenuItem>
+        </MenuList>
+      </Menu>
 
       <Stepper activeStep={stepIdx}>
         <Step>

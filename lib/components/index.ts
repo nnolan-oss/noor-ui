@@ -19,3 +19,4 @@ export { Textarea } from "./textarea/Textarea";
 export { Typography } from "./typography/Typography";
 export { Video } from "./video/Video";
 export { BgPattern } from "./bgPattern/BgPattern"
+export {Menu, MenuItem, MenuList, MenuTrigger} from "./menu"
