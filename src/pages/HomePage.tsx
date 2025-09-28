@@ -1,9 +1,17 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Button, Typography } from "noor-ui"
+import { useState } from "react"
 import { TbHome, TbX } from "react-icons/tb"
 
 const HomePage = () => {
+  const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="p-4 space-y-4">
+
+      <Button onClick={()=>setIsOpen(true)}>Salom</Button>
+
+      <Alert variant="filled" open={isOpen} onClose={()=>setIsOpen(false)} color="success" startIcon={<TbHome />} endIcon={<TbX />}>
+        This is a success filled alert with start icon
+      </Alert>
       {/* Typography Examples */}
       <div className="space-y-2">
         <Typography variant="h1">Material Tailwind</Typography>
@@ -45,16 +53,14 @@ const HomePage = () => {
       {/* Alert Examples */}
       <div className="space-y-4">
         <Typography variant="h3">Alert Component Examples</Typography>
-        
+
         {/* Filled Alerts */}
         <div className="space-y-2">
           <Typography variant="h4">Filled Variants</Typography>
           <Alert variant="filled" color="primary">
             This is a primary filled alert
           </Alert>
-          <Alert variant="filled" color="success" startIcon={<TbHome/>} endIcon={<TbX/>}>
-            This is a success filled alert with start icon
-          </Alert>
+
           <Alert variant="filled" color="error" endIcon={
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />

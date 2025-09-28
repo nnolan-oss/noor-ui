@@ -1,4 +1,4 @@
-import { type TAlertVariant, type TAlertColors, type TAlertStartIcon, type TAlertEndIcon, type TAlertChildren, type TAlertClassname } from "../../types/components/alert";
+import { type TAlertVariant, type TAlertColors, type TAlertStartIcon, type TAlertEndIcon, type TAlertChildren, type TAlertClassname, type TAlertOpen, type TAlertOnClose } from "../../types/components/alert";
 
 export interface AlertProps {
   variant?: TAlertVariant;
@@ -7,4 +7,6 @@ export interface AlertProps {
   endIcon?: TAlertEndIcon;
   children?: TAlertChildren;
   className?: TAlertClassname;
+  open?: TAlertOpen;
+  onClose?: TAlertOnClose;
 }

@@ -7,3 +7,5 @@ export type TAlertStartIcon = ReactNode;
 export type TAlertEndIcon = ReactNode;
 export type TAlertChildren = ReactNode;
 export type TAlertClassname = string;
+export type TAlertOpen = boolean;
+export type TAlertOnClose = (() => void) | undefined;
