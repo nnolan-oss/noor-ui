@@ -57,7 +57,6 @@
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
     "@biomejs/biome": "2.2.0",
-    "@eslint/js": "^9.33.0",
     "globals": "^16.3.0"
   }
 }
