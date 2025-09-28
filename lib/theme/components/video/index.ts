@@ -9,6 +9,7 @@ export interface IVideoStyleTypes {
         base: {
             initial: object;
             fullWidth: object;
+            container: object;
         };
     };
 }
@@ -23,13 +24,11 @@ export const video: IVideoStyleTypes = {
             initial: {
                 display: "block",
                 width: "w-full",
-                fontSize: "text-sm",
-                fontFamily: "font-sans",
-                borderRadius: "rounded-xl",
-                transition: "transition-all duration-200",
-                outline: "outline-none",
-                appearance: "appearance-none",
-                focus: "focus:outline-none focus:ring-[var(--noor-color-primary)] focus:ring-2 focus:ring-offset-0",
+            },
+            container: {
+                position: "relative",
+                overflow: "overflow-hidden",
+                borderRadius: "rounded-xl"
             },
             fullWidth: {
                 width: "w-full",

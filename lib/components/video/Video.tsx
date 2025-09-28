@@ -6,8 +6,8 @@ import { objectsToString } from '../../utils/objectsToString';
 import { type VideoProps } from './Video.d';
 import { IconButton } from '../iconButton/IconButton';
 import { TbMaximize, TbPlayerPause, TbPlayerPlay, TbVolume, TbVolume3, TbVolume2 } from 'react-icons/tb';
-import { Button } from '../button/Button';
 import { Progress } from '../progress/Progress';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, className, playIcon, pauseIcon, muteIcon, unmuteIcon, volumeDownIcon, volumeUpIcon, fullScreenIcon, fullWidth, ...rest }, ref) => {
   const { theme } = useTheme();
@@ -23,11 +23,13 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
   const [volume, setVolume] = useState<number>(1);
+  const [isShowControl, setIsShowControl] = useState<boolean>(false)
 
   fullWidth = fullWidth ?? defaultProps.fullWidth;
   className = twMerge(defaultProps.className || '', className);
 
   const videoBase = objectsToString(base.initial);
+  const videoContainerClasses = objectsToString(base.container)
   const videoClasses = twMerge(classNames(videoBase, {
     [objectsToString(base.fullWidth)]: fullWidth,
   }), className);
@@ -110,7 +112,7 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
     if (volumeBar && videoRef.current) {
       const rect = volumeBar.getBoundingClientRect();
       const pos = Math.max(0, Math.min((e.clientX - rect.left) / rect.width, 1)); // Ensure pos is between 0 and 1
-      const newVolume = pos; // Set volume directly to clicked position
+      const newVolume = pos;
       setVolume(newVolume);
       videoRef.current.volume = newVolume;
       if (newVolume > 0 && isMuted) {
@@ -134,6 +136,16 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
     }
   };
 
+  const handleShowControl = (type: "enter" | "leave") => {
+    if (type === "enter") {
+      setIsShowControl(true)
+    } else {
+      setTimeout(() => {
+        setIsShowControl(false)
+      }, 3000)
+    }
+  }
+
   const formatTime = (time: number): string => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
@@ -143,8 +155,14 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
   const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
   const volumePercentage = volume * 100;
 
+  // controll show/hide
+  const variants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 20 },
+  };
+
   return (
-    <div className="relative">
+    <div className={videoContainerClasses} onMouseEnter={() => handleShowControl("enter")} onMouseLeave={() => handleShowControl("leave")}>
       <video
         onDoubleClick={handleFullscreen}
         onClick={handlePlayPause}
@@ -154,29 +172,38 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
         src={src}
         {...rest}
       />
-      <div className="absolute p-4 bottom-0 flex justify-between w-full gap-2 items-center">
-        <div className="flex gap-2 items-center w-full">
-          <IconButton
-            size="sm"
-            icon={isPlaying ? pauseIcon || <TbPlayerPause /> : playIcon || <TbPlayerPlay />}
-            onClick={handlePlayPause}
-          />
-          <IconButton
-            size="sm"
-            icon={isMuted ? unmuteIcon || <TbVolume /> : muteIcon || <TbVolume3 />}
-            onClick={handleMuteUnmute}
-          />
-          <IconButton
-            size="sm"
-            icon={volumeDownIcon || <TbVolume3 />}
-            onClick={handleVolumeDown}
-          />
-          <IconButton
-            size="sm"
-            icon={volumeUpIcon || <TbVolume2 />}
-            onClick={handleVolumeUp}
-          />
-          {/* <Progress
+      <AnimatePresence>
+        {
+          isShowControl &&
+          <motion.div key="content"
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={variants}
+            transition={{ duration: 0.3 }}
+            className="absolute bg-gradient-to-t from-black to-transparent p-4 bottom-0 w-full h-16 flex justify-between gap-2 items-center">
+            <div className="flex gap-2 items-center w-full">
+              <IconButton
+                size="sm"
+                icon={isPlaying ? pauseIcon || <TbPlayerPause /> : playIcon || <TbPlayerPlay />}
+                onClick={handlePlayPause}
+              />
+              <IconButton
+                size="sm"
+                icon={isMuted ? unmuteIcon || <TbVolume /> : muteIcon || <TbVolume3 />}
+                onClick={handleMuteUnmute}
+              />
+              <IconButton
+                size="sm"
+                icon={volumeDownIcon || <TbVolume3 />}
+                onClick={handleVolumeDown}
+              />
+              <IconButton
+                size="sm"
+                icon={volumeUpIcon || <TbVolume2 />}
+                onClick={handleVolumeUp}
+              />
+              {/* <Progress
             ref={volumeProgressRef}
             bar={volumePercentage}
             variant="filled"
@@ -185,25 +212,27 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
             className="w-20 cursor-pointer"
             onClick={handleVolumeProgressClick}
           /> */}
-          <Progress
-            ref={progressRef}
-            bar={progressPercentage}
-            variant="filled"
-            color="primary"
-            size="sm"
-            className="flex-1 cursor-pointer"
-            onClick={handleProgressClick}
-          />
-          <Button variant="filled" color="secondary" size="sm" className='min-w-[100px]'>
-            {formatTime(currentTime)} / {formatTime(duration)}
-          </Button>
-        </div>
-        <IconButton
-          size="sm"
-          icon={fullScreenIcon || <TbMaximize />}
-          onClick={handleFullscreen}
-        />
-      </div>
+              <Progress
+                ref={progressRef}
+                bar={progressPercentage}
+                variant="filled"
+                color="primary"
+                size="sm"
+                className="flex-1 cursor-pointer"
+                onClick={handleProgressClick}
+              />
+              <span className='min-w-[100px] text-white text-center'>
+                {formatTime(currentTime)} / {formatTime(duration)}
+              </span>
+            </div>
+            <IconButton
+              size="sm"
+              icon={fullScreenIcon || <TbMaximize />}
+              onClick={handleFullscreen}
+            />
+          </motion.div>
+        }
+      </AnimatePresence>
     </div>
   );
 });
