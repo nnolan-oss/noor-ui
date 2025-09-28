@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useState, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { type AccordionProps, type AccordionItemProps, type AccordionTriggerProps, type AccordionContentProps } from "./Accordion.d";
-import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
-import { twMerge } from "tailwind-merge";
-import { objectsToString } from "../../utils/objectsToString";
-import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
+import { AnimatePresence, motion } from "framer-motion";
+import React, { createContext, useCallback, useContext, useState } from "react";
+import { TbChevronDown } from "react-icons/tb";
+import { twMerge } from "tailwind-merge";
+import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
+import findMatch from "../../utils/findMatch";
+import { objectsToString } from "../../utils/objectsToString";
+import { type AccordionContentProps, type AccordionItemProps, type AccordionProps, type AccordionTriggerProps } from "./Accordion.d";
 
 // Context for accordion state
 interface AccordionContextType {
@@ -200,7 +200,7 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
         >
-          <ChevronDown className="h-4 w-4 text-gray-500" />
+          <TbChevronDown className="h-4 w-4 text-gray-500" />
         </motion.div>
       </button>
     );

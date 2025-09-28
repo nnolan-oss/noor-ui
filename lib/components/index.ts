@@ -9,3 +9,4 @@ export { Checkbox } from "./checkbox/Checkbox"
 export { Radio } from "./radio/Radio"
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion/Accordion";
 export { Popover, PopoverTrigger, PopoverContent } from "./popover/Popover";
+export { Typography } from "./typography/Typography";

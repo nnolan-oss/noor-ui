@@ -9,6 +9,7 @@ import { checkbox } from "./components/checkbox";
 import { radio } from "./components/radio";
 import { accordion } from "./components/accordion";
 import { popover } from "./components/popover";
+import { typography } from "./components/typography";
 
 export const theme = {
   components: {
@@ -22,7 +23,8 @@ export const theme = {
     checkbox,
     radio,
     accordion,
-    popover
+    popover,
+    typography
   },
   typography: {},
   spacing: {},
@@ -45,3 +47,4 @@ export * from "./components/checkbox";
 export * from "./components/radio";
 export * from "./components/accordion";
 export * from "./components/popover";
+export * from "./components/typography";
