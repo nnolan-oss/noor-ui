@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Step, StepLabel, Stepper, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Step, StepLabel, Stepper, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Video } from "noor-ui"
 import { useState } from "react"
 import { TbArrowAutofitContent, TbBrandOffice, TbHome, TbTrash, TbX } from "react-icons/tb"
 
@@ -7,6 +7,9 @@ const HomePage = () => {
   const [stepIdx, setStepIdx] = useState("tab-1")
   return (
     <div className="p-4 space-y-4">
+
+    <Video src='https://docs.material-tailwind.com/demo.mp4'/>
+
 <Tabs value={"tab-1"} orientation="horizontal" className="w-full">
   <TabsHeader>
     <Tab value="tab-1">Tab 1</Tab>

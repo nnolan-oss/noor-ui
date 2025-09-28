@@ -17,6 +17,7 @@ import { list } from "./components/list";
 import { progress } from "./components/progress";
 import { stepper } from "./components/stepper";
 import { tabs } from "./components/tabs";
+import { video } from "./components/video";
 
 export const theme = {
   components: {
@@ -38,7 +39,8 @@ export const theme = {
     list,
     progress,
     stepper,
-    tabs
+    tabs,
+    video
   },
   typography: {},
   spacing: {},
@@ -69,3 +71,4 @@ export * from "./components/list";
 export * from "./components/progress";
 export * from "./components/stepper";
 export * from "./components/tabs";
+export * from "./components/video"

@@ -26,7 +26,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     ...rest
   }, ref) => {
     const { theme } = useTheme();
-    const { textarea } = (theme.components as any);
+    const { textarea } = theme.components;
     const { valid, defaultProps, styles } = textarea;
     const { base, variants, sizes } = styles;
 

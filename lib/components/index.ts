@@ -1,19 +1,20 @@
-export { Button } from "./button/Button";
-export { Badge } from "./badge/Badge";
-export { IconButton } from "./iconButton/IconButton";
-export { Loader } from "./loader/Loader";
-export { Input } from "./input/Input";
-export { Textarea } from "./textarea/Textarea";
-export { Switch } from "./switch/Switch"
-export { Checkbox } from "./checkbox/Checkbox"
-export { Radio } from "./radio/Radio"
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./accordion/Accordion";
-export { Popover, PopoverTrigger, PopoverContent } from "./popover/Popover";
-export { Typography } from "./typography/Typography";
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./accordion/Accordion";
 export { Alert } from "./alert/Alert";
 export { Avatar } from "./avatar/Avatar";
+export { Badge } from "./badge/Badge";
 export { Breadcrumbs } from "./breadcrumbs/Breadcrumbs";
+export { Button } from "./button/Button";
+export { Checkbox } from "./checkbox/Checkbox";
+export { IconButton } from "./iconButton/IconButton";
+export { Input } from "./input/Input";
 export { List, ListItem, ListItemPrefix, ListItemSuffix } from "./list/List";
+export { Loader } from "./loader/Loader";
+export { Popover, PopoverContent, PopoverTrigger } from "./popover/Popover";
 export { Progress } from "./progress/Progress";
-export { Stepper, Step, StepLabel } from "./stepper/Stepper";
-export { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from "./tabs"
+export { Radio } from "./radio/Radio";
+export { Step, StepLabel, Stepper } from "./stepper/Stepper";
+export { Switch } from "./switch/Switch";
+export { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from "./tabs";
+export { Textarea } from "./textarea/Textarea";
+export { Typography } from "./typography/Typography";
+export { Video } from "./video/Video";
