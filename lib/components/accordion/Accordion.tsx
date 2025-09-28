@@ -20,12 +20,27 @@ interface AccordionContextType {
   color: string;
 }
 
+// Context for accordion item state
+interface AccordionItemContextType {
+  value: string;
+  disabled: boolean;
+}
+
 const AccordionContext = createContext<AccordionContextType | null>(null);
+const AccordionItemContext = createContext<AccordionItemContextType | null>(null);
 
 const useAccordionContext = () => {
   const context = useContext(AccordionContext);
   if (!context) {
     throw new Error("Accordion components must be used within an Accordion");
+  }
+  return context;
+};
+
+const useAccordionItemContext = () => {
+  const context = useContext(AccordionItemContext);
+  if (!context) {
+    throw new Error("AccordionTrigger and AccordionContent must be used within an AccordionItem");
   }
   return context;
 };
@@ -49,9 +64,8 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
     const { theme } = useTheme();
     const { accordion } = theme.components;
     const { valid, defaultProps, styles } = accordion;
-    const { base, variants, sizes } = styles;
+    const { base, sizes } = styles;
 
-    variant = variant ?? defaultProps.variant;
     size = size ?? defaultProps.size;
     color = color ?? defaultProps.color;
     className = twMerge(defaultProps.className || "", className);
@@ -63,6 +77,7 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
     const currentValue = value !== undefined ? value : internalValue;
 
     const handleValueChange = useCallback((newValue: string | string[]) => {
+      console.log('Accordion value change:', { disabled, newValue, currentValue: value });
       if (disabled) return;
       
       if (onValueChange) {
@@ -70,21 +85,15 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
       } else {
         setInternalValue(newValue);
       }
-    }, [disabled, onValueChange]);
+    }, [disabled, onValueChange, value]);
 
     const accordionBase = objectsToString(base.initial);
-    const accordionVariant = objectsToString(
-      (variants as any)[findMatch(valid.variants, variant, "default")][
-        findMatch(valid.colors, color, "primary")
-      ]
-    );
     const accordionSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
 
     const classes = twMerge(
       classnames(
         accordionBase,
         accordionSize,
-        accordionVariant,
         {
           "opacity-50 pointer-events-none": disabled,
         }
@@ -119,21 +128,26 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
     const { disabled: accordionDisabled } = useAccordionContext();
     const isDisabled = disabled || accordionDisabled;
 
+    const itemContextValue: AccordionItemContextType = {
+      value,
+      disabled: isDisabled,
+    };
+
     return (
-      <div
-        ref={ref}
-        className={twMerge(
-          "border-b border-gray-200 last:border-b-0",
-          {
-            "opacity-50 pointer-events-none": isDisabled,
-          },
-          className
-        )}
-        data-value={value}
-        {...rest}
-      >
-        {children}
-      </div>
+      <AccordionItemContext.Provider value={itemContextValue}>
+        <div
+          ref={ref}
+          className={twMerge(
+            "border-b border-gray-200 last:border-b-0",
+            isDisabled ? "opacity-50 pointer-events-none" : "",
+            className
+          )}
+          data-value={value}
+          {...rest}
+        >
+          {children}
+        </div>
+      </AccordionItemContext.Provider>
     );
   }
 );
@@ -142,29 +156,28 @@ export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps
 export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerProps>(
   ({ children, className, ...rest }, ref) => {
     const { value, onValueChange, type, collapsible, disabled } = useAccordionContext();
+    const { value: itemValue, disabled: itemDisabled } = useAccordionItemContext();
     
-    // Get the parent AccordionItem's value
-    const getItemValue = () => {
-      const itemElement = (ref as any)?.current?.closest('[data-value]');
-      return itemElement?.getAttribute('data-value') || '';
-    };
-
-    const itemValue = getItemValue();
+    const isDisabled = disabled || itemDisabled;
     const isOpen = type === "multiple" 
       ? Array.isArray(value) && value.includes(itemValue)
       : value === itemValue;
 
     const handleClick = () => {
-      if (disabled) return;
+      console.log('AccordionTrigger clicked:', { isDisabled, itemValue, isOpen, type, collapsible });
+      if (isDisabled) return;
 
       if (type === "multiple") {
         const currentValues = Array.isArray(value) ? value : [];
         const newValues = isOpen
           ? currentValues.filter(v => v !== itemValue)
           : [...currentValues, itemValue];
+        console.log('Multiple accordion - new values:', newValues);
         onValueChange(newValues);
       } else {
-        onValueChange(isOpen && collapsible ? "" : itemValue);
+        const newValue = isOpen && collapsible ? "" : itemValue;
+        console.log('Single accordion - new value:', newValue);
+        onValueChange(newValue);
       }
     };
 
@@ -173,12 +186,10 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
         ref={ref}
         type="button"
         onClick={handleClick}
-        disabled={disabled}
+        disabled={isDisabled}
         className={twMerge(
-          "flex w-full items-center justify-between py-4 px-4 text-left font-medium transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset",
-          {
-            "bg-gray-50": isOpen,
-          },
+          "flex w-full items-center justify-between py-4 px-4 text-left font-medium transition-colors hover:bg-gray-50 focus:outline-none",
+          isOpen ? "bg-gray-50" : "",
           className
         )}
         aria-expanded={isOpen}
@@ -200,14 +211,8 @@ export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTri
 export const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>(
   ({ children, className, ...rest }, ref) => {
     const { value, type } = useAccordionContext();
+    const { value: itemValue } = useAccordionItemContext();
     
-    // Get the parent AccordionItem's value
-    const getItemValue = () => {
-      const itemElement = (ref as any)?.current?.closest('[data-value]');
-      return itemElement?.getAttribute('data-value') || '';
-    };
-
-    const itemValue = getItemValue();
     const isOpen = type === "multiple" 
       ? Array.isArray(value) && value.includes(itemValue)
       : value === itemValue;
@@ -225,7 +230,7 @@ export const AccordionContent = React.forwardRef<HTMLDivElement, AccordionConten
           >
             <div
               className={twMerge(
-                "px-4 pb-4 text-gray-600",
+                "p-4 pb-4 text-gray-600",
                 className
               )}
               {...rest}

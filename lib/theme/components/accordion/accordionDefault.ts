@@ -1,5 +1,3 @@
-import { type TAccordionColor } from "../../../../types/components/accordion";
-
 export const accordionDefault = {
   primary: {
     backgroundColor: "bg-white",
@@ -43,4 +41,4 @@ export const accordionDefault = {
     borderRadius: "rounded-lg",
     boxShadow: "shadow-sm",
   },
-} as const satisfies Record<TAccordionColor, object>;
+}

@@ -6,9 +6,6 @@ import {
 } from "../../../types/components/accordion";
 import { themeColors, type TColors } from "../../../types/generic";
 import { accordionDefault } from "./accordionDefault";
-import { accordionBordered } from "./accordionBordered";
-import { accordionElevated } from "./accordionElevated";
-import { accordionFilled } from "./accordionFilled";
 
 export interface IAccordionStyleTypes {
   defaultProps: {
@@ -21,7 +18,6 @@ export interface IAccordionStyleTypes {
     type: "single" | "multiple";
   };
   valid: {
-    variants: string[];
     sizes: string[];
     colors: TColors[];
   };
@@ -36,9 +32,6 @@ export interface IAccordionStyleTypes {
     };
     variants: {
       default: typeof accordionDefault;
-      bordered: typeof accordionBordered;
-      elevated: typeof accordionElevated;
-      filled: typeof accordionFilled;
     };
   };
 }
@@ -54,7 +47,6 @@ export const accordion: IAccordionStyleTypes = {
     type: "single",
   },
   valid: {
-    variants: ["default", "bordered", "elevated", "filled"],
     sizes: ["sm", "md", "lg"],
     colors: [...themeColors],
   },
@@ -82,9 +74,6 @@ export const accordion: IAccordionStyleTypes = {
     },
     variants: {
       default: accordionDefault,
-      bordered: accordionBordered,
-      elevated: accordionElevated,
-      filled: accordionFilled,
     },
   },
 };
