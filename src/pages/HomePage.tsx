@@ -1,11 +1,25 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Typography } from "noor-ui"
 import { useState } from "react"
-import { TbHome, TbX } from "react-icons/tb"
+import { TbHome, TbTrash, TbX } from "react-icons/tb"
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="p-4 space-y-4">
+<List className="max-w-64">
+  <ListItem>
+    <ListItemPrefix>📥</ListItemPrefix>
+    Inbox
+  </ListItem>
+  <ListItem>
+    Trash
+    <ListItemSuffix>
+      <IconButton size="sm" icon={<TbTrash/>}/>
+    </ListItemSuffix>
+  </ListItem>
+  <ListItem>Settings</ListItem>
+</List>
+
       <Breadcrumbs>
         <a href="#" className="opacity-60">
           Docs

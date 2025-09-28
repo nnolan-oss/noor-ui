@@ -13,3 +13,4 @@ export { Typography } from "./typography/Typography";
 export { Alert } from "./alert/Alert";
 export { Avatar } from "./avatar/Avatar";
 export { Breadcrumbs } from "./breadcrumbs/Breadcrumbs";
+export { List, ListItem, ListItemPrefix, ListItemSuffix } from "./list/List";

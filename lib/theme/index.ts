@@ -13,6 +13,7 @@ import { typography } from "./components/typography";
 import { alert } from "./components/alert";
 import { avatar } from "./components/avatar";
 import { breadcrumbs } from "./components/breadcrumbs";
+import { list } from "./components/list";
 
 export const theme = {
   components: {
@@ -30,7 +31,8 @@ export const theme = {
     typography,
     alert,
     avatar,
-    breadcrumbs
+    breadcrumbs,
+    list
   },
   typography: {},
   spacing: {},
@@ -57,3 +59,4 @@ export * from "./components/typography";
 export * from "./components/alert";
 export * from "./components/avatar";
 export * from "./components/breadcrumbs";
+export * from "./components/list";
