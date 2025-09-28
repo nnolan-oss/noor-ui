@@ -18,3 +18,4 @@ export { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from "./tabs";
 export { Textarea } from "./textarea/Textarea";
 export { Typography } from "./typography/Typography";
 export { Video } from "./video/Video";
+export { BgPattern } from "./bgPattern/BgPattern"

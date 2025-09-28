@@ -4,7 +4,7 @@ import { iconButton } from "./components/iconButton";
 import { loader } from "./components/loader";
 import { input } from "./components/input";
 import { textarea } from "./components/textarea";
-import {switchTheme} from "./components/switch"
+import { switchTheme } from "./components/switch"
 import { checkbox } from "./components/checkbox";
 import { radio } from "./components/radio";
 import { accordion } from "./components/accordion";
@@ -18,6 +18,7 @@ import { progress } from "./components/progress";
 import { stepper } from "./components/stepper";
 import { tabs } from "./components/tabs";
 import { video } from "./components/video";
+import { bgPattern } from "./components/bgPattern"
 
 export const theme = {
   components: {
@@ -40,7 +41,8 @@ export const theme = {
     progress,
     stepper,
     tabs,
-    video
+    video,
+    bgPattern,
   },
   typography: {},
   spacing: {},

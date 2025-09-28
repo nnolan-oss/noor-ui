@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Step, StepLabel, Stepper, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Video } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, BgPattern, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Step, Stepper, Tab, TabPanel, Tabs, TabsBody, TabsHeader, Typography, Video } from "noor-ui"
 import { useState } from "react"
 import { TbArrowAutofitContent, TbBrandOffice, TbHome, TbTrash, TbX } from "react-icons/tb"
 
@@ -8,52 +8,56 @@ const HomePage = () => {
   return (
     <div className="p-4 space-y-4">
 
-    <Video src='https://www.w3schools.com/html/mov_bbb.mp4'/>
+      <BgPattern
+        type="gradient"
+      />
 
-<Tabs value={"tab-1"} orientation="horizontal" className="w-full">
-  <TabsHeader>
-    <Tab value="tab-1">Tab 1</Tab>
-    <Tab value="tab-2">Tab 2</Tab>
-    <Tab value="tab-3">Disabled</Tab>
-  </TabsHeader>
-  <TabsBody animate>
-    <TabPanel value="tab-1">Content 1</TabPanel>
-    <TabPanel value="tab-2">Content 2</TabPanel>
-  </TabsBody>
-</Tabs>
+      <Video src='https://www.w3schools.com/html/mov_bbb.mp4' />
 
-<Stepper activeStep={stepIdx}>
-  <Step>
-    <IconButton icon={<TbHome/>}/>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet error libero repudiandae rerum, pariatur fugit! Vero aliquid, quos eum fuga voluptate repellat doloremque officia aut maiores iure libero neque aspernatur.
-  </Step>
-  <Step>
-  <IconButton icon={<TbBrandOffice/>}/>
-    Lorem ipsum dolor sit amet consectetur a
-  </Step>
-  <Step>
-  <IconButton icon={<TbArrowAutofitContent/>}/>
-    sit amet consectetur a
-  </Step>
-</Stepper>
-<Button onClick={()=>setStepIdx(stepIdx-1)}>prev</Button>
-<Button onClick={()=>setStepIdx(stepIdx+1)}>next</Button>
+      <Tabs value={"tab-1"} orientation="horizontal" className="w-full">
+        <TabsHeader>
+          <Tab value="tab-1">Tab 1</Tab>
+          <Tab value="tab-2">Tab 2</Tab>
+          <Tab value="tab-3">Disabled</Tab>
+        </TabsHeader>
+        <TabsBody animate>
+          <TabPanel value="tab-1">Content 1</TabPanel>
+          <TabPanel value="tab-2">Content 2</TabPanel>
+        </TabsBody>
+      </Tabs>
 
-    <div className="w-24 h-24 animate-pulse bg-gray-200 rounded-xl"></div>
+      <Stepper activeStep={stepIdx}>
+        <Step>
+          <IconButton icon={<TbHome />} />
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet error libero repudiandae rerum, pariatur fugit! Vero aliquid, quos eum fuga voluptate repellat doloremque officia aut maiores iure libero neque aspernatur.
+        </Step>
+        <Step>
+          <IconButton icon={<TbBrandOffice />} />
+          Lorem ipsum dolor sit amet consectetur a
+        </Step>
+        <Step>
+          <IconButton icon={<TbArrowAutofitContent />} />
+          sit amet consectetur a
+        </Step>
+      </Stepper>
+      <Button onClick={() => setStepIdx(stepIdx - 1)}>prev</Button>
+      <Button onClick={() => setStepIdx(stepIdx + 1)}>next</Button>
 
-<List className="max-w-64">
-  <ListItem>
-    <ListItemPrefix>📥</ListItemPrefix>
-    Inbox
-  </ListItem>
-  <ListItem>
-    Trash
-    <ListItemSuffix>
-      <IconButton size="sm" icon={<TbTrash/>}/>
-    </ListItemSuffix>
-  </ListItem>
-  <ListItem>Settings</ListItem>
-</List>
+      <div className="w-24 h-24 animate-pulse bg-gray-200 rounded-xl"></div>
+
+      <List className="max-w-64">
+        <ListItem>
+          <ListItemPrefix>📥</ListItemPrefix>
+          Inbox
+        </ListItem>
+        <ListItem>
+          Trash
+          <ListItemSuffix>
+            <IconButton size="sm" icon={<TbTrash />} />
+          </ListItemSuffix>
+        </ListItem>
+        <ListItem>Settings</ListItem>
+      </List>
 
       <Breadcrumbs>
         <a href="#" className="opacity-60">
@@ -250,40 +254,40 @@ const HomePage = () => {
       {/* Progress Examples */}
       <div className="space-y-6">
         <Typography variant="h6">Progress Components</Typography>
-        
+
         <div className="space-y-4">
           <div>
             <Typography variant="small" className="mb-2">Filled Progress (Default)</Typography>
-            <Progress 
-              variant="filled" 
-              color="primary" 
-              size="md" 
-              label="Loading..." 
-              bar={75} 
+            <Progress
+              variant="filled"
+              color="primary"
+              size="md"
+              label="Loading..."
+              bar={75}
               value={75}
             />
           </div>
 
           <div>
             <Typography variant="small" className="mb-2">Outlined Progress</Typography>
-            <Progress 
-              variant="outlined" 
-              color="success" 
-              size="md" 
-              label="Upload Progress" 
-              bar={60} 
+            <Progress
+              variant="outlined"
+              color="success"
+              size="md"
+              label="Upload Progress"
+              bar={60}
               value={60}
             />
           </div>
 
           <div>
             <Typography variant="small" className="mb-2">Text Progress</Typography>
-            <Progress 
-              variant="text" 
-              color="warning" 
-              size="md" 
-              label="Processing..." 
-              bar={40} 
+            <Progress
+              variant="text"
+              color="warning"
+              size="md"
+              label="Processing..."
+              bar={40}
               value={40}
             />
           </div>
@@ -291,20 +295,20 @@ const HomePage = () => {
           <div>
             <Typography variant="small" className="mb-2">Different Sizes</Typography>
             <div className="space-y-3">
-              <Progress 
-                variant="filled" 
-                color="info" 
-                size="sm" 
-                label="Small Progress" 
-                bar={30} 
+              <Progress
+                variant="filled"
+                color="info"
+                size="sm"
+                label="Small Progress"
+                bar={30}
                 value={30}
               />
-              <Progress 
-                variant="filled" 
-                color="error" 
-                size="lg" 
-                label="Large Progress" 
-                bar={90} 
+              <Progress
+                variant="filled"
+                color="error"
+                size="lg"
+                label="Large Progress"
+                bar={90}
                 value={90}
               />
             </div>
