@@ -95,7 +95,7 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
             {label}
           </div>
         )}
-        <div className={containerClasses}>
+        <div ref={ref} className={containerClasses}>
           <div
             className={barClasses}
             style={{ width: `${progressPercentage}%` }}

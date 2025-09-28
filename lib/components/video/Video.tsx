@@ -5,9 +5,9 @@ import { useTheme } from '../../core/noorThemeProvider/NoorThemeProvider';
 import { objectsToString } from '../../utils/objectsToString';
 import { type VideoProps } from './Video.d';
 import { IconButton } from '../iconButton/IconButton';
-import { TbMaximize, TbPlayerPause, TbPlayerPlay, TbVolume, TbVolume3 } from 'react-icons/tb';
+import { TbMaximize, TbPlayerPause, TbPlayerPlay, TbVolume, TbVolume3, TbVolume2 } from 'react-icons/tb';
 import { Button } from '../button/Button';
-import { Progress } from '../progress/Progress'; // Progress komponentini import qilamiz
+import { Progress } from '../progress/Progress';
 
 export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, className, playIcon, pauseIcon, muteIcon, unmuteIcon, volumeDownIcon, volumeUpIcon, fullScreenIcon, fullWidth, ...rest }, ref) => {
   const { theme } = useTheme();
@@ -16,11 +16,13 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
   const { base } = styles;
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const progressRef = useRef<HTMLDivElement | null>(null); // Progress komponenti uchun ref
+  const progressRef = useRef<HTMLDivElement | null>(null);
+  const volumeProgressRef = useRef<HTMLDivElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMuted, setIsMuted] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
+  const [volume, setVolume] = useState<number>(1);
 
   fullWidth = fullWidth ?? defaultProps.fullWidth;
   className = twMerge(defaultProps.className || '', className);
@@ -30,13 +32,12 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
     [objectsToString(base.fullWidth)]: fullWidth,
   }), className);
 
-  // Video metadatasini yuklash va progressni yangilash
   useEffect(() => {
     const video = videoRef.current;
-    console.log(video?.volume)
 
     const handleLoadedMetadata = () => {
       setDuration(video?.duration || 0);
+      setVolume(video?.volume || 1);
     };
 
     const handleTimeUpdate = () => {
@@ -46,14 +47,12 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
     video?.addEventListener('loadedmetadata', handleLoadedMetadata);
     video?.addEventListener('timeupdate', handleTimeUpdate);
 
-    // Cleanup: event listenerlarni o'chiramiz
     return () => {
       video?.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video?.removeEventListener('timeupdate', handleTimeUpdate);
     };
   }, []);
 
-  // Play va Pause
   const handlePlayPause = () => {
     if (isPlaying) {
       setIsPlaying(false);
@@ -64,32 +63,77 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
     }
   };
 
-  // Fullscreen
   const handleFullscreen = () => {
     videoRef.current?.requestFullscreen();
   };
 
-  // Mute va Unmute
   const handleMuteUnmute = () => {
     setIsMuted(!isMuted);
     if (videoRef.current) {
       videoRef.current.muted = !isMuted;
+      if (!isMuted) {
+        setVolume(0);
+        videoRef.current.volume = 0;
+      } else if (videoRef.current.volume === 0) {
+        setVolume(0.5);
+        videoRef.current.volume = 0.5;
+      }
     }
   };
 
-  // play clicked progress
+  const handleVolumeUp = () => {
+    if (videoRef.current) {
+      const newVolume = Math.min(volume + 0.1, 1);
+      setVolume(newVolume);
+      videoRef.current.volume = newVolume;
+      if (isMuted && newVolume > 0) {
+        setIsMuted(false);
+        videoRef.current.muted = false;
+      }
+    }
+  };
+
+  const handleVolumeDown = () => {
+    if (videoRef.current) {
+      const newVolume = Math.max(volume - 0.1, 0);
+      setVolume(newVolume);
+      videoRef.current.volume = newVolume;
+      if (newVolume === 0 && !isMuted) {
+        setIsMuted(true);
+        videoRef.current.muted = true;
+      }
+    }
+  };
+
+  const handleVolumeProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const volumeBar = volumeProgressRef.current;
+    if (volumeBar && videoRef.current) {
+      const rect = volumeBar.getBoundingClientRect();
+      const pos = Math.max(0, Math.min((e.clientX - rect.left) / rect.width, 1)); // Ensure pos is between 0 and 1
+      const newVolume = pos; // Set volume directly to clicked position
+      setVolume(newVolume);
+      videoRef.current.volume = newVolume;
+      if (newVolume > 0 && isMuted) {
+        setIsMuted(false);
+        videoRef.current.muted = false;
+      } else if (newVolume === 0 && !isMuted) {
+        setIsMuted(true);
+        videoRef.current.muted = true;
+      }
+    }
+  };
+
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const progressBar = progressRef.current;
     if (progressBar && videoRef.current) {
       const rect = progressBar.getBoundingClientRect();
-      const pos = (e.clientX - rect.left) / rect.width; 
+      const pos = (e.clientX - rect.left) / rect.width;
       const newTime = pos * duration;
       videoRef.current.currentTime = newTime;
       setCurrentTime(newTime);
     }
   };
 
-  // progress bar time formatter
   const formatTime = (time: number): string => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
@@ -97,6 +141,7 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
   };
 
   const progressPercentage = duration > 0 ? (currentTime / duration) * 100 : 0;
+  const volumePercentage = volume * 100;
 
   return (
     <div className="relative">
@@ -121,6 +166,25 @@ export const Video = React.forwardRef<HTMLVideoElement, VideoProps>(({ src, clas
             icon={isMuted ? unmuteIcon || <TbVolume /> : muteIcon || <TbVolume3 />}
             onClick={handleMuteUnmute}
           />
+          <IconButton
+            size="sm"
+            icon={volumeDownIcon || <TbVolume3 />}
+            onClick={handleVolumeDown}
+          />
+          <IconButton
+            size="sm"
+            icon={volumeUpIcon || <TbVolume2 />}
+            onClick={handleVolumeUp}
+          />
+          {/* <Progress
+            ref={volumeProgressRef}
+            bar={volumePercentage}
+            variant="filled"
+            color="secondary"
+            size="sm"
+            className="w-20 cursor-pointer"
+            onClick={handleVolumeProgressClick}
+          /> */}
           <Progress
             ref={progressRef}
             bar={progressPercentage}

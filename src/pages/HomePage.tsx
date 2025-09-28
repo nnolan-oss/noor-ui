@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <div className="p-4 space-y-4">
 
-    <Video src='https://docs.material-tailwind.com/demo.mp4'/>
+    <Video src='https://www.w3schools.com/html/mov_bbb.mp4'/>
 
 <Tabs value={"tab-1"} orientation="horizontal" className="w-full">
   <TabsHeader>
