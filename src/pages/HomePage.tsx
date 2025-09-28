@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Button, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, Typography } from "noor-ui"
 import { useState } from "react"
 import { TbHome, TbX } from "react-icons/tb"
 
@@ -6,10 +6,19 @@ const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="p-4 space-y-4">
+      <Breadcrumbs>
+        <a href="#" className="opacity-60">
+          Docs
+        </a>
+        <a href="#" className="opacity-60">
+          Components
+        </a>
+        <a href="#">Breadcrumbs</a>
+      </Breadcrumbs>
 
-      <Button onClick={()=>setIsOpen(true)}>Salom</Button>
+      <Button onClick={() => setIsOpen(true)}>Salom</Button>
 
-      <Alert variant="filled" open={isOpen} onClose={()=>setIsOpen(false)} color="success" startIcon={<TbHome />} endIcon={<TbX />}>
+      <Alert variant="filled" open={isOpen} onClose={() => setIsOpen(false)} color="success" startIcon={<TbHome />} endIcon={<TbX />}>
         This is a success filled alert with start icon
       </Alert>
       {/* Typography Examples */}
@@ -162,23 +171,23 @@ const HomePage = () => {
         <div className="space-y-2">
           <Typography variant="h4">Image Avatar</Typography>
           <div className="flex items-center gap-4">
-            <Avatar 
-              size="sm" 
-              src="https://picsum.photos/300" 
+            <Avatar
+              size="sm"
+              src="https://picsum.photos/300"
               alt="Profile Picture"
               bordered
               borderColor="primary"
             />
-            <Avatar 
-              size="lg" 
+            <Avatar
+              size="lg"
               variant="rounded"
               bordered
               borderColor="primary"
-              src="https://picsum.photos/300" 
+              src="https://picsum.photos/300"
               alt="Profile Picture"
             />
-            <Avatar 
-              size="lg" 
+            <Avatar
+              size="lg"
               variant="square"
               bordered
               borderColor="error"

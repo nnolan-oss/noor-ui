@@ -12,3 +12,4 @@ export { Popover, PopoverTrigger, PopoverContent } from "./popover/Popover";
 export { Typography } from "./typography/Typography";
 export { Alert } from "./alert/Alert";
 export { Avatar } from "./avatar/Avatar";
+export { Breadcrumbs } from "./breadcrumbs/Breadcrumbs";

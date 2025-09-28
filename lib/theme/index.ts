@@ -12,6 +12,7 @@ import { popover } from "./components/popover";
 import { typography } from "./components/typography";
 import { alert } from "./components/alert";
 import { avatar } from "./components/avatar";
+import { breadcrumbs } from "./components/breadcrumbs";
 
 export const theme = {
   components: {
@@ -28,7 +29,8 @@ export const theme = {
     popover,
     typography,
     alert,
-    avatar
+    avatar,
+    breadcrumbs
   },
   typography: {},
   spacing: {},
@@ -54,3 +56,4 @@ export * from "./components/popover";
 export * from "./components/typography";
 export * from "./components/alert";
 export * from "./components/avatar";
+export * from "./components/breadcrumbs";
