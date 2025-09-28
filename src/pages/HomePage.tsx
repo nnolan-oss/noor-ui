@@ -177,6 +177,14 @@ const HomePage = () => {
               src="https://picsum.photos/300" 
               alt="Profile Picture"
             />
+            <Avatar 
+              size="lg" 
+              variant="square"
+              bordered
+              borderColor="error"
+              // src="https://picsum.photos/300" 
+              alt=""
+            />
           </div>
         </div>
       </div>
