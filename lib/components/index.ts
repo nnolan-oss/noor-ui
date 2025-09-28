@@ -16,3 +16,4 @@ export { Breadcrumbs } from "./breadcrumbs/Breadcrumbs";
 export { List, ListItem, ListItemPrefix, ListItemSuffix } from "./list/List";
 export { Progress } from "./progress/Progress";
 export { Stepper, Step, StepLabel } from "./stepper/Stepper";
+export { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from "./tabs"
