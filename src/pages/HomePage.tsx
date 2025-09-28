@@ -1,11 +1,32 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Breadcrumbs, Button, IconButton, List, ListItem, ListItemPrefix, ListItemSuffix, Progress, Step, StepLabel, Stepper, Typography } from "noor-ui"
 import { useState } from "react"
-import { TbHome, TbTrash, TbX } from "react-icons/tb"
+import { TbArrowAutofitContent, TbBrandOffice, TbHome, TbTrash, TbX } from "react-icons/tb"
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [stepIdx, setStepIdx] = useState(1)
   return (
     <div className="p-4 space-y-4">
+
+<Stepper activeStep={stepIdx}>
+  <Step>
+    <IconButton icon={<TbHome/>}/>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet error libero repudiandae rerum, pariatur fugit! Vero aliquid, quos eum fuga voluptate repellat doloremque officia aut maiores iure libero neque aspernatur.
+  </Step>
+  <Step>
+  <IconButton icon={<TbBrandOffice/>}/>
+    Lorem ipsum dolor sit amet consectetur a
+  </Step>
+  <Step>
+  <IconButton icon={<TbArrowAutofitContent/>}/>
+    sit amet consectetur a
+  </Step>
+</Stepper>
+<Button onClick={()=>setStepIdx(stepIdx-1)}>prev</Button>
+<Button onClick={()=>setStepIdx(stepIdx+1)}>next</Button>
+
+    <div className="w-24 h-24 animate-pulse bg-gray-200 rounded-xl"></div>
+
 <List className="max-w-64">
   <ListItem>
     <ListItemPrefix>📥</ListItemPrefix>

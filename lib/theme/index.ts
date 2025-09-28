@@ -15,6 +15,7 @@ import { avatar } from "./components/avatar";
 import { breadcrumbs } from "./components/breadcrumbs";
 import { list } from "./components/list";
 import { progress } from "./components/progress";
+import { stepper } from "./components/stepper";
 
 export const theme = {
   components: {
@@ -34,7 +35,8 @@ export const theme = {
     avatar,
     breadcrumbs,
     list,
-    progress
+    progress,
+    stepper
   },
   typography: {},
   spacing: {},
@@ -63,3 +65,4 @@ export * from "./components/avatar";
 export * from "./components/breadcrumbs";
 export * from "./components/list";
 export * from "./components/progress";
+export * from "./components/stepper";

@@ -67,6 +67,7 @@ export const iconButton: IIconButtonStyleTypes = {
         transition: "transition-all",
         borderRadius: "rounded-xl",
         aspectRatio: "aspect-square",
+        fontSize: "!text-xl",
         disabled:
           "disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none",
       },
