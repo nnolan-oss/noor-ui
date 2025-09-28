@@ -11,6 +11,7 @@ import { accordion } from "./components/accordion";
 import { popover } from "./components/popover";
 import { typography } from "./components/typography";
 import { alert } from "./components/alert";
+import { avatar } from "./components/avatar";
 
 export const theme = {
   components: {
@@ -26,7 +27,8 @@ export const theme = {
     accordion,
     popover,
     typography,
-    alert
+    alert,
+    avatar
   },
   typography: {},
   spacing: {},
@@ -51,3 +53,4 @@ export * from "./components/accordion";
 export * from "./components/popover";
 export * from "./components/typography";
 export * from "./components/alert";
+export * from "./components/avatar";

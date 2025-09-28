@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Button, Typography } from "noor-ui"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, Alert, Avatar, Button, Typography } from "noor-ui"
 import { useState } from "react"
 import { TbHome, TbX } from "react-icons/tb"
 
@@ -116,6 +116,68 @@ const HomePage = () => {
           }>
             This is a success text alert with start icon
           </Alert>
+        </div>
+      </div>
+
+      {/* Avatar Examples */}
+      <div className="space-y-4">
+        <Typography variant="h3">Avatar Component Examples</Typography>
+
+        {/* Size Examples */}
+        <div className="space-y-2">
+          <Typography variant="h4">Size Variants</Typography>
+          <div className="flex items-center gap-4">
+            <Avatar size="xs" alt="XS Avatar">A</Avatar>
+            <Avatar size="sm" alt="SM Avatar">B</Avatar>
+            <Avatar size="md" alt="MD Avatar">C</Avatar>
+            <Avatar size="lg" alt="LG Avatar">D</Avatar>
+            <Avatar size="xl" alt="XL Avatar">E</Avatar>
+            <Avatar size="xxl" alt="XXL Avatar">F</Avatar>
+          </div>
+        </div>
+
+        {/* Variant Examples */}
+        <div className="space-y-2">
+          <Typography variant="h4">Shape Variants</Typography>
+          <div className="flex items-center gap-4">
+            <Avatar variant="circle" size="lg" alt="Circle Avatar">C</Avatar>
+            <Avatar variant="rounded" size="lg" alt="Rounded Avatar">R</Avatar>
+            <Avatar variant="square" size="lg" alt="Square Avatar">S</Avatar>
+          </div>
+        </div>
+
+        {/* Border Examples */}
+        <div className="space-y-2">
+          <Typography variant="h4">Border Variants</Typography>
+          <div className="flex items-center gap-4">
+            <Avatar size="lg" alt="No Border">NB</Avatar>
+            <Avatar size="lg" bordered alt="With Border">WB</Avatar>
+            <Avatar size="lg" bordered borderColor="primary" alt="Primary Border">PB</Avatar>
+            <Avatar size="lg" bordered borderColor="success" alt="Success Border">SB</Avatar>
+            <Avatar size="lg" bordered borderColor="error" alt="Error Border">EB</Avatar>
+          </div>
+        </div>
+
+        {/* Image Avatar Example */}
+        <div className="space-y-2">
+          <Typography variant="h4">Image Avatar</Typography>
+          <div className="flex items-center gap-4">
+            <Avatar 
+              size="sm" 
+              src="https://picsum.photos/300" 
+              alt="Profile Picture"
+              bordered
+              borderColor="primary"
+            />
+            <Avatar 
+              size="lg" 
+              variant="rounded"
+              bordered
+              borderColor="primary"
+              src="https://picsum.photos/300" 
+              alt="Profile Picture"
+            />
+          </div>
         </div>
       </div>
 
