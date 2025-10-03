@@ -31,17 +31,17 @@ export const list = {
           display: "flex",
           alignItems: "items-center",
           justifyContent: "justify-between",
-          px: "px-3",
-          py: "py-2",
+          px: "px-2",
+          py: "py-1",
           borderRadius: "rounded-md",
-          color: "text-gray-800",
+          color: "text-black dark:text-white hover:text-black",
           hover: "hover:bg-gray-100",
           transition: "transition-colors",
           disabled: "disabled:opacity-50 disabled:pointer-events-none",
         },
         selected: {
           bg: "bg-gray-100",
-          fontWeight: "font-medium",
+          color: "text-white dark:text-black",
         },
         disabled: {
           opacity: "opacity-60",
@@ -61,5 +61,3 @@ export const list = {
     },
   },
 };
-
-

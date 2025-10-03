@@ -5,8 +5,8 @@ export const Sidebar = () => {
   return (
     <div className="col-span-3 w-full space-y-4 h-screen overflow-scroll">
       <Typography>Get started</Typography>
-      <List>
-        <ListItem>Installition</ListItem>
+      <List className="text-sm">
+        <ListItem selected>Installition</ListItem>
         <ListItem>salom</ListItem>
         <ListItem>salom</ListItem>
         <ListItem>salom</ListItem>
