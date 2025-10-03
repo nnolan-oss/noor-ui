@@ -11,12 +11,12 @@ export const HeroSection = ({
   subtitle = "Build fast, modern, and accessible UIs with 40+ ready-to-use components.",
 }: HeroSectionProps) => {
   return (
-    <div className="min-h-screen w-full relative flex flex-col items-center justify-center">
+    <div className="min-h-screen w-full relative flex flex-col items-center justify-center rounded-b-4xl overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#0d1a36_100%)]" />
+      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#0d1a36_100%)]" />
 
       {/* Content */}
-      <div className="my-container text-center !-mt-32 space-y-10">
+      <div className="my-container text-center space-y-10">
         <Badge variant="outlined">✨ 42+ components</Badge>
 
         <Typography variant="h1" className="text-6xl font-bold">

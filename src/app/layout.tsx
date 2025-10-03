@@ -22,7 +22,6 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   const themeConfig: ThemeConfig = {
-    
     components: {
       // button: {
       //   defaultProps: {
@@ -72,7 +71,7 @@ export default function RootLayout({
     <html lang="en">
       <NoorThemeProvider theme={themeConfig} defaultMode={"dark"}>
         <body
-          className={`${robotoSans.variable} dark:bg-black dark:text-white bg-blue-500 antialiased`}
+          className={`${robotoSans.variable} dark:bg-black dark:text-white bg-white text:black antialiased`}
         >
           <Navbar />
           {children}
