@@ -22,6 +22,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   const themeConfig: ThemeConfig = {
+    
     components: {
       // button: {
       //   defaultProps: {

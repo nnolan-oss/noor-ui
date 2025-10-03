@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { cloneElement, isValidElement } from "react";
 import { type ButtonProps } from "./Button.d";
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
 import { twMerge } from "tailwind-merge";
@@ -62,6 +62,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className
     );
 
+    const iconSize =
+      size === "lg" ? "w-6 h-6" : size === "sm" ? "w-4 h-4" : "w-5 h-5";
+
     return (
       <button
         {...rest}
@@ -76,9 +79,27 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             color={variant === "filled" ? "white" : color}
           />
         )}
-        {!loading && startIcon}
+        {isValidElement(startIcon)
+          ? cloneElement(
+              startIcon as React.ReactElement<{
+                className?: string;
+              }>,
+              {
+                className: iconSize,
+              }
+            )
+          : startIcon}
         {children}
-        {!loading && endIcon}
+        {isValidElement(endIcon)
+          ? cloneElement(
+              endIcon as React.ReactElement<{
+                className?: string;
+              }>,
+              {
+                className: iconSize,
+              }
+            )
+          : endIcon}
       </button>
     );
   }

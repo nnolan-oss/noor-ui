@@ -19,5 +19,5 @@ export interface ButtonProps extends React.ComponentProps<"button"> {
   children: TButtonChildren;
   loading?: TButtonLoading;
   startIcon?: TButtonStartIcon;
-  endIcon?: TButtonEndIcon
+  endIcon?: TButtonEndIcon;
 }

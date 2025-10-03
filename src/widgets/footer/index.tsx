@@ -1,25 +1,28 @@
+import { noorDetails } from "@/shared/constants/noorDetails";
+import Link from "next/link";
+
 export const Footer = () => {
   return (
     <div className="text-center border-t border-t-gray-100/10 py-5">
       <p>
         Powered by{" "}
-        <a
+        <Link
           className="my-underline-link"
-          href="https://github.com/nnolan-oss"
+          href={noorDetails.organization}
           target="_blank"
           rel="noopener"
         >
           nnolan-oss
-        </a>
+        </Link>
         . Contribute on{" "}
-        <a
+        <Link
           className="my-underline-link"
-          href="https://github.com/nnolan-oss/noor-ui"
+          href={noorDetails.github}
           target="_blank"
           rel="noopener"
         >
           Github
-        </a>
+        </Link>
       </p>
     </div>
   );

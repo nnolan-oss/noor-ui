@@ -2,7 +2,7 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
+@theme {
   --color-primary: var(--noor-color-primary);
   --color-secondary: #64748b;
   --color-success: #22c55e;
@@ -23,7 +23,7 @@
 /* custom */
 
 .my-underline-link {
-  @apply underline underline-offset-3 decoration-[var(--color-primary)] decoration-1 hover:decoration-2;
+  @apply underline underline-offset-3 decoration-primary decoration-1 hover:decoration-2;
 }
 
 .my-container {
