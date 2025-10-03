@@ -1,15 +1,13 @@
+import { Footer } from "@/widgets/footer";
+import { Navbar } from "@/widgets/navbar";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import { Roboto } from "next/font/google";
 import { NoorThemeProvider, type ThemeConfig } from "noor-ui";
+import "./globals.css";
+import { type ReactNode } from "react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const robotoSans = Roboto({
+  variable: "--font-roboto-sans",
   subsets: ["latin"],
 });
 
@@ -21,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   const themeConfig: ThemeConfig = {
     components: {
@@ -71,13 +69,15 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NoorThemeProvider theme={themeConfig} defaultMode={"dark"}>
+      <NoorThemeProvider theme={themeConfig} defaultMode={"dark"}>
+        <body
+          className={`${robotoSans.variable} dark:bg-black dark:text-white bg-blue-500 antialiased`}
+        >
+          <Navbar />
           {children}
-        </NoorThemeProvider>
-      </body>
+          <Footer />
+        </body>
+      </NoorThemeProvider>
     </html>
   );
 }
