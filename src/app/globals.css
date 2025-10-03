@@ -1,4 +1,3 @@
-@layer noor;
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -10,6 +9,16 @@
   --color-warning: #f59e0b;
   /* --font-h1: 200px; */
 }
+
+/* custom colors */
+/* @layer noor {
+  :root {
+    --noor-color-primary: #ff00ff;
+    --noor-color-primary-light: oklch(70.7% 0.165 254.624);
+    --noor-color-primary-dark: #00ff00;
+    --noor-color-primary-contrast: oklch(100% 0 0);
+  }
+} */
 
 .dark {
   --color-primary: var(--noor-color-primary);
