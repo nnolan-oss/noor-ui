@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { type ButtonProps } from "./Button.d";
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
@@ -8,7 +9,21 @@ import classnames from "classnames";
 import { Loader } from "../loader/Loader";
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, size, color, fullWidth, className, children, loading, startIcon, endIcon, ...rest }, ref) => {
+  (
+    {
+      variant,
+      size,
+      color,
+      fullWidth,
+      className,
+      children,
+      loading,
+      startIcon,
+      endIcon,
+      ...rest
+    },
+    ref
+  ) => {
     const { theme } = useTheme();
     const { button } = theme.components;
     const { valid, defaultProps, styles } = button;
@@ -23,10 +38,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     const buttonBase = objectsToString(base.initial);
     const buttonVariant = objectsToString(
       (variants as any)[findMatch(valid.variants, variant, "filled")][
-      findMatch(valid.colors, color, "gray")
-      ],
+        findMatch(valid.colors, color, "gray")
+      ]
     );
-    const buttonSize = objectsToString((sizes as any)[findMatch(valid.sizes, size, "md")]);
+    const buttonSize = objectsToString(
+      (sizes as any)[findMatch(valid.sizes, size, "md")]
+    );
     const classes = twMerge(
       classnames(
         buttonBase,
@@ -38,10 +55,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {
           "flex items-center gap-2": loading,
           "gap-3": size === "lg",
-          "flex justify-between items-center px-3 gap-2": startIcon || endIcon || loading,
-        },
+          "flex justify-between items-center px-3 gap-2":
+            startIcon || endIcon || loading,
+        }
       ),
-      className,
+      className
     );
 
     return (
@@ -52,11 +70,16 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={classes}
         type={rest.type || "button"}
       >
-        {loading && <Loader size={size === "sm" ? "sm" : size === "lg" ? "md" : "sm"} color={variant === "filled" ? "white" : color} />}
+        {loading && (
+          <Loader
+            size={size === "sm" ? "sm" : size === "lg" ? "md" : "sm"}
+            color={variant === "filled" ? "white" : color}
+          />
+        )}
         {!loading && startIcon}
         {children}
         {!loading && endIcon}
       </button>
     );
-  },
+  }
 );

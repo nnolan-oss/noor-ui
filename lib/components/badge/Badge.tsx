@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { type BadgeProps } from "./Badge.d";
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
@@ -7,7 +8,10 @@ import findMatch from "../../utils/findMatch";
 import classnames from "classnames";
 
 export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
-  ({ variant, size, color, className, children, startIcon, endIcon, ...rest }, ref) => {
+  (
+    { variant, size, color, className, children, startIcon, endIcon, ...rest },
+    ref
+  ) => {
     const { theme } = useTheme();
     const { badge } = theme.components;
     const { valid, defaultProps, styles } = badge;
@@ -21,32 +25,24 @@ export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
     const badgeVariant = objectsToString(
       (variants as any)[findMatch(valid.variants, variant, "filled")][
         findMatch(valid.colors, color, "primary")
-      ],
+      ]
     );
     const classes = twMerge(
-      classnames(
-        badgeBase,
-        badgeVariant,
-        {
-          "flex items-center gap-1": startIcon || endIcon,
-          "gap-1.5": size === "lg",
-        },
-      ),
-      className,
+      classnames(badgeBase, badgeVariant, {
+        "flex items-center gap-1": startIcon || endIcon,
+        "gap-1.5": size === "lg",
+      }),
+      className
     );
 
     return (
-      <span
-        {...rest}
-        ref={ref}
-        className={classes}
-      >
+      <span {...rest} ref={ref} className={classes}>
         {startIcon}
         {children}
         {endIcon}
       </span>
     );
-  },
+  }
 );
 
 Badge.displayName = "Badge";

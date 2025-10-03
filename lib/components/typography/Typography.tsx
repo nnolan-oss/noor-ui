@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { type TypographyProps } from "./Typography.d";
 import { useTheme } from "../../core/noorThemeProvider/NoorThemeProvider";
@@ -20,7 +21,7 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>(
     // Determine the HTML element to render
     const getElementType = (): keyof React.JSX.IntrinsicElements => {
       if (as) return as;
-      
+
       switch (variant) {
         case "h1":
           return "h1";
@@ -48,7 +49,7 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>(
 
     // Get base styles
     const typographyBase = objectsToString(base.initial);
-    
+
     // Get variant styles
     const typographyVariant = objectsToString(
       (variants as any)[findMatch(valid.variants, variant, "paragraph")]
@@ -56,30 +57,20 @@ export const Typography = React.forwardRef<HTMLElement, TypographyProps>(
 
     // Get color styles
     const colorKey = findMatch(valid.colors, color, "primary");
-    
-    const typographyColor = objectsToString(
-      (colors as any).solid[colorKey]
-    );
+
+    const typographyColor = objectsToString((colors as any).solid[colorKey]);
 
     const classes = twMerge(
-      classnames(
-        typographyBase,
-        typographyVariant,
-        typographyColor
-      ),
+      classnames(typographyBase, typographyVariant, typographyColor),
       className
     );
 
     const Component = elementType as any;
 
     return (
-      <Component
-        {...rest}
-        ref={ref}
-        className={classes}
-      >
+      <Component {...rest} ref={ref} className={classes}>
         {children}
       </Component>
     );
-  },
+  }
 );

@@ -9,7 +9,7 @@ import { typographySolid } from "./typographySolid";
 export interface ITypographyStyleTypes {
   defaultProps: {
     variant: TTypographyVariant;
-    color: TTypographyColor;
+    color?: TTypographyColor;
     className: TTypographyClassName;
   };
   valid: {
@@ -40,11 +40,21 @@ export interface ITypographyStyleTypes {
 export const typography: ITypographyStyleTypes = {
   defaultProps: {
     variant: "paragraph",
-    color: "primary",
+    color: "white",
     className: "",
   },
   valid: {
-    variants: ["h1", "h2", "h3", "h4", "h5", "h6", "lead", "paragraph", "small"],
+    variants: [
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "lead",
+      "paragraph",
+      "small",
+    ],
     colors: [...themeColors],
   },
   styles: {
