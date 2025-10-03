@@ -71,7 +71,7 @@ export default function RootLayout({
     <html lang="en">
       <NoorThemeProvider theme={themeConfig} defaultMode={"dark"}>
         <body
-          className={`${robotoSans.variable} dark:bg-black dark:text-white bg-white text:black antialiased`}
+          className={`${robotoSans.variable} dark:bg-black pt-24 dark:text-white bg-white text:black antialiased`}
         >
           <Navbar />
           {children}

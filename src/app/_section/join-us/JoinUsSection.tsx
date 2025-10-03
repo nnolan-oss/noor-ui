@@ -25,7 +25,7 @@ export const JoinUsSection = () => {
             Get it free on Github and please help us spread the news with a
             Star.
           </Typography>
-          <Button variant="outlined">Join us</Button>
+          <Button variant="outlined">Join cook</Button>
         </div>
         <div className="w-[300px] h-[300px] bg-primary/30 absolute -right-20 -bottom-20 rounded-full" />
         <div className="w-[200px] h-[200px] bg-primary/10 absolute -right-20 -bottom-20 rounded-full" />

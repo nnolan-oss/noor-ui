@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Badge, Button, Typography } from "noor-ui";
 import { TbBook, TbCube } from "react-icons/tb";
 
@@ -13,7 +14,10 @@ export const HeroSection = ({
   return (
     <div className="min-h-screen w-full relative flex flex-col items-center justify-center rounded-b-4xl overflow-hidden">
       {/* Background */}
-      <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#0d1a36_100%)]" />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(125%_125%_at_50%_10%,_#000000_40%,_#0d1a36_100%)]"
+      />
 
       {/* Content */}
       <div className="my-container text-center space-y-10">
@@ -35,7 +39,9 @@ export const HeroSection = ({
           <Button startIcon={<TbCube />} variant="outlined">
             Components
           </Button>
-          <Button startIcon={<TbBook />}>Documentation</Button>
+          <Link href={"/docs"}>
+            <Button startIcon={<TbBook />}>Documentation</Button>
+          </Link>
         </div>
       </div>
     </div>
